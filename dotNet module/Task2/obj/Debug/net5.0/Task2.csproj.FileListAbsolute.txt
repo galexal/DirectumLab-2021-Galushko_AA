@@ -1,0 +1,16 @@
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\bin\Debug\net5.0\Task2.exe
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\bin\Debug\net5.0\Task2.deps.json
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\bin\Debug\net5.0\Task2.runtimeconfig.json
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\bin\Debug\net5.0\Task2.runtimeconfig.dev.json
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\bin\Debug\net5.0\Task2.dll
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\bin\Debug\net5.0\ref\Task2.dll
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\bin\Debug\net5.0\Task2.pdb
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\Task2.csprojAssemblyReference.cache
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\Task2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\Task2.AssemblyInfoInputs.cache
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\Task2.AssemblyInfo.cs
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\Task2.csproj.CoreCompileInputs.cache
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\Task2.dll
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\ref\Task2.dll
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\Task2.pdb
+C:\Users\galex\Desktop\Directum\DirectumLab-2021-Galushko_AA\dotNet module\Task2\obj\Debug\net5.0\Task2.genruntimeconfig.cache
