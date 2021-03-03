@@ -6,21 +6,25 @@ namespace Task2
 {
     public class MeetingAndRemind : Meeting, IRemind
     {
+        public Timer Timer;
+
         public DateTime RemindDate { get; set; }
 
-        public MeetingAndRemind(DateTime remindDate)
+        public MeetingAndRemind(DateTime startDate, DateTime endDate, DateTime remindDate) 
+            : base(startDate, endDate)
         {
             RemindDate = remindDate;
-            TimerCallback tm = new TimerCallback(Remind);
-            Timer timer = new Timer(tm, remindDate, 0, 2000);
+            TimerCallback timerCallback = new TimerCallback(this.Remind);
+            Timer = new Timer(timerCallback, remindDate, 0, 2000);
         }
 
-        public static void Remind(object obj)
+        public void Remind(object obj)
         {
             DateTime remindDate = (DateTime)obj;
-            if (remindDate == DateTime.Now)
+            if (remindDate >= DateTime.Now)
             {
                 Console.WriteLine("Напоминание");
+                Timer.Dispose();
             }
         }
     }

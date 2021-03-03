@@ -8,17 +8,13 @@ namespace Task2
 
         public DateTime EndDate { get; set; }
 
-        public Meeting() { }
+        public TimeSpan Duration => this.EndDate - this.StartDate;
 
+ 
         public Meeting(DateTime startDate, DateTime endDate)
         {
             this.StartDate = startDate;
             this.EndDate = endDate;
-        }
-
-        public TimeSpan Duration()
-        {
-            return this.EndDate - this.StartDate;
         }
     }
 }
