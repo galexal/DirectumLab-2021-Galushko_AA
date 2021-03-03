@@ -21,7 +21,7 @@ namespace Task2
         public void Remind(object obj)
         {
             DateTime remindDate = (DateTime)obj;
-            if (remindDate >= DateTime.Now)
+            if (remindDate <= DateTime.Now)
             {
                 Console.WriteLine("Напоминание");
                 Timer.Dispose();

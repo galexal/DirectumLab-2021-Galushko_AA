@@ -39,6 +39,8 @@ namespace Task2
             Console.WriteLine($"Начало встречи {meeting.EndDate}");
             Console.WriteLine($"Длительность встречи {meeting.Duration}");
             Console.WriteLine($"Напоминание установлено на {meeting.RemindDate}");
+
+            Console.ReadKey();
         }
     }
 }
