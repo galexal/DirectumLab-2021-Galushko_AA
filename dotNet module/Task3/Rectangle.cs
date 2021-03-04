@@ -2,18 +2,17 @@
 {
     public class Rectangle : Square
     {
-        public int SideB_Length { get; set; }
+        public int SideB { get; set; }
 
-        public override double Length() => 2 * (this.SideA_Length + this.SideB_Length);
+        public override double Length => 2 * (this.SideA + this.SideB);
 
-        public override double Area() => this.SideA_Length * this.SideB_Length;
+        public override double Area => this.SideA * this.SideB;
 
-        public Rectangle() { }
 
-        public Rectangle(int sideA_Length, int sideB_Length)
+        public Rectangle(int sideA, int sideB) : base(sideA)
         {
-            this.SideA_Length = sideA_Length;
-            this.SideB_Length = sideB_Length;
+            this.SideA = sideA;
+            this.SideB = sideB;
         }
     }
 }

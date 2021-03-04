@@ -2,17 +2,15 @@
 {
     public class Square : Shape
     {
-        public int SideA_Length { get; set; }
+        public int SideA { get; set; }
 
-        public virtual double Length() => 4 * this.SideA_Length;
+        public virtual double Length => 4 * this.SideA;
 
-        public virtual double Area() => this.SideA_Length * this.SideA_Length;
-
-        public Square() { }
+        public virtual double Area => this.SideA * this.SideA;
 
         public Square(int sideA_Length)
         {
-            this.SideA_Length = sideA_Length;
+            this.SideA = sideA_Length;
         }
     }
 }
