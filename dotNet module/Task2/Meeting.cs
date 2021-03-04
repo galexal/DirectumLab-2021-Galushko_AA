@@ -10,7 +10,7 @@ namespace Task2
 
         public TimeSpan Duration => this.EndDate - this.StartDate;
 
- 
+
         public Meeting(DateTime startDate, DateTime endDate)
         {
             this.StartDate = startDate;

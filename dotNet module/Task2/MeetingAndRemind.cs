@@ -10,7 +10,7 @@ namespace Task2
 
         public DateTime RemindDate { get; set; }
 
-        public MeetingAndRemind(DateTime startDate, DateTime endDate, DateTime remindDate) 
+        public MeetingAndRemind(DateTime startDate, DateTime endDate, DateTime remindDate)
             : base(startDate, endDate)
         {
             RemindDate = remindDate;
