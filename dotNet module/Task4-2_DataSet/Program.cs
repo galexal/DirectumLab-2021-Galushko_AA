@@ -31,19 +31,41 @@ namespace Task4_2_DataSet
             moviesTable.PrimaryKey = new DataColumn[] { moviesTable.Columns["Id"] };
 
             var row = moviesTable.NewRow();
-            row.ItemArray = new object[] { null, "Титаник", 200 };
+            row.ItemArray = new object[] { null, "Храброе сердце", 300 };
             moviesTable.Rows.Add(row);
             moviesTable.Rows.Add(new object[] { null, "Гладиатор", 170 });
+
 
             Console.Write("\tИд \tНазвание \tЦена \tСкидка");
             Console.WriteLine();
             foreach (DataRow r in moviesTable.Rows)
             {
-                foreach(var cell in r.ItemArray)
+                foreach (var cell in r.ItemArray)
                     Console.Write($"\t{cell}");
                 Console.WriteLine();
             }
-            Console.Read();
+
+            Console.WriteLine();
+
+            Console.WriteLine(GetStringFromDataSet(movieStore, '$', '&'));
+
+            Console.ReadLine();
+        }
+
+        public static string GetStringFromDataSet(DataSet dataSet, char valueSeparator,
+            char columnSeparator)
+        {
+            string result = string.Empty;
+            var dataTable = dataSet.Tables[0];
+
+            foreach (DataRow r in dataTable.Rows)
+            {
+                foreach (var cell in r.ItemArray)
+                    result += $"{valueSeparator}" + cell + $"{valueSeparator} ";
+            }
+            foreach (DataColumn c in dataTable.Columns)
+                result += $"{columnSeparator}" + c.ColumnName + $"{columnSeparator} ";
+            return result;
         }
     }
 }
