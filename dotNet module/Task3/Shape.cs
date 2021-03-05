@@ -6,7 +6,8 @@ namespace Task3
 {
     public abstract class Shape
     {
-        public int centerX { get; set; }
-        public int centerY { get; set; }
+        public int CenterX { get; set; }
+
+        public int CenterY { get; set; }
     }
 }
