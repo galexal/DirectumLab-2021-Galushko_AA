@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Task3
 {
     public class Ring : Round
     {
         public int InnerRadius { get; set; }
-        public Ring() { }
-        public Ring(int outerRadius, int innerRadius)
+
+        public Ring(int radius, int innerRadius) : base(radius)
         {
-            this.OuterRadius = outerRadius;
+            this.Radius = radius;
             this.InnerRadius = innerRadius;
         }
-        public override double Square() => Math.PI * this.OuterRadius * this.OuterRadius
-        - Math.PI * this.InnerRadius * this.InnerRadius;
+
+        public override double Area => (Math.PI * this.Radius * this.Radius)
+        - (Math.PI * this.InnerRadius * this.InnerRadius);
     }
 }

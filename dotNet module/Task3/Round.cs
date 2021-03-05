@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Task3
 {
     public class Round : Circle
     {
-        public virtual double Square()=> Math.PI * this.OuterRadius * this.OuterRadius;
-        public Round() { }
-        public Round(int outerRadius)
+        public virtual double Area => Math.PI * this.Radius * this.Radius;
+
+        public Round(int radius) : base(radius)
         {
-            this.OuterRadius = outerRadius;
+            this.Radius = radius;
         }
     }
 }
