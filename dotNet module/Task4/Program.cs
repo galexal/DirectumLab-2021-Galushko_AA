@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 
 namespace Task4
 {
@@ -23,6 +24,23 @@ namespace Task4
 
         public static void Main(string[] args)
         {
+            using (Logger logger = new Logger("test.txt"))
+            {
+                logger.WriteString("test");
+            }
+
+
+            #region AccessRights
+            /*
+            var accessRights = Access.AccessRights.Edit | Access.AccessRights.Add;
+            var accessRights2 = Access.AccessRights.AccessDenied | Access.AccessRights.Add;
+            Access.PrintAccessRights(accessRights);
+            Access.PrintAccessRights(accessRights2);
+            */
+            #endregion
+
+            #region DataSet
+            /*
             var movieStore = new DataSet("MovieStore");
             var moviesTable = new DataTable("Movies");
             movieStore.Tables.Add(moviesTable);
@@ -51,7 +69,6 @@ namespace Task4
             moviesTable.Rows.Add(row);
             moviesTable.Rows.Add(new object[] { null, "Гладиатор", 170 });
 
-
             Console.Write("\tИд \tНазвание \tЦена \tСкидка");
             Console.WriteLine();
             foreach (DataRow r in moviesTable.Rows)
@@ -64,8 +81,8 @@ namespace Task4
             Console.WriteLine();
 
             Console.WriteLine(GetStringFromDataSet(movieStore, '$', '&'));
-
-            Console.ReadLine();
+            */
+            #endregion
         }
     }
 }
