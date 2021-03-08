@@ -1,33 +1,51 @@
 ﻿using System;
-using System.Data;
-using System.IO;
+using System.Diagnostics;
 
 namespace Task4
 {
     public class Program
     {
-        public static string GetStringFromDataSet(DataSet dataSet, char valueSeparator,
-    char columnSeparator)
-        {
-            string result = string.Empty;
-            var dataTable = dataSet.Tables[0];
-
-            foreach (DataRow r in dataTable.Rows)
-            {
-                foreach (var cell in r.ItemArray)
-                    result += $"{valueSeparator}" + cell + $"{valueSeparator} ";
-            }
-            foreach (DataColumn c in dataTable.Columns)
-                result += $"{columnSeparator}" + c.ColumnName + $"{columnSeparator} ";
-            return result;
-        }
-
         public static void Main(string[] args)
         {
+            #region StringVsStringBuilder
+            var watch = new Stopwatch();
+            watch.Start();
+            var str = StringVsStringBuilder.StringConcatenation();
+            watch.Stop();
+            Console.WriteLine($"Длительность конкатенации String:" +
+                $"{watch.ElapsedMilliseconds} мс");
+            watch.Reset();
+            var rnd = new Random();
+            var startIndex = rnd.Next(0, str.Length);
+            watch.Start();
+            str = StringVsStringBuilder.StringConcatenation().Substring(startIndex);
+            watch.Stop();
+            Console.WriteLine($"Длительность конкатенации с получением подстроки String:" +
+                $"{watch.ElapsedMilliseconds} мс");
+
+            watch = new Stopwatch();
+            watch.Start();
+            var builder = StringVsStringBuilder.StringBuilderConcatenation();
+            watch.Stop();
+            Console.WriteLine($"Длительность конкатенации StringBuilder:" +
+                $"{watch.ElapsedMilliseconds} мс");
+            watch.Reset();
+            watch.Start();
+            str = StringVsStringBuilder.StringBuilderConcatenation()
+                .ToString(startIndex, builder.Length - startIndex);
+            watch.Stop();
+            Console.WriteLine($"Длительность конкатенации с получением подстроки StringBuilder:" +
+                $"{watch.ElapsedMilliseconds} мс");
+            #endregion
+
+            #region Logger
+            /*
             using (Logger logger = new Logger("test.txt"))
             {
                 logger.WriteString("test");
             }
+            */
+            #endregion
 
 
             #region AccessRights
@@ -80,7 +98,7 @@ namespace Task4
 
             Console.WriteLine();
 
-            Console.WriteLine(GetStringFromDataSet(movieStore, '$', '&'));
+            Console.WriteLine(DataSetTask.GetStringFromDataSet(movieStore, '$', '&'));
             */
             #endregion
         }
