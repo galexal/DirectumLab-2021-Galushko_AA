@@ -12,8 +12,8 @@ namespace Task5
 
             var twoComplexes = new ArrayList()
             {
-                new ComplexNumber() { Real = 3, Imaginary = 5 },
-                new ComplexNumber() { Real = 2, Imaginary = 2 }
+                new ComplexNumber(3, 5),
+                new ComplexNumber(2, 2)
             };
             twoComplexes.Sort();
         }

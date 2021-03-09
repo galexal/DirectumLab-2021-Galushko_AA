@@ -11,10 +11,9 @@
 
         public override bool Equals(object obj)
         {
-            if (obj.GetType() != this.GetType()) return false;
-
-            StringValue stringValue = (StringValue)obj;
-            return this.Value == stringValue.Value;
+            if (obj is StringValue value) 
+                return this.Value.Equals(value.Value);
+            return false;
         }
 
         public override int GetHashCode()
