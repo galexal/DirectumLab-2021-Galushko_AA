@@ -20,7 +20,7 @@ namespace Task2
             this.Type = type;
         }
 
-        public string Translate()
+        private string Translate()
         {
             switch (this.Type)
             {
@@ -38,8 +38,8 @@ namespace Task2
 
         public override string ToString()
         {
-            return $"Начало {this.StartDate}\nКонец {this.EndDate}\nНапоминание {this.RemindDate}" +
-                $"\nТип {this.Translate()}";
+            return $"Начало {this.StartDate}\nКонец {(this.EndDate!=default?this.EndDate:"Дата окончания встречи неизвестна")}" +
+                $"\nНапоминание {this.RemindDate}\nТип {this.Translate()}";
         }
     }
 }

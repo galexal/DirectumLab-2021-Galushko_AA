@@ -56,17 +56,7 @@ namespace Task2
 
             var meeting = new TypedMeeting(startDate, endDate, remindDate, typeMeeting);
 
-            Console.WriteLine($"Тип встречи {meeting.Translate()}");
-            Console.WriteLine($"Начало встречи {meeting.StartDate}");
-            if (meeting.EndDate != default)
-                Console.WriteLine($"Конец встречи {meeting.EndDate}");
-            else Console.WriteLine("Дата окончания встречи неизвестна");
-            if (meeting.EndDate != default)
-                Console.WriteLine($"Длительность встречи {meeting.Duration}");
-            else Console.WriteLine("Длительность встречи неизвестна");
-            Console.WriteLine($"Напоминание установлено на {meeting.RemindDate}");
-            Console.WriteLine();
-            Console.WriteLine(meeting.ToString());
+            Console.WriteLine(meeting);
 
             Console.ReadKey();
         }
