@@ -59,7 +59,6 @@ namespace Task2
             Console.WriteLine(meeting);
 
             Console.ReadKey();
-            */
         }
     }
 }
