@@ -8,21 +8,21 @@ namespace Task2
         {
             Console.WriteLine("Введите номер типа встречи:\n1-совещание\n2-поручение\n" +
                 "3-звонок\n4-день рождения");
-            MeetingType.Types typeMeeting = MeetingType.Types.meeting;
+            TypedMeeting.MeetingType typeMeeting = TypedMeeting.MeetingType.Meeting;
             var typeMeetingInput = Console.ReadLine();
             switch (typeMeetingInput)
             {
                 case "1":
-                    typeMeeting = MeetingType.Types.meeting;
+                    typeMeeting = TypedMeeting.MeetingType.Meeting;
                     break;
                 case "2":
-                    typeMeeting = MeetingType.Types.order;
+                    typeMeeting = TypedMeeting.MeetingType.Order;
                     break;
                 case "3":
-                    typeMeeting = MeetingType.Types.call;
+                    typeMeeting = TypedMeeting.MeetingType.Call;
                     break;
                 case "4":
-                    typeMeeting = MeetingType.Types.birthday;
+                    typeMeeting = TypedMeeting.MeetingType.Birthday;
                     break;
             }
 
@@ -54,7 +54,7 @@ namespace Task2
                 remindMeetingInput = Console.ReadLine();
             }
 
-            var meeting = new MeetingType(startDate, endDate, remindDate, typeMeeting);
+            var meeting = new TypedMeeting(startDate, endDate, remindDate, typeMeeting);
 
             Console.WriteLine($"Тип встречи {meeting.Translate()}");
             Console.WriteLine($"Начало встречи {meeting.StartDate}");
@@ -65,6 +65,8 @@ namespace Task2
                 Console.WriteLine($"Длительность встречи {meeting.Duration}");
             else Console.WriteLine("Длительность встречи неизвестна");
             Console.WriteLine($"Напоминание установлено на {meeting.RemindDate}");
+            Console.WriteLine();
+            Console.WriteLine(meeting.ToString());
 
             Console.ReadKey();
         }
