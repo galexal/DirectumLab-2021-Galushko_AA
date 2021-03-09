@@ -2,9 +2,9 @@
 
 namespace Task3
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var circle = new Circle(5);
             Console.WriteLine(circle.Length);
