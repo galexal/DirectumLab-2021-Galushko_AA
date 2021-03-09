@@ -34,15 +34,11 @@ namespace Task4
             {
                 if (disposing)
                 {
+                    this.logWriter.Close();
                     this.logFile.Close();
                 }
                 this.disposed = true;
             }
-        }
-
-        ~Logger()
-        {
-            this.Dispose(false);
         }
     }
 }

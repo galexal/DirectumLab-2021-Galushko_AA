@@ -14,6 +14,14 @@ namespace Task4
             return str;
         }
 
+        public static void GetSubstringFromString(string str)
+        {
+            for (int i = 0; i < 50000; i++)
+            {
+                str = str.Substring(str.Length / 2);
+            }
+        }
+
         public static StringBuilder StringBuilderConcatenation()
         {
             var builder = new StringBuilder();
@@ -23,6 +31,15 @@ namespace Task4
                 builder.Append(", ");
             }
             return builder;
+        }
+
+        public static void GetSubstringFromStringBuilder(StringBuilder builder)
+        {
+            for (int i = 0; i < 50000; i++)
+            {
+                var str = builder.ToString();
+                str.Substring(str.Length / 2);
+            }
         }
     }
 }

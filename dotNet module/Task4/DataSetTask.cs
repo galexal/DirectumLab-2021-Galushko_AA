@@ -12,17 +12,17 @@ namespace Task4
         public static string GetStringFromDataSet(DataSet dataSet, char valueSeparator,
 char columnSeparator)
         {
-            string result = string.Empty;
+            var result = new StringBuilder();
             var dataTable = dataSet.Tables[0];
 
             foreach (DataRow r in dataTable.Rows)
             {
                 foreach (var cell in r.ItemArray)
-                    result += $"{valueSeparator}" + cell + $"{valueSeparator} ";
+                    result.Append(cell + valueSeparator.ToString());
             }
             foreach (DataColumn c in dataTable.Columns)
-                result += $"{columnSeparator}" + c.ColumnName + $"{columnSeparator} ";
-            return result;
+                result.Append(c.ColumnName + columnSeparator.ToString());
+            return result.ToString();
         }
     }
 }

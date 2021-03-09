@@ -6,8 +6,9 @@ namespace Task2
     {
         public static void Main(string[] args)
         {
+            /*
             Console.WriteLine("Введите номер типа встречи:\n1-совещание\n2-поручение\n" +
-                "3-звонок\n4-день рождения");
+               "3-звонок\n4-день рождения");
             TypedMeeting.MeetingType typeMeeting = TypedMeeting.MeetingType.Meeting;
             var typeMeetingInput = Console.ReadLine();
             switch (typeMeetingInput)
@@ -63,6 +64,7 @@ namespace Task2
             Console.WriteLine(meeting.ToString());
 
             Console.ReadKey();
+            */
         }
     }
 }

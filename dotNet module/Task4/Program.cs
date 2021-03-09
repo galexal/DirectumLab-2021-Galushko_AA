@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Diagnostics;
 
 namespace Task4
@@ -15,12 +16,10 @@ namespace Task4
             Console.WriteLine($"Длительность конкатенации String:" +
                 $"{watch.ElapsedMilliseconds} мс");
             watch.Reset();
-            var rnd = new Random();
-            var startIndex = rnd.Next(0, str.Length);
             watch.Start();
-            str = StringVsStringBuilder.StringConcatenation().Substring(startIndex);
+            StringVsStringBuilder.GetSubstringFromString(str);
             watch.Stop();
-            Console.WriteLine($"Длительность конкатенации с получением подстроки String:" +
+            Console.WriteLine($"Длительность получением подстроки String:" +
                 $"{watch.ElapsedMilliseconds} мс");
 
             watch = new Stopwatch();
@@ -31,34 +30,28 @@ namespace Task4
                 $"{watch.ElapsedMilliseconds} мс");
             watch.Reset();
             watch.Start();
-            str = StringVsStringBuilder.StringBuilderConcatenation()
-                .ToString(startIndex, builder.Length - startIndex);
+            StringVsStringBuilder.GetSubstringFromStringBuilder(builder);
             watch.Stop();
-            Console.WriteLine($"Длительность конкатенации с получением подстроки StringBuilder:" +
+            Console.WriteLine($"Длительность получением подстроки StringBuilder:" +
                 $"{watch.ElapsedMilliseconds} мс");
             #endregion
 
             #region Logger
-            /*
             using (Logger logger = new Logger("test.txt"))
             {
                 logger.WriteString("test");
             }
-            */
             #endregion
 
 
             #region AccessRights
-            /*
             var accessRights = Access.AccessRights.Edit | Access.AccessRights.Add;
             var accessRights2 = Access.AccessRights.AccessDenied | Access.AccessRights.Add;
             Access.PrintAccessRights(accessRights);
             Access.PrintAccessRights(accessRights2);
-            */
             #endregion
 
             #region DataSet
-            /*
             var movieStore = new DataSet("MovieStore");
             var moviesTable = new DataTable("Movies");
             movieStore.Tables.Add(moviesTable);
@@ -99,7 +92,6 @@ namespace Task4
             Console.WriteLine();
 
             Console.WriteLine(DataSetTask.GetStringFromDataSet(movieStore, '$', '&'));
-            */
             #endregion
         }
     }
