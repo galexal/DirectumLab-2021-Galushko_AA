@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Task6
 {
@@ -14,7 +13,7 @@ namespace Task6
             {
                 data = sr.ReadToEnd();
             }
-            Regex regex = new Regex(@"\d{1,2}.\d{1,2}.\d{4}");
+            Regex regex = new Regex(@"\d{1,2}.\d{1,2}.\d{4}\s\d{1,2}:\d{1,2}:\d{1,2}");
             var count = 0;
 
             MatchCollection matches = regex.Matches(data);
@@ -25,14 +24,14 @@ namespace Task6
 
             return count;
         }
-        
+
         public static void Main(string[] args)
         {
             var path = "ClientConnectionLog.log";
-            var startDate = new DateTime(2007, 12, 19);
-            var endDate = new DateTime(2008, 01, 22);
+            var startDate = new DateTime(2007, 12, 19, 17, 58, 33);
+            var endDate = new DateTime(2008, 01, 22, 14, 18, 18);
 
-            Console.WriteLine($"Найдено {Counter(path,startDate,endDate)} совпадений");
+            Console.WriteLine($"Найдено {Counter(path, startDate, endDate)} совпадений");
         }
     }
 }
