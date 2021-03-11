@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Task7
@@ -40,7 +42,25 @@ namespace Task7
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(776, 426);
             this.richTextBox1.TabIndex = 0;
-            LoadGZippedText("q2.rtf.gz", this.richTextBox1);
+            var file = "q2.rtf.gz";
+            try
+            {
+                LoadGZippedText(file, this.richTextBox1);
+            }
+            catch (FileNotFoundException ex)
+            {
+                System.Console.WriteLine(ex.Message);
+                throw new FileLoadException (ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                System.Console.WriteLine(ex.Message);
+                throw new FileLoadException(ex.Message);
+            }
+            finally
+            {
+                // Ресурсы освобождаются в самом методе в директивах using.
+            }
             //this.richTextBox1.Text = "";
             // 
             // Form1
