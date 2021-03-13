@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task8
 {
@@ -27,6 +25,13 @@ namespace Task8
         public IEnumerator GetEnumerator()
         {
             return this.Lines.GetEnumerator();
+        }
+
+        public void LineFilterByDateSortedByTime(DateTime date)
+        {
+            this.Lines = this.Lines.Where(line => line.Substring(0, 10) == date.ToString("dd.MM.yyyy"))
+                .OrderByDescending(time => time.Substring(12, 8))
+                .ToList();
         }
     }
 }

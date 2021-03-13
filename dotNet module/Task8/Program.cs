@@ -30,6 +30,8 @@ namespace Task8
             }
 
             var lines = new LinesIterator("ClientConnectionLog.log");
+            var date = new DateTime(2007, 12, 13);
+            lines.LineFilterByDateSortedByTime(date);
             foreach (var item in lines)
             {
                 Console.WriteLine(item);
