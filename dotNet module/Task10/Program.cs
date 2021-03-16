@@ -15,14 +15,16 @@ namespace Task10
                 list.Add(rnd.Next(listLength));
             }
 
-            var fs = new FastSearcher(list, 2, 20);
+            var fs = new FastSearcher<int>(list);
 
-            fs.TaskMaker(x => x < 10);
+            var result = fs.Search(x => x < 10);
 
-            for (int i = 0; i < fs.Result.Count; i++)
+            for (int i = 0; i < result.Count; i++)
             {
-                Console.WriteLine(fs.Result[i]);
+                Console.WriteLine(result[i]);
             }
+
+            Console.ReadLine();
         }
     }
 }

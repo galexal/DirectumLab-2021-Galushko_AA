@@ -3,45 +3,47 @@ using System.Threading.Tasks;
 
 namespace Task10
 {
-    public class FastSearcher
+    public class FastSearcher<T>
     {
-        public List<int> Data { get; set; }
+        private List<T> Data { get; set; }
 
-        public List<int> Result { get; set; } = new List<int>();
 
-        public delegate bool SearchCondition(int x);
+        public delegate bool SearchCondition(T x);
 
-        public int MaxTasks { get; set; } = 1;
+        public int MaxTasks { get; }
 
-        public int MinNumberOfValues { get; set; } = 10;
+        public int MinNumberOfValues { get; }
 
-        public FastSearcher(List<int> data, int maxTasks = 1, int minNumberOfValues = 10)
+        public FastSearcher(IEnumerable<T> data, int maxTasks = 2, int minNumberOfValues = 10)
         {
-            this.Data = data;
+            this.Data = (List<T>)data;
             this.MaxTasks = maxTasks;
             this.MinNumberOfValues = minNumberOfValues;
         }
 
-        public void TaskMaker(SearchCondition sc)
+        public List<T> Search(SearchCondition sc)
         {
+            var result = new List<T>();
             var tasks = new Task[this.MaxTasks];
             for (int i = 0; i < this.MaxTasks; i++)
             {
-                Task task = new Task(() => this.Find(sc));
+                var startIndex = i * (this.Data.Count / this.MaxTasks);
+                Task task = new Task(() => this.Find(sc, result, startIndex));
                 tasks[i] = task;
                 task.Start();
                 if (this.Data.Count <= this.MinNumberOfValues) break;
             }
             if (tasks != null) Task.WaitAll(tasks);
+            return result;
         }
 
-        public void Find(SearchCondition sc)
+        public void Find(SearchCondition sc, List<T> result, int startIndex)
         {
-            for (int i = 0; i < this.Data.Count; i++)
+            for (int i = startIndex; i < startIndex + (this.Data.Count / this.MaxTasks); i++)
             {
                 if (sc(this.Data[i]))
                 {
-                    this.Result.Add(this.Data[i]);
+                    result.Add(this.Data[i]);
                 }
             }
         }
