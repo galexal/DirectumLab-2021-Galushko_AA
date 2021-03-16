@@ -29,10 +29,11 @@ namespace Task8
                 Console.WriteLine($"{item.Key} переводится как {item.Value}");
             }
 
-            var lines = new LinesIterator("ClientConnectionLog.log");
-            foreach (var item in lines)
+            var reader = new FileReader("ClientConnectionLog.log");
+            reader.Read();
+            foreach (var line in reader)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(line);
             }
         }
 
