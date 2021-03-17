@@ -30,7 +30,6 @@ namespace Task8
             }
 
             var reader = new FileReader("ClientConnectionLog.log");
-            reader.Read();
             foreach (var line in reader)
             {
                 Console.WriteLine(line);

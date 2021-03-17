@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 
 namespace Task8
@@ -9,58 +8,46 @@ namespace Task8
     {
         public string Path { get; set; }
 
-        public List<string> Lines { get; set; } = new List<string>();
-
-        private int position = -1;
-
         private bool disposed = false;
+
+        private StreamReader reader;
+
+        public string Line { get; set; }
 
         public FileReader(string path)
         {
             this.Path = path;
-        }
-
-        public void Read()
-        {
-            using (StreamReader sr = new StreamReader(this.Path, System.Text.Encoding.Default))
-            {
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    this.Lines.Add(line);
-                }
-            }
+            this.reader = new StreamReader(this.Path, System.Text.Encoding.Default);
         }
 
         public IEnumerator GetEnumerator()
         {
-            return this.Lines.GetEnumerator();
+            return this;
         }
 
         public object Current
         {
             get
             {
-                if (this.position == -1 || this.position >= this.Lines.Count)
+                if ((this.Line = this.reader.ReadLine()) != null)
+                    return this.Line;
+                else
                     throw new InvalidOperationException();
-                return this.Lines[this.position];
             }
         }
 
         public bool MoveNext()
         {
-            if (this.position < this.Lines.Count - 1)
-            {
-                this.position++;
+            if ((this.Line = this.reader.ReadLine()) != null)
+
                 return true;
-            }
             else
                 return false;
         }
 
         public void Reset()
         {
-            this.position = -1;
+            this.reader.Dispose();
         }
 
         public void Dispose()
@@ -75,7 +62,7 @@ namespace Task8
             {
                 if (disposing)
                 {
-                    // какие ресурсы нужно в данном случае освобождать?
+                    this.reader.Close();
                 }
                 this.disposed = true;
             }
