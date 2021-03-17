@@ -29,12 +29,10 @@ namespace Task8
                 Console.WriteLine($"{item.Key} переводится как {item.Value}");
             }
 
-            var lines = new LinesIterator("ClientConnectionLog.log");
-            var date = new DateTime(2007, 12, 13);
-            lines.LineFilterByDateSortedByTime(date);
-            foreach (var item in lines)
             var reader = new FileReader("ClientConnectionLog.log");
-            foreach (var line in reader)
+            var date = new DateTime(2007, 12, 13);
+            var filterByDate = reader.LineFilterByDateSortedByTime(date);
+            foreach (var line in filterByDate)
             {
                 Console.WriteLine(line);
             }
