@@ -15,13 +15,13 @@ namespace Task10
                 list.Add(rnd.Next(listLength));
             }
 
-            var fs = new FastSearcher<int>(list);
+            var fs = new FastSearcher<int>(list, 2, 10);
 
             var result = fs.Search(x => x < 10);
 
-            for (int i = 0; i < result.Count; i++)
+            foreach (var item in result)
             {
-                Console.WriteLine(result[i]);
+                Console.WriteLine(item);
             }
 
             Console.ReadLine();

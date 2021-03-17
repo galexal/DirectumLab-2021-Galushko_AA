@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Task10
 {
     public class FastSearcher<T>
     {
-        private List<T> Data { get; set; }
+        private IEnumerable<T> Data { get; set; }
 
 
         public delegate bool SearchCondition(T x);
@@ -14,36 +15,42 @@ namespace Task10
 
         public int MinNumberOfValues { get; }
 
-        public FastSearcher(IEnumerable<T> data, int maxTasks = 2, int minNumberOfValues = 10)
+        public FastSearcher(IEnumerable<T> data, int maxTasks, int minNumberOfValues)
         {
-            this.Data = (List<T>)data;
+            this.Data = data;
             this.MaxTasks = maxTasks;
             this.MinNumberOfValues = minNumberOfValues;
         }
 
-        public List<T> Search(SearchCondition sc)
+        public IEnumerable<T> Search(SearchCondition sc)
         {
             var result = new List<T>();
-            var tasks = new Task[this.MaxTasks];
-            for (int i = 0; i < this.MaxTasks; i++)
+            var numberOfTasks = Enumerable.Count(this.Data) / this.MinNumberOfValues;
+            if (numberOfTasks > this.MaxTasks) numberOfTasks = this.MaxTasks;
+            var tasks = new Task[numberOfTasks];
+            for (int i = 0; i < tasks.Length; i++)
             {
-                var startIndex = i * (this.Data.Count / this.MaxTasks);
-                Task task = new Task(() => this.Find(sc, result, startIndex));
+                var partOfData = this.Data;
+                if (i == 0)
+                    partOfData = this.Data.Take(this.MinNumberOfValues);
+                else
+                    partOfData = this.Data.Skip(i * this.MinNumberOfValues);
+
+                var task = new Task(() => this.SearchInternal(sc, partOfData, result));
                 tasks[i] = task;
                 task.Start();
-                if (this.Data.Count <= this.MinNumberOfValues) break;
             }
-            if (tasks != null) Task.WaitAll(tasks);
+            Task.WaitAll(tasks);
             return result;
         }
 
-        public void Find(SearchCondition sc, List<T> result, int startIndex)
+        private void SearchInternal(SearchCondition sc, IEnumerable<T> partOfData, List<T> result)
         {
-            for (int i = startIndex; i < startIndex + (this.Data.Count / this.MaxTasks); i++)
+            for (int i = 0; i < Enumerable.Count(partOfData); i++)
             {
-                if (sc(this.Data[i]))
+                if (sc(Enumerable.ElementAt(partOfData, i)))
                 {
-                    result.Add(this.Data[i]);
+                    result.Add(Enumerable.ElementAt(partOfData, i));
                 }
             }
         }
