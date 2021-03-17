@@ -42,26 +42,7 @@ namespace Task7
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(776, 426);
             this.richTextBox1.TabIndex = 0;
-            var file = "q2.rtf.gz";
-            try
-            {
-                LoadGZippedText(file, this.richTextBox1);
-            }
-            catch (FileNotFoundException ex)
-            {
-                System.Console.WriteLine(ex.Message);
-                throw new FileLoadException (ex.Message);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                System.Console.WriteLine(ex.Message);
-                throw new FileLoadException(ex.Message);
-            }
-            finally
-            {
-                // Ресурсы освобождаются в самом методе в директивах using.
-            }
-            //this.richTextBox1.Text = "";
+            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
@@ -72,20 +53,7 @@ namespace Task7
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
-
         }
-
-        public void LoadGZippedText(string filename, RichTextBox edit)
-        {
-            using (var sourceStream = new System.IO.FileStream(filename,
-                    System.IO.FileMode.Open, System.IO.FileAccess.Read,
-                    System.IO.FileShare.Read))
-            using (var uncompressedStream = new System.IO.Compression.GZipStream(
-                    sourceStream, System.IO.Compression.CompressionMode.Decompress, true))
-            using (var textReader = new System.IO.StreamReader(uncompressedStream, true))
-                edit.Rtf = textReader.ReadToEnd();
-        }
-
 
         #endregion
 
