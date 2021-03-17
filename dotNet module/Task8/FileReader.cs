@@ -29,10 +29,7 @@ namespace Task8
         {
             get
             {
-                if ((this.Line = this.reader.ReadLine()) != null)
-                    return this.Line;
-                else
-                    throw new InvalidOperationException();
+                return this.Line;
             }
         }
 
@@ -47,7 +44,7 @@ namespace Task8
 
         public void Reset()
         {
-            this.reader.Dispose();
+            this.reader.BaseStream.Position = 0;
         }
 
         public void Dispose()
