@@ -30,9 +30,9 @@ namespace Task8
             }
 
             var reader = new FileReader("ClientConnectionLog.log");
-            var date = new DateTime(2007, 12, 13);
-            var filterByDate = reader.LineFilterByDateSortedByTime(date);
-            foreach (var line in filterByDate)
+            //var date = new DateTime(2007, 12, 13);
+            //var filterByDate = reader.LineFilterByDateSortedByTime(date);
+            foreach (var line in reader)
             {
                 Console.WriteLine(line);
             }

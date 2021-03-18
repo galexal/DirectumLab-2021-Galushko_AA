@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Task8
 {
-    public class FileReader : IDisposable, IEnumerable, IEnumerator
+    public class FileReader : IDisposable, IEnumerable<string>, IEnumerator<string>
     {
         public string Path { get; set; }
 
@@ -22,18 +22,22 @@ namespace Task8
             this.reader = new StreamReader(this.Path, System.Text.Encoding.Default);
         }
 
-        public List<string> LineFilterByDateSortedByTime(DateTime date)
-        {
-            this.reader = new StreamReader(this.Path, System.Text.Encoding.Default);
-            var list = new List<string>();
-            while ((this.Line = this.reader.ReadLine()) != null)
-                list.Add(this.Line);
-            return list.Where(line => line.Substring(0, 10) == date.ToString("dd.MM.yyyy"))
-                .OrderByDescending(time => time.Substring(12, 8))
-                .ToList();
-        }
+        //public List<string> LineFilterByDateSortedByTime(DateTime date)
+        //{
+        //    this.reader = new StreamReader(this.Path, System.Text.Encoding.Default);
+        //    var list = new List<string>();
+        //    while ((this.Line = this.reader.ReadLine()) != null)
+        //        list.Add(this.Line);
+        //    return list.Where(line => line.Substring(0, 10) == date.ToString("dd.MM.yyyy"))
+        //        .OrderByDescending(time => time.Substring(12, 8))
+        //        .ToList();
+        //}
 
-        public IEnumerator GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+        public IEnumerator<string> GetEnumerator()
         {
             return this;
         }
@@ -45,6 +49,10 @@ namespace Task8
                 return this.Line;
             }
         }
+
+        //object IEnumerator.Current => throw new NotImplementedException();
+
+        string IEnumerator<string>.Current => this.Line;
 
         public bool MoveNext()
         {
@@ -77,5 +85,7 @@ namespace Task8
                 this.disposed = true;
             }
         }
+
+ 
     }
 }
