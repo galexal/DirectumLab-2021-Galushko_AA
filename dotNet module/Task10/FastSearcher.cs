@@ -25,18 +25,15 @@ namespace Task10
         public IEnumerable<T> Search(SearchCondition sc)
         {
             var result = new List<T>();
-            var numberOfTasks = Enumerable.Count(this.Data) / this.MinNumberOfValues;
+            var numberOfTasks = this.Data.Count() / this.MinNumberOfValues;
             if (numberOfTasks > this.MaxTasks) numberOfTasks = this.MaxTasks;
             var tasks = new Task[numberOfTasks];
+            var dataPart = this.Data;
             for (int i = 0; i < tasks.Length; i++)
             {
-                var partOfData = this.Data;
-                if (i == 0)
-                    partOfData = this.Data.Take(this.MinNumberOfValues);
-                else
-                    partOfData = this.Data.Skip(i * this.MinNumberOfValues);
-
-                var task = new Task(() => this.SearchInternal(sc, partOfData, result));
+                dataPart = this.Data.Skip(i * this.MinNumberOfValues)
+                    .Take(this.MinNumberOfValues);
+                var task = new Task(() => this.SearchInternal(sc, dataPart, result));
                 tasks[i] = task;
                 task.Start();
             }
@@ -44,15 +41,12 @@ namespace Task10
             return result;
         }
 
-        private void SearchInternal(SearchCondition sc, IEnumerable<T> partOfData, List<T> result)
+        private void SearchInternal(SearchCondition sc, 
+            IEnumerable<T> dataPart, List<T> result)
         {
-            for (int i = 0; i < Enumerable.Count(partOfData); i++)
-            {
-                if (sc(Enumerable.ElementAt(partOfData, i)))
-                {
-                    result.Add(Enumerable.ElementAt(partOfData, i));
-                }
-            }
+            foreach (var item in dataPart)
+                if (sc(item))
+                    result.Add(item);
         }
     }
 }
