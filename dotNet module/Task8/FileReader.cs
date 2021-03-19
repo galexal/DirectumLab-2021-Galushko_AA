@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Task8
 {
-    public class FileReader : IDisposable, IEnumerable, IEnumerator
+    public class FileReader : IDisposable, IEnumerable<string>, IEnumerator<string>
     {
         public string Path { get; set; }
 
@@ -20,7 +21,12 @@ namespace Task8
             this.reader = new StreamReader(this.Path, System.Text.Encoding.Default);
         }
 
-        public IEnumerator GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+
+        public IEnumerator<string> GetEnumerator()
         {
             return this;
         }
@@ -32,6 +38,8 @@ namespace Task8
                 return this.Line;
             }
         }
+
+        string IEnumerator<string>.Current => this.Line;
 
         public bool MoveNext()
         {
