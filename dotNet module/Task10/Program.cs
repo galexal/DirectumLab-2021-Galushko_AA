@@ -10,9 +10,10 @@ namespace Task10
             var rnd = new Random();
             var list = new List<int>();
             var listLength = 100;
-            for (int i = 0; i < listLength; i++)
+            for (int i = listLength; i >= 0; i--)
             {
-                list.Add(rnd.Next(listLength));
+                //list.Add(rnd.Next(listLength));
+                list.Add(i);
             }
 
             var fs = new FastSearcher<int>(list, 2, 10);

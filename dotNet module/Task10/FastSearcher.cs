@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,12 +28,13 @@ namespace Task10
             var result = new List<T>();
             var numberOfTasks = this.Data.Count() / this.MinNumberOfValues;
             if (numberOfTasks > this.MaxTasks) numberOfTasks = this.MaxTasks;
+            var elementsInTask = (int)Math.Ceiling(this.Data.Count() / (decimal)numberOfTasks);
             var tasks = new Task[numberOfTasks];
             var dataPart = this.Data;
             for (int i = 0; i < tasks.Length; i++)
             {
-                dataPart = this.Data.Skip(i * this.MinNumberOfValues)
-                    .Take(this.MinNumberOfValues);
+                dataPart = this.Data.Skip(i * elementsInTask)
+                    .Take(elementsInTask);
                 var task = new Task(() => this.SearchInternal(sc, dataPart, result));
                 tasks[i] = task;
                 task.Start();
