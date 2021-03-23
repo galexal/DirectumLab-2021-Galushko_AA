@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 
 namespace Task12
 {
@@ -18,6 +19,37 @@ namespace Task12
             Console.WriteLine(GetPropertiesTypesAndValues(tom));
 
             MakeInstanceAndGetPropertiesValues("Task12", "Task12.Person");
+
+            Assembly asm1 = Assembly.LoadFrom("LibTest1.dll");
+
+            Type[] types = asm1.GetTypes();
+            foreach (Type t in types)
+            {
+                // создаем экземпляр класса Program
+                object obj = Activator.CreateInstance(t);
+
+                var props = t.GetProperties();
+                foreach (var prop in props)
+                {
+                    Console.WriteLine(prop.GetValue(obj));
+                }
+            }
+
+            Assembly asm2 = Assembly.LoadFrom("LibTest2.dll");
+
+            Type[] types2 = asm2.GetTypes();
+            foreach (Type t in types2)
+            {
+                object obj = Activator.CreateInstance(t);
+
+                var props = t.GetProperties();
+                foreach (var prop in props)
+                {
+                    Console.WriteLine(prop.GetValue(obj));
+                }
+            }
+
+            Console.ReadLine();
         }
 
         /// <summary>
