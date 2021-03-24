@@ -10,8 +10,8 @@
         /// </summary>
         public static void Main()
         {
-            EarlyBinding.Main();
-            LateBinding.Main();
+            //EarlyBinding.FillTable();
+            LateBinding.FillTable();
         }
     }
 }

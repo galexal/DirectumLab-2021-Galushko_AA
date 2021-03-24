@@ -11,7 +11,7 @@ namespace Task13
         /// <summary>
         /// Запись в Excel таблицы умножения.
         /// </summary>
-        public static void Main()
+        public static void FillTable()
         {
             var excelapp = new Excel.Application();
             excelapp.Visible = true;
