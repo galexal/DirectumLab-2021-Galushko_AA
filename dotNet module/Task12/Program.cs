@@ -15,6 +15,9 @@ namespace Task12
         /// <param name="args">Параметры запуска.</param>
         public static void Main(string[] args)
         {
+            ConfigReader.PrintSettings();
+            Console.WriteLine();
+
             var tom = new Person("Tom", "Jonson", 30);
             Console.WriteLine(GetPropertiesTypesAndValues(tom));
 
