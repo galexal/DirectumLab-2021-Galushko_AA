@@ -1,19 +1,21 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Task4.DataSetTask;
 
 namespace Task4.Tests
 {
-    
-    class DataSetTaskTests
+    public class DataSetTaskTests
     {
         [Test]
         public void GetRightString()
+        {
+            var expected = "1$Храброе сердце$300$60,0$2$Гладиатор$170$34,0$Id&Name&Price&Discount&";
+            var actual = GetStringFromDataSet(this.GetDataSet(), '$', '&');
+            Assert.AreEqual(expected, actual);
+        }
+
+        private DataSet GetDataSet()
         {
             var movieStore = new DataSet("MovieStore");
             var moviesTable = new DataTable("Movies");
@@ -38,8 +40,7 @@ namespace Task4.Tests
             row.ItemArray = new object[] { null, "Храброе сердце", 300 };
             moviesTable.Rows.Add(row);
             moviesTable.Rows.Add(new object[] { null, "Гладиатор", 170 });
-            var result = GetStringFromDataSet(movieStore, '$', '&');
-            Assert.AreEqual("1$Храброе сердце$300$60,0$2$Гладиатор$170$34,0$Id&Name&Price&Discount&", result);
+            return movieStore;
         }
     }
 }

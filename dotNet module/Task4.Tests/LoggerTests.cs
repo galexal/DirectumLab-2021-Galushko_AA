@@ -1,13 +1,9 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace Task4.Tests
 {
-    class LoggerTests
+    public class LoggerTests
     {
         [Test]
         public void DoesLoggerWork()
@@ -16,7 +12,14 @@ namespace Task4.Tests
             {
                 logger.WriteString("test");
             }
-            Assert.Pass();
+
+            string result;
+            using (StreamReader sr = new StreamReader("test.txt"))
+            {
+                result = sr.ReadLine();
+            }
+
+            Assert.AreEqual("test", result);
         }
     }
 }

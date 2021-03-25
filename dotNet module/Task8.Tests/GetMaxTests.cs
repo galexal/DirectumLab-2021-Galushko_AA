@@ -1,21 +1,15 @@
 using NUnit.Framework;
-
+using System;
 
 namespace Task8.Tests
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+        [TestCase(1, 2, 3, 3)]
+        [TestCase(0.5, -0.17, 0, 0.5)]
+        [TestCase("ab", "bcd", "e", "e")]
+        public void GetMaxValue<T>(T firstValue, T secondValue, T thirdValue, T result) where T : IComparable
         {
-        }
-
-        [TestCase(1,2,3,3)]
-        [TestCase(5, 4, 5, 5)]
-        [TestCase(10, 10, 0, 10)]
-        public void GetMaxValue(int firstValue, int secondValue, int thirdValue, int result)
-        {
-
             Assert.AreEqual(result, Program.GetMax(firstValue, secondValue, thirdValue));
         }
     }
