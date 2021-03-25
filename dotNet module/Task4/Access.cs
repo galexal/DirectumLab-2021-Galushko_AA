@@ -25,5 +25,11 @@ namespace Task4
             Console.WriteLine(accessRights.HasFlag(AccessRights.AccessDenied)
                 ? AccessRights.AccessDenied : accessRights);
         }
+
+        public static string GetAccessRights(AccessRights accessRights)
+        {
+            return (accessRights.HasFlag(AccessRights.AccessDenied)
+                ? AccessRights.AccessDenied : accessRights).ToString();
+        }
     }
 }

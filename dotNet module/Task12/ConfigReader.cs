@@ -19,5 +19,17 @@ namespace Task12
                 Console.WriteLine($"Имя: {key}\nЗначение: {settings[key]}");
             }
         }
+
+        public static string GetSettings()
+        {
+            string result = string.Empty;
+            var settings = ConfigurationManager.AppSettings;
+            foreach (var key in settings.AllKeys)
+            {
+                result += $"Имя: {key}\nЗначение: {settings[key]}";
+            }
+
+            return result;
+        }
     }
 }
