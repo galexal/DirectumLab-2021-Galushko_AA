@@ -1,8 +1,6 @@
 ﻿using DataService.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PlanPoker.Services
 {
@@ -17,11 +15,10 @@ namespace PlanPoker.Services
         public Room CurrentRoom { get; set; }
 
         /// <summary>
-        /// Создаnть комнату.
+        /// Создать комнату.
         /// </summary>
         /// <param name="name">Имя комнаты.</param>
         /// <param name="ownerId">Хозяин комнаты.</param>
-        /// <returns>Новая комната.</returns>
         public void Create(string name, Guid ownerId)
         {
             this.CurrentRoom = new Room(name, ownerId);
@@ -30,7 +27,7 @@ namespace PlanPoker.Services
         /// <summary>
         /// Добавить участника.
         /// </summary>
-        /// <param name="user">ИД участника.</param>
+        /// <param name="userId">ИД участника.</param>
         public void AddUser(Guid userId)
         {
             if (!this.CurrentRoom.Participants.Contains(userId))
@@ -40,17 +37,17 @@ namespace PlanPoker.Services
         /// <summary>
         /// Удалить участника.
         /// </summary>
-        /// <param name="user">ИД участника.</param>
+        /// <param name="userId">ИД участника.</param>
         public void RemoveUser(Guid userId)
         {
-            if(this.CurrentRoom.Participants.Contains(userId))
+            if (this.CurrentRoom.Participants.Contains(userId))
                 this.CurrentRoom.Participants.Remove(userId);
         }
 
         /// <summary>
         /// Изменить хозяина комнаты.
         /// </summary>
-        /// <param name="user">ИД участника.</param>
+        /// <param name="userId">ИД участника.</param>
         public void ChangeOwner(Guid userId)
         {
             if (this.CurrentRoom.Participants.Contains(userId))

@@ -1,10 +1,18 @@
 ﻿namespace PlanPoker.Services
 {
-  public class ExampleService
-  {
-    public int TestMethod(int id)
+    /// <summary>
+    /// Тестовый сервис.
+    /// </summary>
+    public class ExampleService
     {
-      return id;
-    }
-  }
+        /// <summary>
+        /// Тестовый метод.
+        /// </summary>
+        /// <param name="id">Отправляемое значение.</param>
+        /// <returns>Возвращенное значение.</returns>
+        public int TestMethod(int id)
+        {
+            return id;
+        }
+        }
 }

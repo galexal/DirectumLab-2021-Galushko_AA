@@ -7,35 +7,54 @@ using PlanPoker.Services;
 
 namespace PlanPoker
 {
-  public class Startup
-  {
-    public Startup(IConfiguration configuration)
+    /// <summary>
+    /// Настройка хоста.
+    /// </summary>
+    public class Startup
     {
-      this.Configuration = configuration;
+        /// <summary>
+        /// Конструктор.
+        /// </summary>
+        /// <param name="configuration">Конфигурация.</param>
+        public Startup(IConfiguration configuration)
+        {
+            this.Configuration = configuration;
+        }
+
+        /// <summary>
+        /// Конфигурация.
+        /// </summary>
+        public IConfiguration Configuration { get; }
+
+        /// <summary>
+        /// Конфигурация сервисов.
+        /// </summary>
+        /// <param name="services">Сервисы.</param>
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
+
+            services.AddSingleton<ExampleService>();
+        }
+
+        /// <summary>
+        /// Конфигурация.
+        /// </summary>
+        /// <param name="app">Приложение.</param>
+        /// <param name="env">Окружение.</param>
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+        }
     }
-
-    public IConfiguration Configuration { get; }
-
-    public void ConfigureServices(IServiceCollection services)
-    {
-      services.AddControllers();
-
-      services.AddSingleton<ExampleService>();
-    }
-
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
-
-      app.UseRouting();
-
-      app.UseEndpoints(endpoints =>
-      {
-        endpoints.MapControllers();
-      });
-    }
-  }
 }

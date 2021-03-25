@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DataService.Models
 {
@@ -10,7 +9,7 @@ namespace DataService.Models
     public class Room : IEntity
     {
         /// <summary>
-        /// Id.
+        /// Идентификатор.
         /// </summary>
         public Guid Id { get; } = Guid.NewGuid();
 
