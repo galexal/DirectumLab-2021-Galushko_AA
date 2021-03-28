@@ -1,4 +1,6 @@
-﻿using DataService.Models;
+﻿using DataService;
+using DataService.Models;
+using DataService.Repositories;
 using System;
 using System.Linq;
 
@@ -9,29 +11,30 @@ namespace PlanPoker.Services
     /// </summary>
     public class RoomServices
     {
-        /// <summary>
-        /// Состояние текущей комнаты.
-        /// </summary>
-        public Room CurrentRoom { get; set; }
+        public RoomRepository Repository { get; set; }
 
         /// <summary>
         /// Создать комнату.
         /// </summary>
         /// <param name="name">Имя комнаты.</param>
         /// <param name="ownerId">Хозяин комнаты.</param>
-        public void Create(string name, Guid ownerId)
+        public Room Create(string name, Guid ownerId)
         {
-            this.CurrentRoom = new Room(name, ownerId);
+            var newRoom = this.Repository.Create();
+            newRoom.Name = name;
+            newRoom.OwnerId = ownerId;
+            this.Repository.Save(newRoom);
+            return newRoom;
         }
 
         /// <summary>
         /// Добавить участника.
         /// </summary>
         /// <param name="userId">ИД участника.</param>
-        public void AddUser(Guid userId)
+        public void AddUser(Guid userId, Room room)
         {
-            if (!this.CurrentRoom.Participants.Contains(userId))
-                this.CurrentRoom.Participants.Append(userId);
+            if (!room.Participants.Contains(userId))
+                room.Participants.Append(userId);
         }
 
         /// <summary>
@@ -40,8 +43,7 @@ namespace PlanPoker.Services
         /// <param name="userId">ИД участника.</param>
         public void RemoveUser(Guid userId)
         {
-            if (this.CurrentRoom.Participants.Contains(userId))
-                this.CurrentRoom.Participants.Remove(userId);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -50,8 +52,7 @@ namespace PlanPoker.Services
         /// <param name="userId">ИД участника.</param>
         public void ChangeOwner(Guid userId)
         {
-            if (this.CurrentRoom.Participants.Contains(userId))
-                this.CurrentRoom.OwnerId = userId;
+            throw new NotImplementedException();
         }
     }
 }

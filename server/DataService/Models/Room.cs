@@ -6,13 +6,8 @@ namespace DataService.Models
     /// <summary>
     /// Комната.
     /// </summary>
-    public class Room : IEntity
+    public class Room : Entity
     {
-        /// <summary>
-        /// Идентификатор.
-        /// </summary>
-        public Guid Id { get; } = Guid.NewGuid();
-
         /// <summary>
         /// Имя.
         /// </summary>
@@ -38,7 +33,7 @@ namespace DataService.Models
         /// </summary>
         /// <param name="name">Имя комнаты.</param>
         /// <param name="ownerId">Хозяин комнаты.</param>
-        public Room(string name, Guid ownerId)
+        public Room(string name, Guid ownerId) : base(new Guid())
         {
             this.Name = name;
             this.OwnerId = ownerId;

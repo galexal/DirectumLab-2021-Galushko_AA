@@ -6,13 +6,8 @@ namespace DataService.Models
     /// <summary>
     /// Обсуждение.
     /// </summary>
-    public class Discussion
+    public class Discussion : Entity
     {
-        /// <summary>
-        /// Идентификатор обсуждения.
-        /// </summary>
-        public Guid Id { get; } = Guid.NewGuid();
-
         /// <summary>
         /// Имя обсуждения.
         /// </summary>
@@ -37,7 +32,7 @@ namespace DataService.Models
         /// Конструктор обсуждения.
         /// </summary>
         /// <param name="name">Имя обсуждения.</param>
-        public Discussion(string name)
+        public Discussion(string name) : base(new Guid())
         {
             this.Name = name;
             this.StartAt = DateTime.Now;

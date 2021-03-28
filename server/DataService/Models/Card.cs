@@ -2,10 +2,7 @@
 
 namespace DataService.Models
 {
-    /// <summary>
-    /// Оценка.
-    /// </summary>
-    public class Vote : Entity
+    public class Card : Entity
     {
         /// <summary>
         /// Имя.
@@ -15,12 +12,7 @@ namespace DataService.Models
         /// <summary>
         /// Значение.
         /// </summary>
-        public Card Value { get; set; }
-
-        /// <summary>
-        /// Идентификатор участника.
-        /// </summary>
-        public Guid UserId { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Конструктор.
@@ -28,11 +20,10 @@ namespace DataService.Models
         /// <param name="name">Имя.</param>
         /// <param name="value">Значение.</param>
         /// <param name="userId">Идентификатор участника.</param>
-        public Vote(string name, Card value, Guid userId) : base (new Guid())
+        public Card(string name, string value) : base(new Guid())
         {
             this.Name = name;
             this.Value = value;
-            this.UserId = userId;
         }
     }
 }

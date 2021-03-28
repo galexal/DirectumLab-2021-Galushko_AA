@@ -5,13 +5,8 @@ namespace DataService.Models
     /// <summary>
     /// Участник.
     /// </summary>
-    public class User
+    public class User : Entity
     {
-        /// <summary>
-        /// Идентификатор.
-        /// </summary>
-        public Guid Id { get; } = Guid.NewGuid();
-
         /// <summary>
         /// Имя.
         /// </summary>
@@ -21,7 +16,7 @@ namespace DataService.Models
         /// Конструктор участника.
         /// </summary>
         /// <param name="name">Имя участника.</param>
-        public User(string name)
+        public User(string name) : base(new Guid())
         {
             this.Name = name;
         }

@@ -1,4 +1,6 @@
 ﻿using DataService.Models;
+using DataService.Repositories;
+using System;
 
 namespace PlanPoker.Services
 {
@@ -7,18 +9,19 @@ namespace PlanPoker.Services
     /// </summary>
     public class UserServices
     {
-        /// <summary>
-        /// Состояние участника.
-        /// </summary>
-        public User CurrentUser { get; set; }
+        public UserRepository Repository { get; set; }
 
         /// <summary>
         /// Создать учачтника.
         /// </summary>
         /// <param name="name">Имя участника.</param>
-        public void Create(string name)
+        public User Create(string name)
         {
-            this.CurrentUser = new User(name);
+            var newUser = this.Repository.Create();
+            newUser.Name = name;
+            this.Repository.Save(newUser);
+            return newUser;
+
         }
 
         /// <summary>
@@ -27,7 +30,7 @@ namespace PlanPoker.Services
         /// <param name="newName">Новое имя.</param>
         public void ChangeName(string newName)
         {
-            this.CurrentUser.Name = newName;
+            throw new NotImplementedException();
         }
     }
 }

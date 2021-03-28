@@ -10,17 +10,12 @@ namespace PlanPoker.Services
     public class DiscussionServices
     {
         /// <summary>
-        /// Состояние текущего обсуждения.
-        /// </summary>
-        public Discussion CurrentDiscussion { get; set; }
-
-        /// <summary>
         /// Начать обсуждение.
         /// </summary>
         /// <param name="name">Имя обсуждения.</param>
         public void Start(string name)
         {
-            this.CurrentDiscussion = new Discussion(name);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -37,8 +32,7 @@ namespace PlanPoker.Services
         /// <param name="vote">Оценка участника.</param>
         public void AddVote(Vote vote)
         {
-            if (!this.CurrentDiscussion.Votes.Contains(vote))
-                this.CurrentDiscussion.Votes.Add(vote);
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -48,11 +42,7 @@ namespace PlanPoker.Services
         /// <param name="newVote">Новая оценка участника.</param>
         public void ChangeVote(Vote oldVote, Vote newVote)
         {
-            if (this.CurrentDiscussion.Votes.Contains(oldVote))
-            {
-                this.CurrentDiscussion.Votes.Remove(oldVote);
-                this.CurrentDiscussion.Votes.Add(newVote);
-            }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -61,7 +51,7 @@ namespace PlanPoker.Services
         /// <returns>Коллекция голосов.</returns>
         public List<Vote> GetResults()
         {
-            return this.CurrentDiscussion.Votes;
+            throw new NotImplementedException();
         }
     }
 }
