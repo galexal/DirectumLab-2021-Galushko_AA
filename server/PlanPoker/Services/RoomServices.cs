@@ -1,8 +1,6 @@
-﻿using DataService;
-using DataService.Models;
+﻿using DataService.Models;
 using DataService.Repositories;
 using System;
-using System.Linq;
 
 namespace PlanPoker.Services
 {
@@ -20,9 +18,7 @@ namespace PlanPoker.Services
         /// <param name="ownerId">Хозяин комнаты.</param>
         public Room Create(string name, Guid ownerId)
         {
-            var newRoom = this.Repository.Create();
-            newRoom.Name = name;
-            newRoom.OwnerId = ownerId;
+            var newRoom = new Room(name, ownerId);
             this.Repository.Save(newRoom);
             return newRoom;
         }
@@ -31,28 +27,36 @@ namespace PlanPoker.Services
         /// Добавить участника.
         /// </summary>
         /// <param name="userId">ИД участника.</param>
-        public void AddUser(Guid userId, Room room)
+        public Room AddUser(Guid userId, Guid roomId)
         {
-            if (!room.Participants.Contains(userId))
-                room.Participants.Append(userId);
+            var room = this.Repository.Get(roomId);
+            room.Participants.Add(userId);
+            this.Repository.Save(room);
+            return room;
         }
 
         /// <summary>
         /// Удалить участника.
         /// </summary>
         /// <param name="userId">ИД участника.</param>
-        public void RemoveUser(Guid userId)
+        public Room RemoveUser(Guid userId, Guid roomId)
         {
-            throw new NotImplementedException();
+            var room = this.Repository.Get(roomId);
+            room.Participants.Remove(userId);
+            this.Repository.Save(room);
+            return room;
         }
 
         /// <summary>
         /// Изменить хозяина комнаты.
         /// </summary>
         /// <param name="userId">ИД участника.</param>
-        public void ChangeOwner(Guid userId)
+        public Room ChangeOwner(Guid userId, Guid roomId)
         {
-            throw new NotImplementedException();
+            var room = this.Repository.Get(roomId);
+            room.OwnerId = userId;
+            this.Repository.Save(room);
+            return room;
         }
     }
 }

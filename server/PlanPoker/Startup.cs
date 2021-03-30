@@ -34,7 +34,8 @@ namespace PlanPoker
         {
             services.AddControllers();
 
-            services.AddSingleton<ExampleService>();
+            //services.AddSingleton<ExampleService>();
+            services.AddTransient<RoomServices>();
         }
 
         /// <summary>

@@ -9,7 +9,7 @@ namespace PlanPoker.Controllers
   /// Контроллер.
   /// </summary>
   [ApiController]
-  [Route("api/[controller]")]
+  [Route("api/[controller]/[action]")]
   public class RoomController : ControllerBase
   {
     private readonly RoomServices roomService;
@@ -20,7 +20,7 @@ namespace PlanPoker.Controllers
     /// <param name="roomService">Сервис.</param>
     public RoomController(RoomServices roomService)
     {
-      this.roomService = roomService;
+        this.roomService = roomService;
     }
 
     [HttpGet]
@@ -30,9 +30,21 @@ namespace PlanPoker.Controllers
     }
 
     [HttpGet]
-    public void AddUser(Guid userId)
+    public Room AddUser(Guid userId, Guid roomId)
     {
-        throw new NotImplementedException();
+        return this.roomService.AddUser(userId, roomId);
+    }
+
+    [HttpGet]
+    public Room RemoveUser(Guid userId, Guid roomId)
+    {
+        return this.roomService.RemoveUser(userId, roomId);
+    }
+
+    [HttpGet]
+    public Room ChangeOwner(Guid userId, Guid roomId)
+    {
+        return this.roomService.ChangeOwner(userId, roomId);
     }
   }
 }

@@ -8,14 +8,14 @@ namespace DataService
     /// Интерфейс репозитория.
     /// </summary>
     /// <typeparam name="T">Тип данных репозитория.</typeparam>
-    public interface IRepository<T> where T : IEntity
+    public interface IRepository<T>  where T : IEntity
     {
         /// <summary>
         /// Сохранение.
         /// </summary>
         /// <param name="entity">Объект для сохранения.</param>
         /// <returns>Сохраненный объект.</returns>
-        T Save(T entity);
+        void Save(T entity);
 
         /// <summary>
         /// Получение.
@@ -35,6 +35,6 @@ namespace DataService
         /// </summary>
         /// <param name="id">Идентификатор.</param>
         /// <returns>Объект.</returns>
-        T Delete(Guid id);
+        void Delete(Guid id);
     }
 }
