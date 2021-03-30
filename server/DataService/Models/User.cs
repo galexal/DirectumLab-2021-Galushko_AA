@@ -3,7 +3,7 @@
 namespace DataService.Models
 {
     /// <summary>
-    /// Участник.
+    /// Пользователь.
     /// </summary>
     public class User : Entity
     {
@@ -13,10 +13,10 @@ namespace DataService.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Конструктор участника.
+        /// Конструктор пользователя.
         /// </summary>
         /// <param name="name">Имя участника.</param>
-        public User(string name) : base(new Guid())
+        public User(string name) : base(Guid.NewGuid())
         {
             this.Name = name;
         }

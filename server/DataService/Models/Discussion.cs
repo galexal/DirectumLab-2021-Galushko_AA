@@ -32,7 +32,7 @@ namespace DataService.Models
         /// Конструктор обсуждения.
         /// </summary>
         /// <param name="name">Имя обсуждения.</param>
-        public Discussion(string name) : base(new Guid())
+        public Discussion(string name) : base(Guid.NewGuid())
         {
             this.Name = name;
             this.StartAt = DateTime.Now;

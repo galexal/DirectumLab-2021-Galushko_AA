@@ -28,7 +28,7 @@ namespace DataService.Models
         /// <param name="name">Имя.</param>
         /// <param name="value">Значение.</param>
         /// <param name="userId">Идентификатор участника.</param>
-        public Vote(string name, Card value, Guid userId) : base (new Guid())
+        public Vote(string name, Card value, Guid userId) : base(Guid.NewGuid())
         {
             this.Name = name;
             this.Value = value;

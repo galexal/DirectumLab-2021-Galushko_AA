@@ -3,7 +3,7 @@
 namespace DataService.Models
 {
     /// <summary>
-    /// Интерфейс идентификатора.
+    /// Базовый интерфейс сущности.
     /// </summary>
     public interface IEntity
     {

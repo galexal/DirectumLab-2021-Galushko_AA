@@ -1,15 +1,20 @@
-﻿using DataService.Models;
-using DataService.Repositories;
+﻿using DataService;
+using DataService.Models;
 using System;
 
 namespace PlanPoker.Services
 {
     /// <summary>
-    /// Сервисы комнаты.
+    /// Сервис комнаты.
     /// </summary>
-    public class RoomServices
+    public class RoomService
     {
-        public RoomRepository Repository { get; set; }
+        public readonly IRepository<Room> repository;
+
+        public RoomService(IRepository<Room> repository)
+        {
+            this.repository = repository;
+        }
 
         /// <summary>
         /// Создать комнату.
@@ -19,7 +24,7 @@ namespace PlanPoker.Services
         public Room Create(string name, Guid ownerId)
         {
             var newRoom = new Room(name, ownerId);
-            this.Repository.Save(newRoom);
+            this.repository.Save(newRoom);
             return newRoom;
         }
 
@@ -29,9 +34,9 @@ namespace PlanPoker.Services
         /// <param name="userId">ИД участника.</param>
         public Room AddUser(Guid userId, Guid roomId)
         {
-            var room = this.Repository.Get(roomId);
+            var room = this.repository.Get(roomId);
             room.Participants.Add(userId);
-            this.Repository.Save(room);
+            this.repository.Save(room);
             return room;
         }
 
@@ -41,9 +46,9 @@ namespace PlanPoker.Services
         /// <param name="userId">ИД участника.</param>
         public Room RemoveUser(Guid userId, Guid roomId)
         {
-            var room = this.Repository.Get(roomId);
+            var room = this.repository.Get(roomId);
             room.Participants.Remove(userId);
-            this.Repository.Save(room);
+            this.repository.Save(room);
             return room;
         }
 
@@ -53,9 +58,9 @@ namespace PlanPoker.Services
         /// <param name="userId">ИД участника.</param>
         public Room ChangeOwner(Guid userId, Guid roomId)
         {
-            var room = this.Repository.Get(roomId);
+            var room = this.repository.Get(roomId);
             room.OwnerId = userId;
-            this.Repository.Save(room);
+            this.repository.Save(room);
             return room;
         }
     }

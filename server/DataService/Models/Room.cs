@@ -33,7 +33,7 @@ namespace DataService.Models
         /// </summary>
         /// <param name="name">Имя комнаты.</param>
         /// <param name="ownerId">Хозяин комнаты.</param>
-        public Room(string name, Guid ownerId) : base(new Guid())
+        public Room(string name, Guid ownerId) : base(Guid.NewGuid())
         {
             this.Name = name;
             this.OwnerId = ownerId;

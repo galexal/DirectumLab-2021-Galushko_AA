@@ -1,3 +1,6 @@
+using DataService;
+using DataService.Models;
+using DataService.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -34,8 +37,15 @@ namespace PlanPoker
         {
             services.AddControllers();
 
-            //services.AddSingleton<ExampleService>();
-            services.AddTransient<RoomServices>();
+            services.AddSingleton<ExampleService>();
+            services.AddTransient<RoomService>();
+            services.AddTransient<DiscussionService>();
+            services.AddTransient<UserService>();
+            services.AddSingleton<IRepository<Room>, RoomRepository>();
+            services.AddSingleton<IRepository<Card>, CardRepository>();
+            services.AddSingleton<IRepository<Discussion>, DiscussionRepository>();
+            services.AddSingleton<IRepository<Vote>, VoteRepository>();
+            services.AddSingleton<IRepository<User>, UserRepository>();
         }
 
         /// <summary>

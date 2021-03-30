@@ -1,8 +1,7 @@
-﻿using System;
+﻿using DataService.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using DataService.Models;
 
 
 namespace DataService.Repositories
@@ -10,7 +9,7 @@ namespace DataService.Repositories
     public class InMemoryRepository<T> : IRepository<T> where T : IEntity
     {
         private readonly IList<T> entities = new List<T>();
-        
+
         public T Get(Guid id)
         {
             return entities.SingleOrDefault(e => e.Id == id);
@@ -21,15 +20,17 @@ namespace DataService.Repositories
             return entities.AsQueryable();
         }
 
-        public void Save(T entity)
+        public T Save(T entity)
         {
             this.entities.Add(entity);
+            return entity;
         }
 
-        public void Delete(Guid id)
+        public T Delete(Guid id)
         {
-            var entity=this.entities.SingleOrDefault(e=>e.Id==id);
+            var entity = this.entities.SingleOrDefault(e => e.Id == id);
             entities.Remove(entity);
+            return entity;
         }
     }
 }
