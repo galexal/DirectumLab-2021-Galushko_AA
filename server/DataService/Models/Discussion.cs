@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlanPoker.ValueObject;
+using System;
 using System.Collections.Generic;
 
 namespace DataService.Models
@@ -36,6 +37,7 @@ namespace DataService.Models
         {
             this.Name = name;
             this.StartAt = DateTime.Now;
+            this.Votes = new List<Vote>();
         }
     }
 }

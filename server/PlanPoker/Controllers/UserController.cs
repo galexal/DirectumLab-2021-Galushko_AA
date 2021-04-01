@@ -1,5 +1,5 @@
-﻿using DataService.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using PlanPoker.DTO;
 using PlanPoker.Services;
 using System;
 
@@ -24,15 +24,15 @@ namespace PlanPoker.Controllers
         }
 
         [HttpGet]
-        public User Create(string name)
+        public UserDTO Create(string name)
         {
             return this.userService.Create(name);
         }
 
         [HttpGet]
-        public User ChangeName(string newName, Guid userId)
+        public UserDTO ChangeName(string newName, Guid userId, string token)
         {
-            return this.userService.ChangeName(newName, userId);
+            return this.userService.ChangeName(newName, userId, token);
         }
     }
 }

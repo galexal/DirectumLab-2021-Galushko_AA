@@ -37,6 +37,8 @@ namespace DataService.Models
         {
             this.Name = name;
             this.OwnerId = ownerId;
+            this.Participants = new List<Guid>();
+            this.Discussions = new List<Guid>();
         }
     }
 }

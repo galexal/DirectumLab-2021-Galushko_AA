@@ -1,7 +1,9 @@
 ﻿using DataService;
 using DataService.Models;
+using PlanPoker.ValueObject;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PlanPoker.Services
 {
@@ -55,11 +57,11 @@ namespace PlanPoker.Services
         /// <summary>
         /// Изменить оценку.
         /// </summary>
-        /// <param name="oldVote">Старая оценка участника.</param>
         /// <param name="newVote">Новая оценка участника.</param>
-        public Discussion ChangeVote(Vote oldVote, Vote newVote, Guid discussionId)
+        public Discussion ChangeVote(Vote newVote, Guid discussionId)
         {
             var discussion = this.repository.Get(discussionId);
+            var oldVote = (Vote)discussion.Votes.Where(v => v.UserId == newVote.UserId).Select(v=>v);
             discussion.Votes.Remove(oldVote);
             discussion.Votes.Add(newVote);
             this.repository.Save(discussion);

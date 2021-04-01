@@ -22,7 +22,14 @@ namespace DataService.Repositories
 
         public T Save(T entity)
         {
-            this.entities.Add(entity);
+            if (!entities.Contains(entity))
+                this.entities.Add(entity);
+            else 
+            {
+                entities.Remove(entity);
+                entities.Add(entity);
+            } 
+            
             return entity;
         }
 

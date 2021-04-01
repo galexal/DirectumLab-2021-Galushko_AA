@@ -1,21 +1,16 @@
 ﻿using System;
 
-namespace DataService.Models
+namespace PlanPoker.ValueObject
 {
     /// <summary>
     /// Оценка.
     /// </summary>
-    public class Vote : Entity
+    public class Vote
     {
-        /// <summary>
-        /// Имя.
-        /// </summary>
-        public string Name { get; set; }
-
         /// <summary>
         /// Значение.
         /// </summary>
-        public Card Value { get; set; }
+        public Guid CardId { get; set; }
 
         /// <summary>
         /// Идентификатор участника.
@@ -25,13 +20,11 @@ namespace DataService.Models
         /// <summary>
         /// Конструктор.
         /// </summary>
-        /// <param name="name">Имя.</param>
         /// <param name="value">Значение.</param>
         /// <param name="userId">Идентификатор участника.</param>
-        public Vote(string name, Card value, Guid userId) : base(Guid.NewGuid())
+        public Vote(Guid cardId, Guid userId)
         {
-            this.Name = name;
-            this.Value = value;
+            this.CardId = cardId;
             this.UserId = userId;
         }
     }

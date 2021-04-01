@@ -12,6 +12,8 @@ namespace DataService.Models
         /// </summary>
         public string Name { get; set; }
 
+        public string Token { get; set; }
+
         /// <summary>
         /// Конструктор пользователя.
         /// </summary>
@@ -19,6 +21,7 @@ namespace DataService.Models
         public User(string name) : base(Guid.NewGuid())
         {
             this.Name = name;
+            this.Token = Guid.NewGuid().ToString();
         }
     }
 }

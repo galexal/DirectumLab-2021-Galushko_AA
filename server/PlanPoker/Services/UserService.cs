@@ -1,5 +1,6 @@
 ﻿using DataService;
 using DataService.Models;
+using PlanPoker.DTO;
 using System;
 
 namespace PlanPoker.Services
@@ -20,11 +21,11 @@ namespace PlanPoker.Services
         /// Создать пользователя.
         /// </summary>
         /// <param name="name">Имя пользователя.</param>
-        public User Create(string name)
+        public UserDTO Create(string name)
         {
             var newUser = new User(name);
             this.repository.Save(newUser);
-            return newUser;
+            return new UserDTOBuilder().Builder(newUser);
 
         }
 
@@ -32,12 +33,14 @@ namespace PlanPoker.Services
         /// Изменить имя пользователя.
         /// </summary>
         /// <param name="newName">Новое имя пользователя.</param>
-        public User ChangeName(string newName, Guid userId)
+        public UserDTO ChangeName(string newName, Guid userId, string token)
         {
             var user = this.repository.Get(userId);
+            if (!user.Token.Equals(token))
+                throw new UnauthorizedAccessException();
             user.Name = newName;
             this.repository.Save(user);
-            return user;
+            return new UserDTOBuilder().Builder(user);
         }
     }
 }

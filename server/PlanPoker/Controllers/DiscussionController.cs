@@ -1,6 +1,7 @@
 ﻿using DataService.Models;
 using Microsoft.AspNetCore.Mvc;
 using PlanPoker.Services;
+using PlanPoker.ValueObject;
 using System;
 using System.Collections.Generic;
 
@@ -36,16 +37,16 @@ namespace PlanPoker.Controllers
             return this.discussionService.Close(discussionId);
         }
 
-        [HttpGet]
+        [HttpPost]
         public Discussion AddVote(Vote vote, Guid discussionId)
         {
             return this.discussionService.AddVote(vote, discussionId);
         }
 
         [HttpGet]
-        public Discussion ChangeVote(Vote oldVote, Vote newVote, Guid discussionId)
+        public Discussion ChangeVote(Vote newVote, Guid discussionId)
         {
-            return this.discussionService.ChangeVote(oldVote, newVote, discussionId);
+            return this.discussionService.ChangeVote(newVote, discussionId);
         }
 
         [HttpGet]
