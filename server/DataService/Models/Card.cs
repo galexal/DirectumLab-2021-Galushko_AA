@@ -2,24 +2,26 @@
 
 namespace DataService.Models
 {
+    /// <summary>
+    /// Сущность карта.
+    /// </summary>
     public class Card : Entity
     {
         /// <summary>
-        /// Имя.
+        /// Имя карты.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Значение.
+        /// Значение карты.
         /// </summary>
         public double? Value { get; set; }
 
         /// <summary>
-        /// Конструктор.
+        /// Конструктор карты.
         /// </summary>
-        /// <param name="name">Имя.</param>
-        /// <param name="value">Значение.</param>
-        /// <param name="userId">Идентификатор участника.</param>
+        /// <param name="name">Имя карты.</param>
+        /// <param name="value">Значение карты.</param>
         public Card(string name, double? value) : base(Guid.NewGuid())
         {
             this.Name = name;

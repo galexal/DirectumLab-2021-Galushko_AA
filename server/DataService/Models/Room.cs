@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace DataService.Models
 {
     /// <summary>
-    /// Комната.
+    /// Сущность комната.
     /// </summary>
     public class Room : Entity
     {
         /// <summary>
-        /// Имя.
+        /// Имя комнаты.
         /// </summary>
         public string Name { get; set; }
 
@@ -19,14 +19,14 @@ namespace DataService.Models
         public Guid OwnerId { get; set; }
 
         /// <summary>
-        /// Участники.
+        /// Участники комнаты.
         /// </summary>
-        public List<Guid> Participants { get; set; }
+        public ICollection<Guid> Participants { get; }
 
         /// <summary>
-        /// Обсуждения.
+        /// Обсуждения в комнате.
         /// </summary>
-        public List<Guid> Discussions { get; set; }
+        public ICollection<Guid> Discussions { get; }
 
         /// <summary>
         /// Конструктор комнаты.

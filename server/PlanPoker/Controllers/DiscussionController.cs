@@ -1,5 +1,5 @@
-﻿using DataService.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using PlanPoker.DTO;
 using PlanPoker.Services;
 using PlanPoker.ValueObject;
 using System;
@@ -8,49 +8,83 @@ using System.Collections.Generic;
 namespace PlanPoker.Controllers
 {
     /// <summary>
-    /// Контроллер.
+    /// Контроллер обсуждений.
     /// </summary>
     [ApiController]
     [Route("api/[controller]/[action]")]
     public class DiscussionController : ControllerBase
     {
+        /// <summary>
+        /// Сервис обсуждений.
+        /// </summary>
         private readonly DiscussionService discussionService;
 
         /// <summary>
-        /// Конструктор.
+        /// Конструктор контроллера обсуждений.
         /// </summary>
-        /// <param name="roomService">Сервис.</param>
+        /// <param name="discussionService">Сервис обсуждений.</param>
         public DiscussionController(DiscussionService discussionService)
         {
             this.discussionService = discussionService;
         }
 
+        /// <summary>
+        /// Запуск обсуждения.
+        /// </summary>
+        /// <param name="name">Имя обсуждения.</param>
+        /// <returns>Обсуждение.</returns>
         [HttpGet]
-        public Discussion Start(string name)
+        public DiscussionDTO Start(string name)
         {
-            return this.discussionService.Start(name);
+            var discussion = this.discussionService.Start(name);
+            return new DiscussionDTOBuilder().Builder(discussion);
         }
 
+        /// <summary>
+        /// Закрытие обсуждения.
+        /// </summary>
+        /// <param name="discussionId">Ид обсуждения.</param>
+        /// <returns>Обсуждение.</returns>
         [HttpGet]
-        public Discussion Close(Guid discussionId)
+        public DiscussionDTO Close(Guid discussionId)
         {
-            return this.discussionService.Close(discussionId);
+            var discussion = this.discussionService.Close(discussionId);
+            return new DiscussionDTOBuilder().Builder(discussion);
         }
 
+        /// <summary>
+        /// Добавить голос.
+        /// </summary>
+        /// <param name="vote">Голос.</param>
+        /// <param name="discussionId">Ид обсуждения.</param>
+        /// <returns>Обсуждение.</returns>
         [HttpPost]
-        public Discussion AddVote(Vote vote, Guid discussionId)
+        public DiscussionDTO AddVote(Vote vote, Guid discussionId)
         {
-            return this.discussionService.AddVote(vote, discussionId);
+            var discussion = this.discussionService.AddVote(vote, discussionId);
+            return new DiscussionDTOBuilder().Builder(discussion);
         }
 
+        /// <summary>
+        /// Изменить голос.
+        /// </summary>
+        /// <param name="newVote">Новый голос.</param>
+        /// <param name="discussionId">Ид обсуждения.</param>
+        /// <returns>Обсуждение.</returns>
         [HttpGet]
-        public Discussion ChangeVote(Vote newVote, Guid discussionId)
+        public DiscussionDTO ChangeVote(Vote newVote, Guid discussionId)
         {
-            return this.discussionService.ChangeVote(newVote, discussionId);
+            var discussion = this.discussionService.ChangeVote(newVote, discussionId);
+            return new DiscussionDTOBuilder().Builder(discussion);
         }
 
+        /// <summary>
+        /// Получить результаты обсуждения.
+        /// </summary>
+        /// <param name="discussionId">Ид обсуждения.</param>
+        /// <returns>Список голосов.</returns>
         [HttpGet]
-        public List<Vote> GetResults(Guid discussionId)
+        public IEnumerable<Vote> GetResults(Guid discussionId)
         {
             return this.discussionService.GetResults(discussionId);
         }

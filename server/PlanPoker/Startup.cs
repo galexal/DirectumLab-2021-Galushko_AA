@@ -37,13 +37,14 @@ namespace PlanPoker
         {
             services.AddControllers();
 
-            services.AddTransient<RoomService>();
-            services.AddTransient<DiscussionService>();
             services.AddTransient<UserService>();
+            services.AddTransient<RoomService>();
+            services.AddTransient<CardService>();
+            services.AddTransient<DiscussionService>();
+            services.AddSingleton<IRepository<User>, UserRepository>();
             services.AddSingleton<IRepository<Room>, RoomRepository>();
             services.AddSingleton<IRepository<Card>, CardRepository>();
             services.AddSingleton<IRepository<Discussion>, DiscussionRepository>();
-            services.AddSingleton<IRepository<UserDTO>, UserRepository>();
         }
 
         /// <summary>

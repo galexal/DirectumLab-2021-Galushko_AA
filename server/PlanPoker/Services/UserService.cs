@@ -1,6 +1,5 @@
 ﻿using DataService;
 using DataService.Models;
-using PlanPoker.DTO;
 using System;
 
 namespace PlanPoker.Services
@@ -10,8 +9,15 @@ namespace PlanPoker.Services
     /// </summary>
     public class UserService
     {
-        public readonly IRepository<User> repository;
+        /// <summary>
+        /// Репозиторий пользователей.
+        /// </summary>
+        private readonly IRepository<User> repository;
 
+        /// <summary>
+        /// Конструктор сервиса пользователей.
+        /// </summary>
+        /// <param name="repository">Репозиторий пользователей.</param>
         public UserService(IRepository<User> repository)
         {
             this.repository = repository;
@@ -21,26 +27,29 @@ namespace PlanPoker.Services
         /// Создать пользователя.
         /// </summary>
         /// <param name="name">Имя пользователя.</param>
-        public UserDTO Create(string name)
+        /// <returns>Пользователь.</returns>
+        public User Create(string name)
         {
             var newUser = new User(name);
             this.repository.Save(newUser);
-            return new UserDTOBuilder().Builder(newUser);
-
+            return newUser;
         }
 
         /// <summary>
         /// Изменить имя пользователя.
         /// </summary>
         /// <param name="newName">Новое имя пользователя.</param>
-        public UserDTO ChangeName(string newName, Guid userId, string token)
+        /// <param name="userId">Ид пользователя.</param>
+        /// <param name="token">Токен пользователя.</param>
+        /// <returns>Пользователь.</returns>
+        public User ChangeName(string newName, Guid userId, string token)
         {
             var user = this.repository.Get(userId);
             if (!user.Token.Equals(token))
                 throw new UnauthorizedAccessException();
             user.Name = newName;
             this.repository.Save(user);
-            return new UserDTOBuilder().Builder(user);
+            return user;
         }
     }
 }

@@ -11,30 +11,30 @@ namespace DataService
     public interface IRepository<T> where T : IEntity
     {
         /// <summary>
-        /// Сохранение.
+        /// Сохранить экземпляр сущности.
         /// </summary>
-        /// <param name="entity">Объект для сохранения.</param>
-        /// <returns>Сохраненный объект.</returns>
+        /// <param name="entity">Экземпляр сущности.</param>
+        /// <returns>Cущность.</returns>
         T Save(T entity);
 
         /// <summary>
-        /// Получение.
+        /// Получение экземпляра сущности по ид.
         /// </summary>
-        /// <param name="id">Идентификатор.</param>
-        /// <returns>Объект.</returns>
+        /// <param name="id">Ид.</param>
+        /// <returns>Экземпляр сущности.</returns>
         T Get(Guid id);
 
         /// <summary>
-        /// Получение всех.
+        /// Получить все экземпляры сущности.
         /// </summary>
-        /// <returns>Коллекция.</returns>
+        /// <returns>Все экземпляры сущности.</returns>
         IQueryable<T> GetAll();
 
         /// <summary>
-        /// Удаление.
+        /// Удалить экземпляр сущности.
         /// </summary>
-        /// <param name="id">Идентификатор.</param>
-        /// <returns>Объект.</returns>
+        /// <param name="id">Ид сущности.</param>
+        /// <returns>Экземпляр сущности.</returns>
         T Delete(Guid id);
     }
 }

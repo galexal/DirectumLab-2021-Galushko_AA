@@ -3,12 +3,12 @@
 namespace DataService.Models
 {
     /// <summary>
-    /// Базовый интерфейс сущности.
+    /// Интерфейс сущности.
     /// </summary>
     public interface IEntity
     {
         /// <summary>
-        /// Идентификатор.
+        /// Ид.
         /// </summary>
         Guid Id { get; }
     }

@@ -3,29 +3,39 @@
 namespace PlanPoker.ValueObject
 {
     /// <summary>
-    /// Оценка.
+    /// Оценка (объект-значение).
     /// </summary>
-    public class Vote
+    public struct Vote : IEquatable<Vote>
     {
         /// <summary>
-        /// Значение.
+        /// Ид карты.
         /// </summary>
-        public Guid CardId { get; set; }
+        public Guid CardId { get; }
 
         /// <summary>
-        /// Идентификатор участника.
+        /// Ид пользователя.
         /// </summary>
-        public Guid UserId { get; set; }
+        public Guid UserId { get; }
 
         /// <summary>
-        /// Конструктор.
+        /// Конструктор оценки.
         /// </summary>
-        /// <param name="value">Значение.</param>
-        /// <param name="userId">Идентификатор участника.</param>
+        /// <param name="cardId">Ид карты.</param>
+        /// <param name="userId">Ид пользователя.</param>
         public Vote(Guid cardId, Guid userId)
         {
             this.CardId = cardId;
             this.UserId = userId;
+        }
+
+        /// <summary>
+        /// Сравнение оценок.
+        /// </summary>
+        /// <param name="other">Сравниваемая оценка.</param>
+        /// <returns>Результат сравнения.</returns>
+        public bool Equals(Vote other)
+        {
+            return this.CardId.Equals(other.CardId) && this.UserId.Equals(other.UserId);
         }
     }
 }

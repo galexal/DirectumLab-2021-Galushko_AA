@@ -1,32 +1,45 @@
 ﻿using DataService;
 using DataService.Models;
-using System;
+using PlanPoker.DTO;
 using System.Collections.Generic;
 
 namespace PlanPoker.Services
 {
     /// <summary>
-    /// Сервис пользователя.
+    /// Сервис карт.
     /// </summary>
     public class CardService
     {
-        public readonly IRepository<Card> repository;
+        /// <summary>
+        /// Репозиторий карт.
+        /// </summary>
+        private readonly IRepository<Card> repository;
 
+        /// <summary>
+        /// Конструктор сервиса карт.
+        /// </summary>
+        /// <param name="repository">Репозиторий карт.</param>
         public CardService(IRepository<Card> repository)
         {
             this.repository = repository;
         }
 
-        public List<Card> CreateDeck()
+        /// <summary>
+        /// Создать деку.
+        /// </summary>
+        /// <returns>Список DTO карт.</returns>
+        public IEnumerable<CardDTO> CreateDeck()
         {
-            var deck = new List<Card>();
+            var deckDTO = new List<CardDTO>();
             for (int i = 0; i < 10; i++)
             {
-                var card = new Card(i.ToString(),i);
+                var card = new Card(i.ToString(), i);
                 this.repository.Save(card);
-                deck.Add(card);
+                var cardDTO = new CardDTOBuilder();
+                deckDTO.Add(cardDTO.Builder(card));
             }
-            return deck;
+
+            return deckDTO;
         }
     }
 }

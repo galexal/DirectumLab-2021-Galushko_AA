@@ -2,13 +2,18 @@
 using System;
 using System.Collections.Generic;
 
-namespace DataService.Models
+namespace PlanPoker.DTO
 {
     /// <summary>
-    /// Сущность обсуждение.
+    /// DTO обсуждения.
     /// </summary>
-    public class Discussion : Entity
+    public class DiscussionDTO
     {
+        /// <summary>
+        /// Ид обсуждения.
+        /// </summary>
+        public Guid Id { get; set; }
+
         /// <summary>
         /// Имя обсуждения.
         /// </summary>
@@ -27,17 +32,6 @@ namespace DataService.Models
         /// <summary>
         /// Оценки.
         /// </summary>
-        public ICollection<Vote> Votes { get; }
-
-        /// <summary>
-        /// Конструктор обсуждения.
-        /// </summary>
-        /// <param name="name">Имя обсуждения.</param>
-        public Discussion(string name) : base(Guid.NewGuid())
-        {
-            this.Name = name;
-            this.StartAt = DateTime.Now;
-            this.Votes = new List<Vote>();
-        }
+        public ICollection<Vote> Votes { get; set; }
     }
 }

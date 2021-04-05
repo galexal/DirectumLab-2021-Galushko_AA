@@ -2,8 +2,10 @@
 
 namespace DataService.Repositories
 {
-    public class CardRepository : InMemoryRepository<Card>
-    {
-
+    /// <summary>
+    /// Репозиторий для карт.
+    /// </summary>
+    public class CardRepository : InMemoryRepository<Card> 
+    { 
     }
 }

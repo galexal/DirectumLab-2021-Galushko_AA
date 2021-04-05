@@ -3,18 +3,23 @@
 namespace PlanPoker.DTO
 {
     /// <summary>
-    /// DTO пользователя.
+    /// DTO карты.
     /// </summary>
-    public class UserDTO
+    public class CardDTO
     {
         /// <summary>
-        /// Ид пользователя.
+        /// Ид карты.
         /// </summary>
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Имя пользователя.
+        /// Имя карты.
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Значение карты.
+        /// </summary>
+        public double? Value { get; set; }
     }
 }
