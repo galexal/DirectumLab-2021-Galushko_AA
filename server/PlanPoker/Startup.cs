@@ -3,6 +3,7 @@ using DataService.Models;
 using DataService.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,7 +36,12 @@ namespace PlanPoker
         /// <param name="services">Сервисы.</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            var mvcBuilder = services.AddControllers();
+
+            mvcBuilder.Services.Configure((MvcOptions options) =>
+            {
+                options.Filters.Add<ExceptionFilter>();
+            });
 
             services.AddTransient<UserService>();
             services.AddTransient<RoomService>();

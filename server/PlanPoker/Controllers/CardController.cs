@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PlanPoker.DTO;
 using PlanPoker.Services;
+using System;
 using System.Collections.Generic;
 
 namespace PlanPoker.Controllers
@@ -27,13 +28,15 @@ namespace PlanPoker.Controllers
         }
 
         /// <summary>
-        /// Создание деки.
+        /// Получить карту.
         /// </summary>
-        /// <returns>Список карт.</returns>
+        /// <param name="cardId">Ид карты.</param>
+        /// <returns>Карта.</returns>
         [HttpGet]
-        public IEnumerable<CardDTO> CreateDeck()
+        public CardDTO GetCard(Guid cardId)
         {
-            return this.cardService.CreateDeck();
+            var card = this.cardService.GetCard(cardId);
+            return new CardDTOBuilder().Builder(card);
         }
     }
 }

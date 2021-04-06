@@ -38,9 +38,21 @@ namespace PlanPoker.Services
         /// <returns>Комната.</returns>
         public Room Create(string name, Guid ownerId)
         {
+            if (string.IsNullOrEmpty(name))
+                throw new FormatException();
             var newRoom = new Room(name, ownerId);
             this.roomRepository.Save(newRoom);
             return newRoom;
+        }
+
+        /// <summary>
+        /// Получить состояние комнаты.
+        /// </summary>
+        /// <param name="roomId">Ид комнаты.</param>
+        /// <returns>Комната.</returns>
+        public Room Get(Guid roomId)
+        {
+            return this.roomRepository.Get(roomId);
         }
 
         /// <summary>

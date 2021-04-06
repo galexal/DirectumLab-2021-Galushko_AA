@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using PlanPoker.DTO;
 using PlanPoker.Services;
 using System;
@@ -78,6 +79,18 @@ namespace PlanPoker.Controllers
         public RoomDTO ChangeOwner(Guid userId, Guid roomId, string token)
         {
             var room = this.roomService.ChangeOwner(userId, roomId, token);
+            return new RoomDTOBuilder().Builder(room);
+        }
+
+        /// <summary>
+        /// Получить состояние комнаты.
+        /// </summary>
+        /// <param name="roomId">Ид комнаты.</param>
+        /// <returns>Комната.</returns>
+        [HttpGet]
+        public RoomDTO GetRoomDTO(Guid roomId)
+        {
+            var room = this.roomService.Get(roomId);
             return new RoomDTOBuilder().Builder(room);
         }
     }

@@ -1,7 +1,6 @@
 ﻿using DataService;
 using DataService.Models;
-using PlanPoker.DTO;
-using System.Collections.Generic;
+using System;
 
 namespace PlanPoker.Services
 {
@@ -25,21 +24,13 @@ namespace PlanPoker.Services
         }
 
         /// <summary>
-        /// Создать деку.
+        /// Получить карту.
         /// </summary>
-        /// <returns>Список DTO карт.</returns>
-        public IEnumerable<CardDTO> CreateDeck()
+        /// <param name="cardId">Ид карты.</param>
+        /// <returns>Карта.</returns>
+        public Card GetCard(Guid cardId)
         {
-            var deckDTO = new List<CardDTO>();
-            for (int i = 0; i < 10; i++)
-            {
-                var card = new Card(i.ToString(), i);
-                this.repository.Save(card);
-                var cardDTO = new CardDTOBuilder();
-                deckDTO.Add(cardDTO.Builder(card));
-            }
-
-            return deckDTO;
+            return this.repository.Get(cardId);
         }
     }
 }

@@ -33,6 +33,8 @@ namespace PlanPoker.Services
         /// <returns>Обсуждение.</returns>
         public Discussion Start(string name)
         {
+            if (string.IsNullOrEmpty(name))
+                throw new FormatException();
             var newDiscussion = new Discussion(name);
             newDiscussion.StartAt = DateTime.Now;
             this.repository.Save(newDiscussion);
