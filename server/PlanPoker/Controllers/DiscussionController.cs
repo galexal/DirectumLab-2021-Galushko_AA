@@ -32,11 +32,13 @@ namespace PlanPoker.Controllers
         /// Запуск обсуждения.
         /// </summary>
         /// <param name="name">Имя обсуждения.</param>
+        /// <param name="roomId">Ид комнаты.</param>
+        /// <param name="token">Токен хозяина комнаты.</param>
         /// <returns>Обсуждение.</returns>
         [HttpGet]
-        public DiscussionDTO Start(string name)
+        public DiscussionDTO Start(string name, Guid roomId, string token)
         {
-            var discussion = this.discussionService.Start(name);
+            var discussion = this.discussionService.Start(name, roomId, token);
             return new DiscussionDTOBuilder().Builder(discussion);
         }
 
@@ -44,37 +46,28 @@ namespace PlanPoker.Controllers
         /// Закрытие обсуждения.
         /// </summary>
         /// <param name="discussionId">Ид обсуждения.</param>
+        /// <param name="roomId">Ид комнаты.</param>
+        /// <param name="token">Токен хозяина комнаты.</param>
         /// <returns>Обсуждение.</returns>
         [HttpGet]
-        public DiscussionDTO Close(Guid discussionId)
+        public DiscussionDTO Close(Guid discussionId, Guid roomId, string token)
         {
-            var discussion = this.discussionService.Close(discussionId);
+            var discussion = this.discussionService.Close(discussionId, roomId, token);
             return new DiscussionDTOBuilder().Builder(discussion);
         }
 
         /// <summary>
-        /// Добавить голос.
+        /// Добавить или изменить оценку.
         /// </summary>
         /// <param name="vote">Голос.</param>
         /// <param name="discussionId">Ид обсуждения.</param>
+        /// <param name="roomId">Ид комнаты.</param>
+        /// <param name="token">Токен пользователя.</param>
         /// <returns>Обсуждение.</returns>
         [HttpPost]
-        public DiscussionDTO AddVote(Vote vote, Guid discussionId)
+        public DiscussionDTO Vote(Vote vote, Guid discussionId, Guid roomId, string token)
         {
-            var discussion = this.discussionService.AddVote(vote, discussionId);
-            return new DiscussionDTOBuilder().Builder(discussion);
-        }
-
-        /// <summary>
-        /// Изменить голос.
-        /// </summary>
-        /// <param name="newVote">Новый голос.</param>
-        /// <param name="discussionId">Ид обсуждения.</param>
-        /// <returns>Обсуждение.</returns>
-        [HttpGet]
-        public DiscussionDTO ChangeVote(Vote newVote, Guid discussionId)
-        {
-            var discussion = this.discussionService.ChangeVote(newVote, discussionId);
+            var discussion = this.discussionService.Vote(vote, discussionId, roomId, token);
             return new DiscussionDTOBuilder().Builder(discussion);
         }
 

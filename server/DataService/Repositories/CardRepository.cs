@@ -1,24 +1,26 @@
 ﻿using DataService.Models;
-using System.Collections.Generic;
 
 namespace DataService.Repositories
 {
     /// <summary>
     /// Репозиторий для карт.
     /// </summary>
-    public class CardRepository : InMemoryRepository<Card> 
+    public class CardRepository : InMemoryRepository<Card>
     {
         /// <summary>
         /// Конструктор репозитория карт.
         /// </summary>
         public CardRepository()
         {
-            var cardRepository = new CardRepository();
-            for (int i = 0; i < 10; i++)
+            double[] cardValues = { 0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100 };
+            for (int i = 0; i < cardValues.Length; i++)
             {
-                var card = new Card(i.ToString(), i);
-                cardRepository.Save(card);
+                var card = new Card(cardValues[i].ToString(), cardValues[i]);
+                this.Save(card);
             }
+
+            this.Save(new Card("Question", null));
+            this.Save(new Card("Coffee", null));
         }
     }
 }

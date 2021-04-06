@@ -39,7 +39,7 @@ namespace PlanPoker.Services
         public Room Create(string name, Guid ownerId)
         {
             if (string.IsNullOrEmpty(name))
-                throw new FormatException();
+                throw new FormatException("Имя комнаты не может быть пустым.");
             var newRoom = new Room(name, ownerId);
             this.roomRepository.Save(newRoom);
             return newRoom;
@@ -60,15 +60,10 @@ namespace PlanPoker.Services
         /// </summary>
         /// <param name="userId">ИД пользователя.</param>
         /// <param name="roomId">Ид комнаты.</param>
-        /// <param name="token">Токен хозяина комнаты.</param>
         /// <returns>Комната.</returns>
-        public Room AddUser(Guid userId, Guid roomId, string token)
+        public Room AddUser(Guid userId, Guid roomId)
         {
             var room = this.roomRepository.Get(roomId);
-            var ownerId = room.OwnerId;
-            var owner = this.userRepository.Get(ownerId);
-            if (!owner.Token.Equals(token))
-                throw new UnauthorizedAccessException();
             room.Participants.Add(userId);
             this.roomRepository.Save(room);
             return room;
@@ -79,15 +74,16 @@ namespace PlanPoker.Services
         /// </summary>
         /// <param name="userId">ИД пользователя.</param>
         /// <param name="roomId">Ид комнаты.</param>
-        /// <param name="token">Токен хозяина комнаты.</param>
+        /// <param name="token">Токен пользователя или хозяина комнаты.</param>
         /// <returns>Комната.</returns>
         public Room RemoveUser(Guid userId, Guid roomId, string token)
         {
             var room = this.roomRepository.Get(roomId);
             var ownerId = room.OwnerId;
             var owner = this.userRepository.Get(ownerId);
-            if (!owner.Token.Equals(token))
-                throw new UnauthorizedAccessException();
+            var user = this.userRepository.Get(userId);
+            if (!(owner.Token.Equals(token) || user.Token.Equals(token)))
+                throw new UnauthorizedAccessException("Удалить другого пользователя может только хозяин комнаты.");
             room.Participants.Remove(userId);
             this.roomRepository.Save(room);
             return room;
@@ -106,7 +102,7 @@ namespace PlanPoker.Services
             var ownerId = room.OwnerId;
             var owner = this.userRepository.Get(ownerId);
             if (!owner.Token.Equals(token))
-                throw new UnauthorizedAccessException();
+                throw new UnauthorizedAccessException("Сменить хозяина комнаты может только текущий хозяин комнаты.");
             room.OwnerId = userId;
             this.roomRepository.Save(room);
             return room;

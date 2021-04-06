@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using PlanPoker.DTO;
 using PlanPoker.Services;
 using System;
@@ -45,12 +44,11 @@ namespace PlanPoker.Controllers
         /// </summary>
         /// <param name="userId">Ид пользователя.</param>
         /// <param name="roomId">Ид комнаты.</param>
-        /// <param name="token">Токен хозяина комнаты.</param>
         /// <returns>Комната.</returns>
         [HttpGet]
-        public RoomDTO AddUser(Guid userId, Guid roomId, string token)
+        public RoomDTO AddUser(Guid userId, Guid roomId)
         {
-            var room = this.roomService.AddUser(userId, roomId, token);
+            var room = this.roomService.AddUser(userId, roomId);
             return new RoomDTOBuilder().Builder(room);
         }
 
@@ -88,7 +86,7 @@ namespace PlanPoker.Controllers
         /// <param name="roomId">Ид комнаты.</param>
         /// <returns>Комната.</returns>
         [HttpGet]
-        public RoomDTO GetRoomDTO(Guid roomId)
+        public RoomDTO GetState(Guid roomId)
         {
             var room = this.roomService.Get(roomId);
             return new RoomDTOBuilder().Builder(room);

@@ -31,7 +31,7 @@ namespace PlanPoker.Services
         public User Create(string name)
         {
             if (string.IsNullOrEmpty(name))
-                throw new FormatException();
+                throw new FormatException("Имя пользователя не может быть пустым");
             var newUser = new User(name);
             this.repository.Save(newUser);
             return newUser;
@@ -47,10 +47,10 @@ namespace PlanPoker.Services
         public User ChangeName(string newName, Guid userId, string token)
         {
             if (string.IsNullOrEmpty(newName))
-                throw new FormatException();
+                throw new FormatException("Имя пользователя не может быть пустым");
             var user = this.repository.Get(userId);
             if (!user.Token.Equals(token))
-                throw new UnauthorizedAccessException();
+                throw new UnauthorizedAccessException("Сменить имя может только сам пользователь.");
             user.Name = newName;
             this.repository.Save(user);
             return user;

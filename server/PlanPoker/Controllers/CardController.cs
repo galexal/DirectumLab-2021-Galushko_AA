@@ -2,7 +2,6 @@
 using PlanPoker.DTO;
 using PlanPoker.Services;
 using System;
-using System.Collections.Generic;
 
 namespace PlanPoker.Controllers
 {
