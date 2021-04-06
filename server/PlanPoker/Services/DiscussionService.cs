@@ -97,9 +97,9 @@ namespace PlanPoker.Services
             if (!(user.Token.Equals(token) && room.Participants.Contains(user.Id)))
                 throw new UnauthorizedAccessException("Проголосовать может только сам участник комнаты.");
             var discussion = this.discussionRepository.Get(discussionId);
-            var oldVote = discussion.Votes.Where(v => v.UserId == vote.UserId).Select(v => v);
-            if (discussion.Votes.Contains(oldVote.ElementAt(0)))
-                discussion.Votes.Remove(oldVote.ElementAt(0));
+            var oldVote = discussion.Votes.FirstOrDefault(v => v.UserId == vote.UserId);
+            if (discussion.Votes.Contains(oldVote))
+                discussion.Votes.Remove(oldVote);
             discussion.Votes.Add(vote);
             this.discussionRepository.Save(discussion);
             return discussion;

@@ -34,13 +34,42 @@ namespace Tests
         }
 
         [Test]
+        public void GetRoomState()
+        {
+            var room = this.roomService.Create("RoomName", Guid.NewGuid());
+            Assert.AreEqual(room, this.roomService.GetState(room.Id));
+        }
+
+        [Test]
         public void AddUserToRoom()
         {
             var roomOwner = this.userService.Create("OwnerName");
             var room = this.roomService.Create("RoomName", roomOwner.Id);
             var newUser = this.userService.Create("NewUserName");
-            this.roomService.AddUser(newUser.Id, room.Id, roomOwner.Token);
+            this.roomService.AddUser(newUser.Id, room.Id);
             Assert.AreEqual(true, room.Participants.Contains(newUser.Id));
+        }
+
+        [Test]
+        public void RemoveUserFromRoom()
+        {
+            var roomOwner = this.userService.Create("OwnerName");
+            var room = this.roomService.Create("RoomName", roomOwner.Id);
+            var newUser = this.userService.Create("NewUserName");
+            this.roomService.AddUser(newUser.Id, room.Id);
+            this.roomService.RemoveUser(newUser.Id, room.Id, newUser.Token);
+            Assert.AreEqual(true, !room.Participants.Contains(newUser.Id));
+        }
+
+        [Test]
+        public void ChangeRoomOwner()
+        {
+            var roomOwner = this.userService.Create("OwnerName");
+            var room = this.roomService.Create("RoomName", roomOwner.Id);
+            var newUser = this.userService.Create("NewUserName");
+            this.roomService.AddUser(newUser.Id, room.Id);
+            this.roomService.ChangeOwner(newUser.Id, room.Id, roomOwner.Token);
+            Assert.AreEqual(newUser.Id, room.OwnerId);
         }
     }
 }

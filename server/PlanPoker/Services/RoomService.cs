@@ -50,7 +50,7 @@ namespace PlanPoker.Services
         /// </summary>
         /// <param name="roomId">Ид комнаты.</param>
         /// <returns>Комната.</returns>
-        public Room Get(Guid roomId)
+        public Room GetState(Guid roomId)
         {
             return this.roomRepository.Get(roomId);
         }

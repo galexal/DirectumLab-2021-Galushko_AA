@@ -88,7 +88,7 @@ namespace PlanPoker.Controllers
         [HttpGet]
         public RoomDTO GetState(Guid roomId)
         {
-            var room = this.roomService.Get(roomId);
+            var room = this.roomService.GetState(roomId);
             return new RoomDTOBuilder().Builder(room);
         }
     }
