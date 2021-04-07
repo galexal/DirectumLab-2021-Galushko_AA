@@ -7,41 +7,52 @@
  <body>
   <header>
     <div class="header">
-        <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
-        <p>PlanPoker</p>
-        <p>UserName</p>
-        <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+      <div class="logotype">
+        <a href="https://ya.ru/">
+          <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
+          <h1>PlanPoker</h1>
+        </a>
+      </div>
+      <div class="userAcc">
+        <button onclick="/* выпадашка */">
+          UserName
+          <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+        </button>
+      </div>
     </div>
   </header>
+  <main>
     <h2>Story</h2> <!-- Имя обсуждения -->
     <div class="cards">
-      <button onclick="/* добавить оценку */">0</button>
-      <button onclick="/* добавить оценку */">0.5</button>
-      <button onclick="/* добавить оценку */">1</button>
-      <button onclick="/* добавить оценку */">2</button>
-      <button onclick="/* добавить оценку */">3</button>
-      <button onclick="/* добавить оценку */">5</button>
-      <button onclick="/* добавить оценку */">8</button>
-      <button onclick="/* добавить оценку */">13</button>
-      <button onclick="/* добавить оценку */">20</button>
-      <button onclick="/* добавить оценку */">40</button>
-      <button onclick="/* добавить оценку */">100</button>
-      <button onclick="/* добавить оценку */">?</button>
-      <button onclick="/* добавить оценку */"><img src="../images/local_cafe_24px.svg" width="33" height="26" alt="Иконка Coffee"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-0.svg" alt="Карта 0"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-0.5.svg" alt="Карта 0.5"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-1.svg" alt="Карта 1"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-2.svg" alt="Карта 2"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-3.svg" alt="Карта 3"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-5.svg" alt="Карта 5"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-8.svg" alt="Карта 8"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-13.svg" alt="Карта 13"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-20.svg" alt="Карта 20"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-40.svg" alt="Карта 40"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-100.svg" alt="Карта 100"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/card-question.svg" alt="Карта Вопрос"></button>
+      <button onclick="/* добавить оценку */"><img src="../images/local_cafe_24px.svg" alt="Карта Кофе"></button>
     </div>
     <div class="sideBar">
-      <h3>Story voting complited</h3>
+      <h3>Story voting completed</h3>
       <h3>Players</h3>
+      <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
       <p>User1</p>
+      <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
       <p>User2</p>
       <button onclick="/* завершить голосование */">Finish Voting</button>
       <h3>Invite a teammate</h3>
       <input type="text" name="inviteLink" id="inviteLink">
     </div>
+  </main>
   <footer>
     <div class="footer">
-     <p>Copyright 2021</p>
-     <p>PlanPoker</p>
+      <p>Copyright 2021 <span>PlanPoker</span></p>
     </div>
   </footer>
  </body>
