@@ -17,12 +17,12 @@ namespace Tests
         [OneTimeSetUp]
         public void CreateServiceAndRepository()
         {
-            this.discussionRepository = new DiscussionRepository();
-            this.discussionService = new DiscussionService(this.discussionRepository, this.roomRepository, this.userRepository);
             this.userRepository = new UserRepository();
             this.userService = new UserService(this.userRepository);
             this.roomRepository = new RoomRepository();
             this.roomService = new RoomService(this.roomRepository, this.userRepository);
+            this.discussionRepository = new DiscussionRepository();
+            this.discussionService = new DiscussionService(this.discussionRepository, this.roomRepository, this.userRepository);
         }
 
         [Test]
