@@ -22,13 +22,14 @@ namespace Tests
         }
 
         [Test]
-        [TestCase("RoomName", "fb7b906e-4191-4e08-98b2-f65ca94cba05")]
-        public void CreateRoom(string name, Guid ownerId)
+        public void CreateRoom()
         {
-            var room = this.roomService.Create(name, ownerId);
+            var roomName = "RoomName";
+            var ownerId = Guid.NewGuid();
+            var room = this.roomService.Create(roomName, ownerId);
             Assert.Multiple(() =>
             {
-                Assert.AreEqual(name, room.Name);
+                Assert.AreEqual(roomName, room.Name);
                 Assert.AreEqual(ownerId, room.OwnerId);
             });
         }
@@ -70,6 +71,20 @@ namespace Tests
             this.roomService.AddUser(newUser.Id, room.Id);
             this.roomService.ChangeOwner(newUser.Id, room.Id, roomOwner.Token);
             Assert.AreEqual(newUser.Id, room.OwnerId);
+        }
+
+        [Test]
+        public void ThrowException()
+        {
+            var owner = this.userService.Create("OwnerName");
+            var room = this.roomService.Create("RoomName", owner.Id);
+            var user = this.userService.Create("UserName");
+            Assert.Multiple(() =>
+            {
+                Assert.Throws<FormatException>(() => this.roomService.Create(string.Empty, user.Id));
+                Assert.Throws<UnauthorizedAccessException>(() => this.roomService.RemoveUser(user.Id, room.Id, "token"));
+                Assert.Throws<UnauthorizedAccessException>(() => this.roomService.ChangeOwner(user.Id, room.Id, "token"));
+            });
         }
     }
 }

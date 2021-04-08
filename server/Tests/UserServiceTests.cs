@@ -1,6 +1,7 @@
 ﻿using DataService.Repositories;
 using NUnit.Framework;
 using PlanPoker.Services;
+using System;
 
 namespace Tests
 {
@@ -17,22 +18,33 @@ namespace Tests
         }
 
         [Test]
-        [TestCase("UserName")]
-        public void CreateUser(string name)
+        public void CreateUser()
         {
-            var user = this.userService.Create(name);
-            Assert.AreEqual(name, user.Name);
+            var user = this.userService.Create("UserName");
+            Assert.AreEqual("UserName", user.Name);
         }
 
         [Test]
-        [TestCase("NewUserName")]
-        public void ChangeUserName(string newName)
+        public void ChangeUserName()
         {
             var user = this.userService.Create("UserName");
             var userId = user.Id;
             var token = user.Token;
-            user = this.userService.ChangeName(newName, userId, token);
-            Assert.AreEqual(newName, user.Name);
+            user = this.userService.ChangeName("newUserName", userId, token);
+            Assert.AreEqual("newUserName", user.Name);
+        }
+
+        [Test]
+        public void ThrowException()
+        {
+            var user = this.userService.Create("UserName");
+            Assert.Multiple(() =>
+            {
+                Assert.Throws<FormatException>(() => this.userService.Create(string.Empty));
+                Assert.Throws<FormatException>(() => this.userService.ChangeName(string.Empty, user.Id, user.Token));
+                Assert.Throws<UnauthorizedAccessException>(() => this.userService.ChangeName("NewUserName", Guid.NewGuid(), user.Token));
+                Assert.Throws<UnauthorizedAccessException>(() => this.userService.ChangeName("NewUserName", user.Id, "token"));
+            });
         }
     }
 }

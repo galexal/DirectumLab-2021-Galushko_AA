@@ -49,7 +49,7 @@ namespace PlanPoker.Services
             if (string.IsNullOrEmpty(newName))
                 throw new FormatException("Имя пользователя не может быть пустым");
             var user = this.repository.Get(userId);
-            if (!user.Token.Equals(token))
+            if (user == null || !user.Token.Equals(token))
                 throw new UnauthorizedAccessException("Сменить имя может только сам пользователь.");
             user.Name = newName;
             this.repository.Save(user);
