@@ -3,17 +3,29 @@ using Microsoft.Extensions.Hosting;
 
 namespace PlanPoker
 {
-  public class Program
-  {
-    public static void Main(string[] args)
+    /// <summary>
+    /// Класс с методом Main.
+    /// </summary>
+    public class Program
     {
-      CreateHostBuilder(args).Build().Run();
-    }
+        /// <summary>
+        /// Стартовый метод.
+        /// </summary>
+        /// <param name="args">Параметры запуска.</param>
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
 
-    public static IHostBuilder CreateHostBuilder(string[] args)
-    {
-      return Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
-    }
-  }
+        /// <summary>
+        /// Создание хоста.
+        /// </summary>
+        /// <param name="args">Параметры.</param>
+        /// <returns>Построенный хост.</returns>
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+        }
+        }
 }
