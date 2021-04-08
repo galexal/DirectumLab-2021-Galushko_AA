@@ -2,18 +2,16 @@
 <html lang="ru">
  <head>
   <meta charset="utf-8">
-  <title>Результаты голосования</title>
+  <title>Результаты голосования: ввод новой темы</title>
  </head>
  <body>
-  <header>
-    <div class="header">
-      <a href="https://ya.ru/">
-        <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
-        <h1>PlanPoker</h1>
-      </a>
-        <p>UserName</p>
-        <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-    </div>
+  <header class="header">
+    <a href="https://ya.ru/">
+      <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
+      <h1>PlanPoker</h1>
+    </a>
+      <p>UserName</p>
+      <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
   </header>
   <main>
     <h2>Story</h2> <!-- Имя обсуждения -->
@@ -21,10 +19,14 @@
       <p>2 Players</p><!-- выводить количество проголосовавших -->
       <p>voted.</p>
       <p>AVG: 4</p> <!-- выводить среднее значение -->
-      <p>3</p> <!-- выводить оценку -->
-      <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
-      <p>5</p> <!-- выводить оценку -->
-      <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+      <div class="Value3">
+        <p>3</p> <!-- выводить оценку -->
+        <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+      </div>
+      <div class="Value5">
+        <p>5</p> <!-- выводить оценку -->
+        <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+      </div>
     </div>
     <div class="story">
       <div class="storyTitle">
@@ -40,20 +42,22 @@
     <div class="sideBar">
       <p>Story voting completed</p>
       <h3>Players</h3>
-      <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-      <p>User1</p>
-      <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-      <p>User2</p>
+        <div class="User1">
+          <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+          <p>User1</p>
+        </div>
+        <div class="User2">
+          <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+          <p>User2</p>
+        </div>
       <input type="text" name="discussionName" id="discussionName" placeholder="Enter new discussion name" required>
       <button onclick="/* начать новое голосованиe */">Go</button>
       <h3>Invite a teammate</h3>
       <input type="text" name="inviteLink" id="inviteLink" readonly>
     </div>
   </main>
-  <footer>
-    <div class="footer">
-      <p>Copyright 2021 <span>PlanPoker</span></p>
-    </div>
+  <footer class="footer">
+    <p>Copyright 2021 <span>PlanPoker</span></p>
   </footer>
  </body>
 </html>
