@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="../style.css">
   <title>Главная страница</title>
  </head>
- <body>
+ <body class="page">
   <header class="header">
     <div class="header__logotype">
       <a href="https://ya.ru/">
@@ -14,8 +14,8 @@
       </a>
     </div>
   </header>
-  <main>
-    <form method="GET" action="send">
+  <main class="main">
+    <form class="form" method="GET" action="send">
       <p>Let's start!</p>
       <h2>Create the room</h2>
       <div>
@@ -26,11 +26,11 @@
         <label for="roomName">Room name</label>
         <input type="text" name="roomName" id="roomName" placeholder="Enter room name" required>
       </div>
-      <button type="submit">Enter</button> 
+      <button class="button" type="submit">Enter</button> 
     </form>
   </main>
   <footer class="footer">
-     <p>Copyright 2021 <span>PlanPoker</span></p>
+     <p>Copyright 2021 <span class="footer__logo">PlanPoker</span></p>
   </footer>
  </body>
 </html>

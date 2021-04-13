@@ -1,32 +1,34 @@
-body {
-  height: 100vh;
+.page {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
- }
+  }
 
 .header {
   height: 93px;
+  background: #FFFFFF;
 }
 
-.header_logotype a {
+.header__logotype a {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  /* Как разместить логотип и название в одной строчке? */
+  align-items: center;
+  margin-left: 125px;
 }
 
-main {
+.main {
   display: flex;
   justify-content: center;
-  flex: 1;
+  flex-grow: 1;
   background: #EDF2F7;
 }
 
-main form {
+.form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+
   margin: auto;
   text-align: center;
   background: #FFFFFF;
@@ -34,16 +36,16 @@ main form {
   width: 610px;
 }
 
-form button {
+.button {
   background: #4B9AE8;
 }
-
 
 .footer {
   height: 70px;
   text-align: center;
+  background: #FFFFFF;
 }
 
-.footer span {
+.footer__logo {
   color: blue;
 }
