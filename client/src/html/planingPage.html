@@ -2,46 +2,47 @@
 <html lang="ru">
  <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="../style.css">
   <title>Страница для проведения голосований</title>
  </head>
- <body>
+ <body class="page">
   <header class="header">
-    <div class="logotype">
+    <div class="header__logotype">
       <a href="https://ya.ru/">
         <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
         <h1>PlanPoker</h1>
       </a>
     </div>
-    <div class="userAcc">
+    <div class="header__userAcc">
       <button onclick="/* выпадашка */">
         UserName
         <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
       </button>
     </div>
   </header>
-  <main>
+  <main class="main_planningPage">
     <h2>Story</h2> <!-- Имя обсуждения -->
     <div class="cards">
-      <button onclick="/* добавить оценку */">0</button>
-      <button onclick="/* добавить оценку */">0.5</button>
-      <button onclick="/* добавить оценку */">1</button>
-      <button onclick="/* добавить оценку */">2</button>
-      <button onclick="/* добавить оценку */">3</button>
-      <button onclick="/* добавить оценку */">5</button>
-      <button onclick="/* добавить оценку */">8</button>
-      <button onclick="/* добавить оценку */">13</button>
-      <button onclick="/* добавить оценку */">20</button>
-      <button onclick="/* добавить оценку */">40</button>
-      <button onclick="/* добавить оценку */">100</button>
-      <button onclick="/* добавить оценку */">?</button>
-      <button onclick="/* добавить оценку */">
+      <button class="card" onclick="/* добавить оценку */">0</button>
+      <button class="card" onclick="/* добавить оценку */">0.5</button>
+      <button class="card" onclick="/* добавить оценку */">1</button>
+      <button class="card" onclick="/* добавить оценку */">2</button>
+      <button class="card" onclick="/* добавить оценку */">3</button>
+      <button class="card" onclick="/* добавить оценку */">5</button>
+      <button class="card" onclick="/* добавить оценку */">8</button>
+      <button class="card" onclick="/* добавить оценку */">13</button>
+      <button class="card" onclick="/* добавить оценку */">20</button>
+      <button class="card" onclick="/* добавить оценку */">40</button>
+      <button class="card" onclick="/* добавить оценку */">100</button>
+      <button class="card" onclick="/* добавить оценку */">?</button>
+      <button class="card" onclick="/* добавить оценку */">
         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M36.6667 5.5H7.33333V23.8333C7.33333 27.885 10.615 31.1667 14.6667 31.1667H25.6667C29.7183 31.1667 33 27.885 33 23.8333V18.3333H36.6667C38.7017 18.3333 40.3333 16.7017 40.3333 14.6667V9.16667C40.3333 7.13167 38.7017 5.5 36.6667 5.5ZM36.6667 14.6667H33V9.16667H36.6667V14.6667ZM36.6667 38.5H3.66667V34.8333H36.6667V38.5Z" fill="#131B23"/>
         </svg>
       </button>
     </div>
     <div class="sideBar">
-      <p>Story voting completed</p>
+      <p class="sideBar__header">Story voting completed</p>
       <h3>Players</h3>
         <div class="User1">
           <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
@@ -57,7 +58,7 @@
     </div>
   </main>
   <footer class="footer">
-    <p>Copyright 2021 <span>PlanPoker</span></p>
+    <p>Copyright 2021 <span class="footer__logo">PlanPoker</span></p>
   </footer>
  </body>
 </html>

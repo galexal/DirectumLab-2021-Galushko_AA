@@ -1,4 +1,6 @@
 .page {
+  font-family: 
+  "Roboto";
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,9 +9,21 @@
 .header {
   height: 93px;
   background: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 125px;
 }
 
 .header__logotype a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 125px;
+}
+
+.header__userAcc {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -24,6 +38,81 @@
   background: #EDF2F7;
 }
 
+.main_planningPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1;
+  
+  background: #EDF2F7;
+}
+
+.cards {
+  margin: auto;
+}
+
+.card {
+  height: 174px;
+  width: 132px;
+  left: 0px;
+  top: 0px;
+  border-radius: 4px; 
+  font-size: 46px; 
+}
+
+.result {
+  height: 433px;
+  width: 715px;
+  left: 125px;
+  top: 208px;
+  border-radius: 0px;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultPart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.story {
+  margin-top: 52px;
+  margin-bottom: 52px;
+  height: 261px;
+  width: 715px;
+  left: 125px;
+  top: 693px;
+  border-radius: 4px;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sideBar {
+  margin: auto;
+  background: #FFFFFF;
+}
+
+.sideBar__header {
+font-size: 18px;
+}
+
+.User1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.User2 {
+  display: flex;
+  flex-direction: row;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -36,8 +125,37 @@
   width: 610px;
 }
 
-.button {
+.greeting {
+  margin: 0;
+  margin-top: 55px;
+  font-size: 30px;
+}
+
+.formHeader {
+  margin: 0;
+  margin-top: 14px;
+  font-size: 14px;
+  color: #808284;
+
+}
+
+.userName {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.roomName {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.registerButton {
   background: #4B9AE8;
+  margin: auto;
+  width: 400px;
+  
 }
 
 .footer {

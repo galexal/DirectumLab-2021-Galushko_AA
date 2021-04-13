@@ -2,48 +2,51 @@
 <html lang="ru">
  <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="../style.css">
   <title>Результаты голосования: ввод новой темы</title>
  </head>
  <body>
   <header class="header">
-    <div class="logotype">
+    <div class="header__logotype">
       <a href="https://ya.ru/">
         <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
         <h1>PlanPoker</h1>
       </a>
     </div>
-    <div class="userAcc">
+    <div class="header__userAcc">
       <button onclick="/* выпадашка */">
         UserName
         <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
       </button>
     </div>
   </header>
-  <main>
-    <h2>Story</h2> <!-- Имя обсуждения -->
-    <div class="result">
-      <p>2 Players</p><!-- выводить количество проголосовавших -->
-      <p>voted.</p>
-      <p>AVG: 4</p> <!-- выводить среднее значение -->
-      <div class="Value3">
-        <p>3</p> <!-- выводить оценку -->
-        <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+  <main class="main_planningPage">
+    <div class="resultPart">
+      <h2>Story</h2> <!-- Имя обсуждения -->
+      <div class="result">
+        <p>2 Players</p><!-- выводить количество проголосовавших -->
+        <p>voted.</p>
+        <p>AVG: 4</p> <!-- выводить среднее значение -->
+        <div class="Value3">
+          <p>3</p> <!-- выводить оценку -->
+          <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+        </div>
+        <div class="Value5">
+          <p>5</p> <!-- выводить оценку -->
+          <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+        </div>
       </div>
-      <div class="Value5">
-        <p>5</p> <!-- выводить оценку -->
-        <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+      <div class="story">
+        <div class="storyTitle">
+          <p>Complited Stories</p>
+          <p>5</p> <!-- выводить количество историй -->
+          <button onclick="/* выгрузить историю */"><img src="../images/download_24px.svg" alt="Иконка скачивания"></button>
+        </div>
+        <table>
+          <tr><td>Story</td><td>14</td><td><button onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
+          <tr><td>Story</td><td>14</td><td><button onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
+        </table>
       </div>
-    </div>
-    <div class="story">
-      <div class="storyTitle">
-        <p>Complited Stories</p>
-        <p>5</p> <!-- выводить количество историй -->
-        <button onclick="/* выгрузить историю */"><img src="../images/download_24px.svg" alt="Иконка скачивания"></button>
-      </div>
-      <table>
-        <tr><td>Story</td><td>14</td><td><button onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
-        <tr><td>Story</td><td>14</td><td><button onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
-      </table>
     </div>
     <div class="sideBar">
       <p>Story voting completed</p>
@@ -63,7 +66,7 @@
     </div>
   </main>
   <footer class="footer">
-    <p>Copyright 2021 <span>PlanPoker</span></p>
+    <p>Copyright 2021 <span class="footer__logo">PlanPoker</span></p>
   </footer>
  </body>
 </html>
