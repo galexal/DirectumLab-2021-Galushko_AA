@@ -1,24 +1,31 @@
+.button {
+  display: flex;
+  align-items: center;
+}
+
 .page {
-  font-family: 
-  "Roboto";
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  }
+  min-height: 100vh;
+  margin: 0;
+
+  font-family: "Roboto";
+}
 
 .header {
-  height: 93px;
-  background: #FFFFFF;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 93px;
   margin-right: 125px;
+
+  background: #ffffff;
 }
 
 .header__logotype a {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+
   align-items: center;
   margin-left: 125px;
 }
@@ -26,81 +33,134 @@
 .header__userAcc {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+
   align-items: center;
-  margin-left: 125px;
 }
 
 .main {
   display: flex;
-  justify-content: center;
   flex-grow: 1;
-  background: #EDF2F7;
+  justify-content: center;
+
+  background: #edf2f7;
 }
 
 .main_planningPage {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
   flex-grow: 1;
-  
-  background: #EDF2F7;
+  align-items: flex-start;
+  justify-content: center;
+  padding-right: 125px;
+  padding-left: 125px;
+
+  background: #edf2f7;
+}
+
+.cardsWithHeader {
+  display: flex;
+  flex-direction: column;
+  margin-top: 49px;
 }
 
 .cards {
-  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  filter: drop-shadow(0 0 3px #d5d9de);
 }
 
 .card {
-  height: 174px;
+  top: 0;
+  left: 0;
+
   width: 132px;
-  left: 0px;
-  top: 0px;
-  border-radius: 4px; 
-  font-size: 46px; 
+  height: 174px;
+
+  font-size: 46px;
+
+  border-radius: 4px;
 }
 
 .result {
-  height: 433px;
-  width: 715px;
-  left: 125px;
-  top: 208px;
-  border-radius: 0px;
-  background: #FFFFFF;
+ 
+  
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-around;
+  
+
+  background: #ffffff;
+  border-radius: 0;
 }
 
 .resultPart {
+  
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: auto;
+  
+  
+  
+ 
+  
+}
+
+.circle {
+  margin-top: 62px;
+  margin-bottom: 62px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  
+  width: 310px;
+  height: 310px;
+  
+  border-radius: 50%;
+  
+  border: 12px solid #4B9AE8;
+  text-align:center;
+  
 }
 
 .story {
+ 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 715px;
+  height: 261px;
   margin-top: 52px;
   margin-bottom: 52px;
-  height: 261px;
-  width: 715px;
-  left: 125px;
-  top: 693px;
+
+  background: #ffffff;
   border-radius: 4px;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .sideBar {
-  margin: auto;
-  background: #FFFFFF;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 115px;
+  margin-left: 19px;
+
+  background: #ffffff;
 }
 
 .sideBar__header {
-font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60px;
+  margin: 0;
+
+  font-size: 18px;
+  text-align: center;
+
+  background: #4b9ae8;
 }
 
 .User1 {
@@ -117,51 +177,64 @@ font-size: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  width: 610px;
+  height: 415px;
 
   margin: auto;
+
   text-align: center;
-  background: #FFFFFF;
-  height: 415px;
-  width: 610px;
+
+  background: #ffffff;
 }
 
 .greeting {
   margin: 0;
   margin-top: 55px;
+
   font-size: 30px;
 }
 
 .formHeader {
   margin: 0;
   margin-top: 14px;
-  font-size: 14px;
-  color: #808284;
 
+  color: #808284;
+  font-size: 14px;
 }
 
 .userName {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  width: 400px;
+  margin: 0 auto;
+
+  text-align: left;
 }
 
 .roomName {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-top: 10px;
+
+  text-align: left;
 }
 
 .registerButton {
-  background: #4B9AE8;
-  margin: auto;
   width: 400px;
-  
+  margin: auto;
+
+  background: #4b9ae8;
 }
 
 .footer {
   height: 70px;
+
   text-align: center;
-  background: #FFFFFF;
+
+  background: #ffffff;
 }
 
 .footer__logo {
