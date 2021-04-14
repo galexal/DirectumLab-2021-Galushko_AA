@@ -10,19 +10,19 @@
     <div class="header__logotype">
       <a href="https://ya.ru/">
         <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
-        <h1>PlanPoker</h1>
+        <h1 class="header__name">PlanPoker</h1>
       </a>
     </div>
-    <div class="header__userAcc">
-      <button class="button" onclick="/* выпадашка */">
+    <div class="header__useracc">
+      <button class="useracc_button" onclick="/* выпадашка */">
         UserName
-        <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+        <img class="acc_logo" src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
       </button>
     </div>
   </header>
-  <main class="main_planningPage">
-    <div class="cardsWithHeader">
-      <h2>Story</h2> <!-- Имя обсуждения -->
+  <main class="main_planningpage">
+    <div class="cardswithheader">
+      <h2 class="storyname">Story</h2> <!-- Имя обсуждения -->
       <div class="cards">
         <button class="card" onclick="/* добавить оценку */">0</button>
         <button class="card" onclick="/* добавить оценку */">0.5</button>
@@ -43,20 +43,22 @@
         </button>
       </div>
     </div>
-    <div class="sideBar">
-      <p class="sideBar__header">Story voting completed</p>
-      <h3>Players</h3>
+    <div class="sidebar">
+      <p class="sidebar__header">Story voting completed</p>
+      <h3 class="players">Players:</h3>
         <div class="User1">
           <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-          <p>User1</p>
+          <p class="userinstory">User1</p>
         </div>
         <div class="User2">
           <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-          <p>User2</p>
+          <p class="userinstory">User2</p>
         </div>
-      <button onclick="/* завершить голосование */">Finish Voting</button>
-      <h3>Invite a teammate</h3>
-      <input type="text" name="inviteLink" id="inviteLink">
+      <button class="finish_button" onclick="/* завершить голосование */">Finish Voting</button>
+      <div class="invite">
+        <h3 class="invite_header">Invite a teammate</h3>
+        <input class="invite_input" type="text" name="inviteLink" id="inviteLink">
+      </div>
     </div>
   </main>
   <footer class="footer">

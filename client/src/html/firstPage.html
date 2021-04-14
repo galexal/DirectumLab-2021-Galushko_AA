@@ -10,23 +10,23 @@
     <div class="header__logotype">
       <a href="https://ya.ru/">
         <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
-        <h1>PlanPoker</h1>
+        <h1 class="header__name">PlanPoker</h1>
       </a>
     </div>
   </header>
   <main class="main">
     <form class="form" method="GET" action="send">
       <p class="greeting">Let's start!</p>
-      <h2 class="formHeader">Create the room</h2>
-      <div class="userName">
-        <label for="userName">User name</label>
-        <input type="text" name="userName" id="userName" placeholder="Enter your name" required>
+      <h2 class="formheader">Create the room</h2>
+      <div class="username">
+        <label for="username">User name</label>
+        <input class="username__field" type="text" name="userName" id="userName" placeholder="Enter your name" required>
       </div>
-      <div class="roomName">
-        <label for="roomName">Room name</label>
-        <input type="text" name="roomName" id="roomName" placeholder="Enter room name" required>
+      <div class="roomname">
+        <label for="roomname">Room name</label>
+        <input class="roomname__field" type="text" name="roomName" id="roomName" placeholder="Enter room name" required>
       </div>
-      <button class="registerButton" type="submit">Enter</button> 
+      <button class="registerbutton" type="submit">Enter</button> 
     </form>
   </main>
   <footer class="footer">

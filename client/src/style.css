@@ -1,7 +1,15 @@
-.button {
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+button {
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  background: none;
+  border: none;
+  cursor: pointer;
 }
+
 
 .page {
   display: flex;
@@ -13,11 +21,13 @@
 }
 
 .header {
+
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   height: 93px;
-  margin-right: 125px;
+  margin: 0;
+  margin-right: 10%;
+  margin-left: 10%;
 
   background: #ffffff;
 }
@@ -25,16 +35,32 @@
 .header__logotype a {
   display: flex;
   flex-direction: row;
-
   align-items: center;
-  margin-left: 125px;
+  margin-top: 18px;
+
+  text-decoration: none;
 }
 
-.header__userAcc {
+.header__name {
+  margin: 0 auto;
+  margin-left: 16px;
+
+  font-size: 48px;
+}
+
+.header__useracc {
   display: flex;
   flex-direction: row;
-
   align-items: center;
+}
+
+.useracc_button {
+  font-size: 18px;
+  font-family: "Roboto";
+}
+
+.acc_logo {
+  margin-left: 15px;
 }
 
 .main {
@@ -45,19 +71,24 @@
   background: #edf2f7;
 }
 
-.main_planningPage {
+.main_planningpage {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   align-items: flex-start;
   justify-content: center;
+  margin: 0 auto;
   padding-right: 125px;
   padding-left: 125px;
 
   background: #edf2f7;
 }
 
-.cardsWithHeader {
+.storyname {
+  font-size: 26px;
+}
+
+.cardswithheader {
   display: flex;
   flex-direction: column;
   margin-top: 49px;
@@ -76,59 +107,118 @@
 
   width: 132px;
   height: 174px;
+  margin-right: 13px;
+  margin-bottom: 13px;
 
   font-size: 46px;
+  font-family: "Roboto";
 
+  background: #ffffff;
   border-radius: 4px;
 }
 
 .result {
- 
-  
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  
 
   background: #ffffff;
   border-radius: 0;
 }
 
-.resultPart {
-  
+.resultpart {
   display: flex;
   flex-direction: column;
-  
-  
-  
- 
-  
 }
 
 .circle {
-  margin-top: 62px;
-  margin-bottom: 62px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
-  
   width: 310px;
   height: 310px;
-  
+  margin-top: 62px;
+  margin-bottom: 62px;
+
+  text-align: center;
+
+  border: 12px solid #4b9ae8;
   border-radius: 50%;
-  
-  border: 12px solid #4B9AE8;
-  text-align:center;
-  
+}
+
+.numberofplayers {
+  font-size: 26px;
+}
+
+.voted {
+  color: #808284;
+  font-size: 14px;
+}
+
+.AVG {
+  font-size: 26px;
+}
+
+.value3_general {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 44px;
+}
+
+.value3_mark {
+  top: 252px;
+  left: 650px;
+
+  width: 10px;
+  height: 10px;
+
+  background: #f8e71d;
+}
+
+.value3_number {
+  margin: 0;
+  margin-left: 10px;
+
+  font-size: 20px;
+}
+
+.value3_share {
+  margin: 0;
+}
+
+.value5_general {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 44px;
+}
+
+.value5_mark {
+  top: 252px;
+  left: 650px;
+
+  width: 10px;
+  height: 10px;
+
+  background: #225378;
+}
+
+.value5_number {
+  margin: 0;
+  margin-left: 10px;
+
+  font-size: 20px;
+}
+
+.value5_share {
+  margin: 0;
 }
 
 .story {
- 
-
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 715px;
   height: 261px;
   margin-top: 52px;
@@ -138,11 +228,60 @@
   border-radius: 4px;
 }
 
-.sideBar {
-  
+.storytitle {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 21px;
+
+  color: #ffffff;
+
+  background: #4b9ae8;
+}
+
+.completed_stories {
+  min-width: 148px;
+  padding: 0;
+}
+
+.storiesnumber {
+  width: 25px;
+  height: 20px;
+  margin-left: 13px;
+  padding-left: 12px;
+
+  background: #c9cfd6;
+  border-radius: 10px;
+}
+
+.download {
+  margin-left: 66%;
+}
+
+table {
+  background: #fffdfd;
+  border-collapse: collapse;
+}
+
+tr {
+  height: 67px;
+
+  border-radius: 4px;
+  box-shadow: 0 0 3px #d5d9de;
+}
+
+td {
+  padding-left: 21px;
+}
+
+.basket {
+  padding-left: 85%;
+}
+
+.sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 294px;
   margin: 0 auto;
   margin-top: 115px;
   margin-left: 19px;
@@ -150,36 +289,118 @@
   background: #ffffff;
 }
 
-.sideBar__header {
+.sidebar__header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 60px;
   margin: 0;
 
+  color: #ffffff;
   font-size: 18px;
   text-align: center;
 
   background: #4b9ae8;
 }
 
+.players {
+  margin-left: 24px;
+
+  font-size: 18px;
+}
+
 .User1 {
   display: flex;
   flex-direction: row;
+  margin-left: 24px;
+
+  font-size: 18px;
 }
 
 .User2 {
   display: flex;
   flex-direction: row;
+  margin-left: 24px;
+
+  font-size: 18px;
+}
+
+.userinstory {
+  margin-left: 16px;
+}
+
+.finish_button {
+  box-sizing: border-box;
+  width: 252px;
+  margin-top: 45px;
+  margin-left: 22px;
+
+  color: #4b9ae8;
+
+  border: 1px solid #4b9ae8;
+  border-radius: 4px;
+}
+
+.newstory {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.newstory_input {
+  box-sizing: border-box;
+  height: 39px;
+  margin: 0;
+  margin-top: 25px;
+  margin-right: 0;
+  padding: 0;
+
+  border: 1px solid #d5d9de;
+  border-radius: 4px 0 0 4px;
+}
+
+.newstory_button {
+  top: 507px;
+  left: 1065px;
+
+  width: 68px;
+  height: 39px;
+  margin-top: 25px;
+
+  color: #ffffff;
+
+  background: #4b9ae8;
+  border-radius: 0 4px 4px 0;
+}
+
+.invite {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-top: 42px;
+  margin-right: 21px;
+  margin-left: 22px;
+
+  font-size: 20px;
+}
+
+.invite_header {
+  margin: 0;
+}
+
+.invite_input {
+  height: 39px;
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 28px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   width: 610px;
   height: 415px;
-
   margin: auto;
 
   text-align: center;
@@ -194,7 +415,7 @@
   font-size: 30px;
 }
 
-.formHeader {
+.formheader {
   margin: 0;
   margin-top: 14px;
 
@@ -202,16 +423,24 @@
   font-size: 14px;
 }
 
-.userName {
+.username {
   display: flex;
   flex-direction: column;
   width: 400px;
   margin: 0 auto;
+  margin-top: 20px;
 
+  font-size: 14px;
   text-align: left;
 }
 
-.roomName {
+.username__field {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 9px;
+}
+
+.roomname {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -219,19 +448,35 @@
   margin-top: 10px;
   margin-top: 10px;
 
+  font-size: 14px;
   text-align: left;
 }
 
-.registerButton {
+.roomname__field {
   width: 400px;
-  margin: auto;
+  margin: 0 auto;
+  margin-top: 9px;
+}
+
+.registerbutton {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 39px;
+  margin: 0 auto;
+  margin-top: 36px;
+
+  font-size: 14px;
+  font-family: "Roboto";
 
   background: #4b9ae8;
+  border-radius: 4px;
 }
 
 .footer {
   height: 70px;
 
+  font-size: 12px;
   text-align: center;
 
   background: #ffffff;
