@@ -14,20 +14,33 @@ button {
 .page {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   min-height: 100vh;
   margin: 0;
 
   font-family: "Roboto";
+
+  background: #edf2f7;
+}
+
+.header-container {
+  display: flex;
+
+  background-color: #ffffff;
 }
 
 .header {
-
   display: flex;
   justify-content: space-between;
+  min-width: 1030px;
+
   height: 93px;
-  margin: 0;
-  margin-right: 10%;
-  margin-left: 10%;
+
+  margin: auto;
+
+
+
+
 
   background: #ffffff;
 }
@@ -45,16 +58,20 @@ button {
   margin: 0 auto;
   margin-left: 16px;
 
+  color: #131b23;
+  font-weight: normal;
+
   font-size: 48px;
 }
 
-.header__useracc {
+.header__user-acc {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.useracc_button {
+.user-acc_button {
+  color: #131b23;
   font-size: 18px;
   font-family: "Roboto";
 }
@@ -68,15 +85,18 @@ button {
   flex-grow: 1;
   justify-content: center;
 
+
   background: #edf2f7;
 }
 
-.main_planningpage {
+.main_planning-page {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   align-items: flex-start;
   justify-content: center;
+  max-width: 1030px;
+
   margin: 0 auto;
   padding-right: 125px;
   padding-left: 125px;
@@ -84,19 +104,34 @@ button {
   background: #edf2f7;
 }
 
-.storyname {
+/* .main-container {
+
+  max-width: 1030px;
+} */
+
+.story-name {
+  margin: 0;
+  margin-top: 54px;
+  margin-bottom: 31px;
+
+  font-weight: normal;
   font-size: 26px;
 }
 
-.cardswithheader {
+.cards-with-header {
   display: flex;
   flex-direction: column;
-  margin-top: 49px;
+  margin-top: 0;
+  margin-bottom: 43px;
 }
 
 .cards {
   display: flex;
+
   flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0;
+
 
   filter: drop-shadow(0 0 3px #d5d9de);
 }
@@ -117,6 +152,17 @@ button {
   border-radius: 4px;
 }
 
+.card:hover {
+  border-radius: 4px;
+  box-shadow: 0 0 6px 3px rgba(1, 1, 1, 0.25);
+}
+
+.card:active {
+  color: #ffffff;
+
+  background: #4b9ae8;
+}
+
 .result {
   display: flex;
   align-items: flex-start;
@@ -126,7 +172,7 @@ button {
   border-radius: 0;
 }
 
-.resultpart {
+.result-part {
   display: flex;
   flex-direction: column;
 }
@@ -146,7 +192,7 @@ button {
   border-radius: 50%;
 }
 
-.numberofplayers {
+.number-of-players {
   font-size: 26px;
 }
 
@@ -155,18 +201,18 @@ button {
   font-size: 14px;
 }
 
-.AVG {
+.avg {
   font-size: 26px;
 }
 
-.value3_general {
+.value_general {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 44px;
 }
 
-.value3_mark {
+.value_mark-yellow {
   top: 252px;
   left: 650px;
 
@@ -176,25 +222,7 @@ button {
   background: #f8e71d;
 }
 
-.value3_number {
-  margin: 0;
-  margin-left: 10px;
-
-  font-size: 20px;
-}
-
-.value3_share {
-  margin: 0;
-}
-
-.value5_general {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 44px;
-}
-
-.value5_mark {
+.value_mark-blue {
   top: 252px;
   left: 650px;
 
@@ -204,14 +232,14 @@ button {
   background: #225378;
 }
 
-.value5_number {
+.value_number {
   margin: 0;
   margin-left: 10px;
 
   font-size: 20px;
 }
 
-.value5_share {
+.value_share {
   margin: 0;
 }
 
@@ -228,14 +256,16 @@ button {
   border-radius: 4px;
 }
 
-.storytitle {
+.story-title {
   display: flex;
   justify-content: flex-start;
   padding-left: 21px;
 
   color: #ffffff;
 
+
   background: #4b9ae8;
+  border-radius: 4px 4px 0 0;
 }
 
 .completed_stories {
@@ -243,7 +273,7 @@ button {
   padding: 0;
 }
 
-.storiesnumber {
+.stories-number {
   width: 25px;
   height: 20px;
   margin-left: 13px;
@@ -254,6 +284,7 @@ button {
 }
 
 .download {
+  margin: auto;
   margin-left: 66%;
 }
 
@@ -274,7 +305,7 @@ td {
 }
 
 .basket {
-  padding-left: 85%;
+  padding-left: 80%;
 }
 
 .sidebar {
@@ -301,10 +332,13 @@ td {
   text-align: center;
 
   background: #4b9ae8;
+  border-radius: 4px 4px 0 0;
 }
 
 .players {
   margin-left: 24px;
+
+  font-weight: normal;
 
   font-size: 18px;
 }
@@ -325,13 +359,19 @@ td {
   font-size: 18px;
 }
 
-.userinstory {
+.check {
+  margin-top: 15px;
+  margin-left: 125px;
+}
+
+.user-in-story {
   margin-left: 16px;
 }
 
 .finish_button {
   box-sizing: border-box;
   width: 252px;
+  height: 39px;
   margin-top: 45px;
   margin-left: 22px;
 
@@ -341,25 +381,38 @@ td {
   border-radius: 4px;
 }
 
-.newstory {
+.finish_button:hover {
+  color: #418cd6;
+
+  border: 1px solid #418cd6;
+}
+
+.finish_button:active {
+  color: #3069a1;
+
+  border: 1px solid #3069a1;
+}
+
+.new-story {
   display: flex;
   justify-content: center;
   margin: 0;
 }
 
-.newstory_input {
+.new-story_input {
   box-sizing: border-box;
   height: 39px;
   margin: 0;
   margin-top: 25px;
   margin-right: 0;
   padding: 0;
+  padding-left: 14px;
 
   border: 1px solid #d5d9de;
   border-radius: 4px 0 0 4px;
 }
 
-.newstory_button {
+.new-story_button {
   top: 507px;
   left: 1065px;
 
@@ -386,13 +439,20 @@ td {
 
 .invite_header {
   margin: 0;
+
+  font-weight: normal;
 }
 
 .invite_input {
+  box-sizing: border-box;
   height: 39px;
   margin: 0;
   margin-top: 10px;
   margin-bottom: 28px;
+  padding-left: 14px;
+
+  border: 1px solid #d5d9de;
+  border-radius: 4px;
 }
 
 .form {
@@ -412,35 +472,42 @@ td {
   margin: 0;
   margin-top: 55px;
 
+  color: #131b23;
+
   font-size: 30px;
 }
 
-.formheader {
+.form-header {
   margin: 0;
   margin-top: 14px;
 
   color: #808284;
-  font-size: 14px;
+  font-weight: normal;
+  font-size: 16px;
 }
 
-.username {
+.user-name {
   display: flex;
   flex-direction: column;
   width: 400px;
   margin: 0 auto;
   margin-top: 20px;
 
+  color: #808284;
+
   font-size: 14px;
   text-align: left;
 }
 
-.username__field {
+.user-name__field {
   width: 400px;
+  height: 39px;
   margin: 0 auto;
   margin-top: 9px;
+  padding-left: 18px;
 }
 
-.roomname {
+.room-name {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -448,17 +515,21 @@ td {
   margin-top: 10px;
   margin-top: 10px;
 
+  color: #808284;
+
   font-size: 14px;
   text-align: left;
 }
 
-.roomname__field {
+.room-name__field {
   width: 400px;
+  height: 39px;
   margin: 0 auto;
   margin-top: 9px;
+  padding-left: 18px;
 }
 
-.registerbutton {
+.register-button {
   display: flex;
   justify-content: center;
   width: 400px;
@@ -466,11 +537,21 @@ td {
   margin: 0 auto;
   margin-top: 36px;
 
+  color: #ffffff;
+
   font-size: 14px;
   font-family: "Roboto";
 
   background: #4b9ae8;
   border-radius: 4px;
+}
+
+.register-button:hover {
+  background: #418cd6;
+}
+
+.register-button:active {
+  background: #3069a1;
 }
 
 .footer {
@@ -484,4 +565,77 @@ td {
 
 .footer__logo {
   color: blue;
+}
+
+.modal-window {
+  width: 715px;
+  height: 433px;
+
+  color: #131b23;
+}
+
+.vote-in-modal {
+
+  margin-left: 540px;
+}
+
+
+.button-in-modal {
+  box-sizing: border-box;
+  width: 252px;
+  height: 39px;
+  margin-top: 140px;
+  margin-left: 430px;
+  padding-top: 10px;
+
+  color: #4b9ae8;
+  text-decoration: none;
+
+
+
+  border: 1px solid #4b9ae8;
+  border-radius: 4px;
+}
+
+.button-in-modal:hover {
+  color: #418cd6;
+
+  border: 1px solid #418cd6;
+}
+
+.button-in-modal:active {
+  color: #3069a1;
+
+  border: 1px solid #3069a1;
+}
+
+.Modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+
+  display: none;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  pointer-events: none;
+}
+
+.Modal:target {
+  display: flex;
+
+  pointer-events: auto;
+}
+
+.Modal_Body {
+  position: relative;
+  z-index: 2;
+
+  display: block;
+  margin: auto;
+
+  background: #ffffff;
 }

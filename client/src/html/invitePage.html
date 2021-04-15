@@ -6,23 +6,25 @@
   <title>Страница подключения к голосованию</title>
  </head>
  <body class="page">
-  <header class="header">
-    <div class="header__logotype">
-      <a href="https://ya.ru/">
-        <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
-        <h1 class="header__name">PlanPoker</h1>
-      </a>
-    </div>
-  </header>
+  <div class="header-container">
+    <header class="header">
+      <div class="header__logotype">
+        <a href="https://ya.ru/">
+          <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
+          <h1 class="header__name">PlanPoker</h1>
+        </a>
+      </div>
+    </header>
+  </div>
   <main class="main">
     <form class="form" method="get" action="send">
       <p class="greeting">Let's start!</p>
-      <h2 class="formheader">Join the room</h2>
-      <div class="username">
-        <label for="username">User name</label>
-        <input class="username__field" type="text" name="userName" id="userName" placeholder="Enter your name" required>
+      <h2 class="form-header">Join the room</h2>
+      <div class="user-name">
+        <label for="user-name">User name</label>
+        <input class="user-name__field" type="text" name="userName" id="userName" placeholder="Enter your name" required>
       </div>
-      <button class="registerbutton" type="submit">Enter</button> 
+      <button class="register-button" type="submit">Enter</button> 
     </form>
   </main>
   <footer class="footer">
