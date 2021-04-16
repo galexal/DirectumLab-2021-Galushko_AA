@@ -43,6 +43,7 @@ button {
   margin: auto;
 
 
+
   background: #ffffff;
 }
 
@@ -95,7 +96,7 @@ button {
   flex-direction: column;
   flex-grow: 1;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   max-width: 1030px;
 
@@ -111,6 +112,7 @@ button {
 
   width: 100%;
   margin: 0;
+  margin-top: 54px;
   margin-bottom: 31px;
   padding-left: 20px;
 
