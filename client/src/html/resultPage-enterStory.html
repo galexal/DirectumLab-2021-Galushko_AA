@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../style.css">
-  <title>Результаты голосования: ввод новой темы</title>
+  <title>Результаты голосования</title>
  </head>
  <body class="page">
   <div class="header-container">
@@ -23,8 +23,8 @@
     </header>
   </div>
   <main class="main_planning-page">
-    <div class="result-part">
-      <h2 class="story-name">Story</h2> <!-- Имя обсуждения -->
+    <h2 class="story-name">Story</h2>
+    <div class="cards-or-result-with-sidebar">
       <div class="result">
         <div class="circle">
           <p class="number-of-players">2 Players</p><!-- выводить количество проголосовавших -->
@@ -48,37 +48,6 @@
           </div> 
         </div>
       </div>
-      <div class="story">
-        <div class="story-title">
-          <p class="completed_stories">Completed Stories</p>
-          <p class="stories-number">5</p> <!-- выводить количество историй -->
-            <a class="download" href="#ModalWindow" id="ModalWindowClose"><img src="../images/download_24px.svg" alt="Иконка скачивания"></a>
-            <div id="ModalWindow" class="Modal">
-              <div class="Modal_Body">
-                  <div class="modal-window">
-                    <p class="sidebar__header">Story Details</p>
-                    <h3 class="players">Players:</h3>
-                    <div class="User1">
-                      <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-                      <p class="user-in-story">User1</p>
-                      <p class="vote-in-modal">3</p>
-                    </div>
-                    <div class="User2">
-                      <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-                      <p class="user-in-story">User2</p>
-                      <p class="vote-in-modal">8</p>
-                    </div>
-                    <button ><a class="button-in-modal" href="#ModalWindowClose">Close</a></button>
-                  </div>
-              </div>
-            </div>
-        </div>
-        <table>
-          <tr><td>Story</td><td>14</td><td><button class="basket" onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
-          <tr><td>Story</td><td>14</td><td><button class="basket" onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
-        </table>
-      </div>
-    </div>
     <div class="sidebar">
       <p class="sidebar__header">Story voting completed</p>
       <h3 class="players">Players:</h3>
@@ -99,9 +68,40 @@
         <input class="invite_input" type="text" name="invitelink" id="invitelink" placeholder="https://www.planitpoker.com/board" readonly>
       </div>
     </div>
-  </main>
-  <footer class="footer">
-    <p>Copyright 2021 <span class="footer__logo">PlanPoker</span></p>
-  </footer>
- </body>
+  </div>
+  <div class="story">
+    <div class="story-title">
+      <p class="completed_stories">Completed Stories</p>
+      <p class="stories-number">5</p> <!-- выводить количество историй -->
+        <a class="download" href="#ModalWindow" id="ModalWindowClose"><img src="../images/download_24px.svg" alt="Иконка скачивания"></a>
+        <div id="ModalWindow" class="modal">
+          <div class="modal_body">
+              <div class="modal-window">
+                <p class="sidebar__header">Story Details</p>
+                <h3 class="players">Players:</h3>
+                <div class="User1">
+                  <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+                  <p class="user-in-story">User1</p>
+                  <p class="vote-in-modal">3</p>
+                </div>
+                <div class="User2">
+                  <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+                  <p class="user-in-story">User2</p>
+                  <p class="vote-in-modal">8</p>
+                </div>
+                <button ><a class="button-in-modal" href="#ModalWindowClose">Close</a></button>
+              </div>
+          </div>
+        </div>
+    </div>
+    <table>
+      <tr><td>Story</td><td>14</td><td ><button class="basket" onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
+      <tr><td>Story</td><td>14</td><td ><button class="basket" onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
+    </table>
+  </div>
+</main>
+<footer class="footer">
+  <p>Copyright 2021 <span class="footer__logo">PlanPoker</span></p>
+</footer>
+</body>
 </html>

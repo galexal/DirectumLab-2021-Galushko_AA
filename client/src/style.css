@@ -32,14 +32,15 @@ button {
 .header {
   display: flex;
   justify-content: space-between;
-  min-width: 1030px;
+  width: 100%;
+  max-width: 1030px;
+
+
+
 
   height: 93px;
 
   margin: auto;
-
-
-
 
 
   background: #ffffff;
@@ -91,46 +92,50 @@ button {
 
 .main_planning-page {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-grow: 1;
   align-items: flex-start;
   justify-content: center;
+  width: 100%;
   max-width: 1030px;
 
+
   margin: 0 auto;
-  padding-right: 125px;
-  padding-left: 125px;
+  padding-right: 20px;
+  padding-left: 20px;
 
   background: #edf2f7;
 }
 
-/* .main-container {
-
-  max-width: 1030px;
-} */
-
 .story-name {
+
+  width: 100%;
   margin: 0;
-  margin-top: 54px;
   margin-bottom: 31px;
+  padding-left: 20px;
 
   font-weight: normal;
   font-size: 26px;
 }
 
-.cards-with-header {
+.cards-or-result-with-sidebar {
   display: flex;
-  flex-direction: column;
-  margin-top: 0;
-  margin-bottom: 43px;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1030px;
+
+  margin: 0;
 }
 
 .cards {
   display: flex;
 
   flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 0;
+  justify-content: flex-start;
+
+  margin: 0;
+  padding-left: 20px;
 
 
   filter: drop-shadow(0 0 3px #d5d9de);
@@ -166,7 +171,19 @@ button {
 .result {
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 479px;
+  max-width: 715px;
+  min-height: 465px;
+
+  margin: 0;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+
 
   background: #ffffff;
   border-radius: 0;
@@ -220,6 +237,7 @@ button {
   height: 10px;
 
   background: #f8e71d;
+  border-radius: 10px;
 }
 
 .value_mark-blue {
@@ -230,6 +248,7 @@ button {
   height: 10px;
 
   background: #225378;
+  border-radius: 10px;
 }
 
 .value_number {
@@ -247,10 +266,12 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 715px;
+  width: 100%;
+  max-width: 695px;
   height: 261px;
   margin-top: 52px;
   margin-bottom: 52px;
+  margin-left: 20px;
 
   background: #ffffff;
   border-radius: 4px;
@@ -274,10 +295,13 @@ button {
 }
 
 .stories-number {
-  width: 25px;
-  height: 20px;
+
+  min-width: 25px;
+  min-height: 20px;
+  margin: auto;
   margin-left: 13px;
-  padding-left: 12px;
+
+  text-align: center;
 
   background: #c9cfd6;
   border-radius: 10px;
@@ -285,7 +309,7 @@ button {
 
 .download {
   margin: auto;
-  margin-left: 66%;
+  margin-right: 15px;
 }
 
 table {
@@ -305,17 +329,20 @@ td {
 }
 
 .basket {
-  padding-left: 80%;
+  padding-left: 85%;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 294px;
-  margin: 0 auto;
-  margin-top: 115px;
-  margin-left: 19px;
+  min-width: 295px;
+  max-height: 480px;
+  margin: 0;
+
+
+
+
 
   background: #ffffff;
 }
@@ -374,6 +401,7 @@ td {
   height: 39px;
   margin-top: 45px;
   margin-left: 22px;
+
 
   color: #4b9ae8;
 
@@ -555,6 +583,9 @@ td {
 }
 
 .footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 70px;
 
   font-size: 12px;
@@ -592,7 +623,6 @@ td {
   text-decoration: none;
 
 
-
   border: 1px solid #4b9ae8;
   border-radius: 4px;
 }
@@ -609,7 +639,7 @@ td {
   border: 1px solid #3069a1;
 }
 
-.Modal {
+.modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -619,18 +649,19 @@ td {
 
   display: none;
 
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(196, 196, 196, 0.5);
+
 
   pointer-events: none;
 }
 
-.Modal:target {
+.modal:target {
   display: flex;
 
   pointer-events: auto;
 }
 
-.Modal_Body {
+.modal_body {
   position: relative;
   z-index: 2;
 
