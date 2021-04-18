@@ -11,12 +11,15 @@ button {
 }
 
 
+
+
 .page {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   min-height: 100vh;
   margin: 0;
+  
 
   font-family: "Roboto";
 
@@ -25,7 +28,9 @@ button {
 
 .header-container {
   display: flex;
+ 
 
+  
   background-color: #ffffff;
 }
 
@@ -34,7 +39,8 @@ button {
   justify-content: space-between;
   width: 100%;
   max-width: 1030px;
-
+  box-sizing: border-box;
+  padding: 0 20px;
 
 
 
@@ -99,7 +105,7 @@ button {
   justify-content: flex-start;
   width: 100%;
   max-width: 1030px;
-
+  box-sizing: border-box;
 
   margin: 0 auto;
   padding-right: 20px;
@@ -124,10 +130,20 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
   max-width: 1030px;
 
   margin: 0;
+
+}
+
+.result-with-story {
+  display: flex;
+  flex-direction: column;
+  
+  width: 100%;
+
 }
 
 .cards {
@@ -174,13 +190,13 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 100%;
-  min-width: 479px;
+
+  min-width: 465px;
   max-width: 715px;
   min-height: 465px;
 
   margin: 0;
-  margin-right: 20px;
+
   margin-left: 20px;
   padding: 0;
   padding-right: 20px;
@@ -202,8 +218,7 @@ button {
   justify-content: center;
   width: 310px;
   height: 310px;
-  margin-top: 62px;
-  margin-bottom: 62px;
+  margin: auto;
 
   text-align: center;
 
@@ -268,8 +283,9 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 100%;
-  max-width: 695px;
+
+
+  max-width: 715px;
   height: 261px;
   margin-top: 52px;
   margin-bottom: 52px;
@@ -314,20 +330,27 @@ button {
   margin-right: 15px;
 }
 
-table {
+.table {
   background: #fffdfd;
   border-collapse: collapse;
+  
 }
 
-tr {
+.table tr {
   height: 67px;
 
   border-radius: 4px;
   box-shadow: 0 0 3px #d5d9de;
 }
 
-td {
+.table td {
   padding-left: 21px;
+  
+}
+
+.table td a{
+  text-decoration: none;
+  color: black;
 }
 
 .basket {
@@ -337,10 +360,13 @@ td {
 .sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+
+  
   min-width: 295px;
-  max-height: 480px;
+  
   margin: 0;
+  margin-left: 19px;
 
 
 
