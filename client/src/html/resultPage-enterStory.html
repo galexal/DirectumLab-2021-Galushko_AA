@@ -2,68 +2,108 @@
 <html lang="ru">
  <head>
   <meta charset="utf-8">
-  <title>Результаты голосования: ввод новой темы</title>
+  <link rel="stylesheet" href="../style.css">
+  <title>Результаты голосования</title>
  </head>
- <body>
-  <header class="header">
-    <div class="logotype">
-      <a href="https://ya.ru/">
-        <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
-        <h1>PlanPoker</h1>
-      </a>
-    </div>
-    <div class="userAcc">
-      <button onclick="/* выпадашка */">
-        UserName
-        <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-      </button>
-    </div>
-  </header>
-  <main>
-    <h2>Story</h2> <!-- Имя обсуждения -->
-    <div class="result">
-      <p>2 Players</p><!-- выводить количество проголосовавших -->
-      <p>voted.</p>
-      <p>AVG: 4</p> <!-- выводить среднее значение -->
-      <div class="Value3">
-        <p>3</p> <!-- выводить оценку -->
-        <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+ <body class="page">
+  <div class="header-container">
+    <header class="header">
+      <div class="header__logotype">
+        <a href="https://ya.ru/">
+          <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
+          <h1 class="header__name">PlanPoker</h1>
+        </a>
       </div>
-      <div class="Value5">
-        <p>5</p> <!-- выводить оценку -->
-        <p>50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+      <div class="header__user-acc">
+        <button class="user-acc_button" onclick="/* выпадашка */">
+          UserName
+          <img class="acc_logo" src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+        </button>
       </div>
-    </div>
-    <div class="story">
-      <div class="storyTitle">
-        <p>Complited Stories</p>
-        <p>5</p> <!-- выводить количество историй -->
-        <button onclick="/* выгрузить историю */"><img src="../images/download_24px.svg" alt="Иконка скачивания"></button>
-      </div>
-      <table>
-        <tr><td>Story</td><td>14</td><td><button onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
-        <tr><td>Story</td><td>14</td><td><button onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
-      </table>
-    </div>
-    <div class="sideBar">
-      <p>Story voting completed</p>
-      <h3>Players</h3>
-        <div class="User1">
-          <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-          <p>User1</p>
+    </header>
+  </div>
+  <main class="main_planning-page">
+    <h2 class="story-name">Story</h2>
+    <div class="cards-or-result-with-sidebar">
+      <div class="result-with-story">
+        <div class="result">
+          <div class="circle">
+            <p class="number-of-players">2 Players</p><!-- выводить количество проголосовавших -->
+            <p class="voted">voted.</p>
+            <p class="avg">Avg: 4</p> <!-- выводить среднее значение -->
+          </div>
+          <div class="valueresults">
+            <div class="value3">
+              <div class="value_general">
+                <p class="value_mark-yellow"></p>
+                <p class="value_number">3</p> <!-- выводить оценку -->
+              </div>
+              <p class="value_share">50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+            </div>
+            <div class="value5">
+              <div class="value_general">
+                <p class="value_mark-blue"></p>
+                <p class="value_number">5</p> <!-- выводить оценку -->
+              </div>
+              <p class="value_share">50% (1 player)</p> <!-- выводить процент и количество поставивших оценку -->
+            </div>
+          </div>
         </div>
-        <div class="User2">
-          <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
-          <p>User2</p>
+        <div class="story">
+          <div class="story-title">
+            <p class="completed_stories">Completed Stories</p>
+            <p class="stories-number">5</p> <!-- выводить количество историй -->
+            <a class="download" href=""><img src="../images/download_24px.svg" alt="Иконка скачивания"></a>
+          </div>
+          <table class="table">
+            <tr><td><a href="#ModalWindow" id="ModalWindowClose">Story</a></td><td>14</td><td ><button class="basket" onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
+            <tr><td>Story</td><td>14</td><td ><button class="basket" onclick="/* удалить результат */"><img src="../images/delete_24px.svg" alt="Иконка корзины"></button></td>
+          </table>
         </div>
-      <input type="text" name="discussionName" id="discussionName" placeholder="Enter new discussion name" required>
-      <button onclick="/* начать новое голосованиe */">Go</button>
-      <h3>Invite a teammate</h3>
-      <input type="text" name="inviteLink" id="inviteLink" readonly>
+      </div>
+      <div class="sidebar">
+        <p class="sidebar__header">Story voting completed</p>
+        <h3 class="players">Players:</h3>
+          <div class="User1">
+            <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+            <p class="user-in-story">User1</p>
+          </div>
+          <div class="User2">
+            <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+            <p class="user-in-story">User2</p>
+          </div>
+        <div class="new-story">
+          <input class="new-story_input" type="text" name="discussionname" id="discussionname" placeholder="Enter new discussion name" required>
+          <button class="new-story_button" onclick="/* начать новое голосованиe */">Go</button>
+        </div>
+        <div class="invite">
+          <h3 class="invite_header">Invite a teammate</h3>
+          <input class="invite_input" type="text" name="invitelink" id="invitelink" placeholder="https://www.planitpoker.com/board" readonly>
+        </div>
+      </div>
     </div>
   </main>
   <footer class="footer">
-    <p>Copyright 2021 <span>PlanPoker</span></p>
+    <p>Copyright 2021 <span class="footer__logo">PlanPoker</span></p>
   </footer>
+  <div id="ModalWindow" class="modal">
+    <div class="modal_body">
+        <div class="modal-window">
+          <p class="sidebar__header">Story Details</p>
+          <h3 class="players">Players:</h3>
+          <div class="User1">
+            <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+            <p class="user-in-story">User1</p>
+            <p class="vote-in-modal">3</p>
+          </div>
+          <div class="User2">
+            <img src="../images/User_Icon.svg" width="48" height="48" alt="Аватарка пользователя">
+            <p class="user-in-story">User2</p>
+            <p class="vote-in-modal">8</p>
+          </div>
+          <button ><a class="button-in-modal" href="#ModalWindowClose">Close</a></button>
+        </div>
+    </div>
+  </div>
  </body>
 </html>

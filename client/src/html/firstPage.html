@@ -2,34 +2,37 @@
 <html lang="ru">
  <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="../style.css">
   <title>Главная страница</title>
  </head>
- <body>
-  <header class="header">
-    <div class="logotype">
-      <a href="https://ya.ru/">
-        <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
-        <h1>PlanPoker</h1>
-      </a>
-    </div>
-  </header>
-  <main>
-    <form method="GET" action="send">
-      <p>Let's start!</p>
-      <h2>Create the room</h2>
-      <div>
-        <label for="userName">User name</label>
-        <input type="text" name="userName" id="userName" placeholder="Enter your name" required>
+ <body class="page">
+  <div class="header-container">
+    <header class="header">
+      <div class="header__logotype">
+        <a href="https://ya.ru/">
+          <img src="../images/pie_chart_24px.svg" width="48" height="48" alt="Иконка PlanPoker">
+          <h1 class="header__name">PlanPoker</h1>
+        </a>
       </div>
-      <div>
+    </header>
+  </div>
+  <main class="main">
+    <form class="form" method="GET" action="send">
+      <p class="greeting">Let’s start!</p>
+      <h2 class="form-header">Create the room:</h2>
+      <div class="user-name">
+        <label for="user-name">User name</label>
+        <input class="user-name__field" type="text" name="userName" id="userName" placeholder="Enter your name" required>
+      </div>
+      <div class="room-name">
         <label for="roomName">Room name</label>
-        <input type="text" name="roomName" id="roomName" placeholder="Enter room name" required>
+        <input class="room-name__field" type="text" name="roomName" id="roomName" placeholder="Enter room name" required>
       </div>
-      <button type="submit">Enter</button> 
+      <button class="register-button" type="submit">Enter</button> 
     </form>
   </main>
   <footer class="footer">
-     <p>Copyright 2021 <span>PlanPoker</span></p>
+     <p>Copyright 2021 <span class="footer__logo">PlanPoker</span></p>
   </footer>
  </body>
 </html>
