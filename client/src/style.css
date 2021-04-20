@@ -11,15 +11,13 @@ button {
 }
 
 
-
-
 .page {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   min-height: 100vh;
   margin: 0;
-  
+
 
   font-family: "Roboto";
 
@@ -28,26 +26,23 @@ button {
 
 .header-container {
   display: flex;
- 
 
-  
+
   background-color: #ffffff;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
   width: 100%;
   max-width: 1030px;
-  box-sizing: border-box;
-  padding: 0 20px;
-
 
 
   height: 93px;
 
   margin: auto;
-
+  padding: 0 20px;
 
 
   background: #ffffff;
@@ -103,9 +98,9 @@ button {
   flex-grow: 1;
   align-items: flex-start;
   justify-content: flex-start;
+  box-sizing: border-box;
   width: 100%;
   max-width: 1030px;
-  box-sizing: border-box;
 
   margin: 0 auto;
   padding-right: 20px;
@@ -129,21 +124,19 @@ button {
 .cards-or-result-with-sidebar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   width: 100%;
   max-width: 1030px;
 
   margin: 0;
-
 }
 
 .result-with-story {
   display: flex;
   flex-direction: column;
-  
-  width: 100%;
 
+  width: 100%;
 }
 
 .cards {
@@ -333,7 +326,6 @@ button {
 .table {
   background: #fffdfd;
   border-collapse: collapse;
-  
 }
 
 .table tr {
@@ -345,12 +337,11 @@ button {
 
 .table td {
   padding-left: 21px;
-  
 }
 
-.table td a{
-  text-decoration: none;
+.table td a {
   color: black;
+  text-decoration: none;
 }
 
 .basket {
@@ -362,14 +353,11 @@ button {
   flex-direction: column;
   justify-content: flex-start;
 
-  
+
   min-width: 295px;
-  
+
   margin: 0;
   margin-left: 19px;
-
-
-
 
 
   background: #ffffff;
@@ -542,12 +530,12 @@ button {
   font-size: 16px;
 }
 
-.user-name {
+.form-input-label {
   display: flex;
   flex-direction: column;
   width: 400px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 15px;
 
   color: #808284;
 
@@ -555,29 +543,7 @@ button {
   text-align: left;
 }
 
-.user-name__field {
-  width: 400px;
-  height: 39px;
-  margin: 0 auto;
-  margin-top: 9px;
-  padding-left: 18px;
-}
-
-.room-name {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin: 0 auto;
-  margin-top: 10px;
-  margin-top: 10px;
-
-  color: #808284;
-
-  font-size: 14px;
-  text-align: left;
-}
-
-.room-name__field {
+.form-input-field {
   width: 400px;
   height: 39px;
   margin: 0 auto;

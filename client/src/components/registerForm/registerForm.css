@@ -1,43 +1,43 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 610px;
-    height: 415px;
-    margin: auto;
-  
-    text-align: center;
-  
-    background: #ffffff;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 610px;
+  height: 415px;
+  margin: auto;
 
-  .form-header {
-    margin: 0;
-    margin-top: 14px;
-  
-    color: #808284;
-    font-weight: normal;
-    font-size: 16px;
-  }
+  text-align: center;
 
-  .room-name {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-top: 10px;
-  
-    color: #808284;
-  
-    font-size: 14px;
-    text-align: left;
-  }
-  
-  .room-name__field {
-    width: 400px;
-    height: 39px;
-    margin: 0 auto;
-    margin-top: 9px;
-    padding-left: 18px;
-  }
+  background: #ffffff;
+}
+
+.form-header {
+  margin: 0;
+  margin-top: 14px;
+
+  color: #808284;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.room-name {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-top: 10px;
+
+  color: #808284;
+
+  font-size: 14px;
+  text-align: left;
+}
+
+.room-name__field {
+  width: 400px;
+  height: 39px;
+  margin: 0 auto;
+  margin-top: 9px;
+  padding-left: 18px;
+}

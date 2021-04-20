@@ -1,9 +1,14 @@
 import * as React from 'react';
+import Button from '../button/button';
 import './registerButton.css';
 
 function RegisterButton() {
   return (
-    <button className="register-button" type="submit">Enter</button>
+    <Button
+      type="submit"
+      className="register-button"
+      text="Enter"
+    />
   );
 }
 

@@ -1,18 +1,18 @@
 import * as React from 'react';
 import Input from '../input/input';
-import './userInput.css';
+import './roomInput.css';
 
-function UserInput() {
+function RoomInput() {
   return (
     <Input
       type="text"
       classNameLabel="form-input-label"
       classNameField="form-input-field"
-      text="User name"
-      placeholder="Enter your name"
+      text="Room name"
+      placeholder="Enter room name"
       required={true}
     />
   );
 }
 
-export default UserInput;
+export default RoomInput;
