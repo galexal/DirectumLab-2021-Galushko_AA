@@ -1,12 +1,12 @@
 import React from 'react';
 import Greeting from '../greeting/greeting';
-import RegisterButton from '../registerButton/registerButton';
+import RegisterButton from '../button/registerButton';
 
 interface Props {
   text: string;
   classNameForm: string;
   classNameHeader: string;
-  fields: [...any];
+  fields: Array<React.ReactElement>;
 }
 
 const Form: React.FC<Props> = ({
@@ -18,9 +18,9 @@ const Form: React.FC<Props> = ({
   return (
     <div className={classNameForm}>
       <Greeting/>
-      <h2 className={classNameHeader}>{text}]</h2>
+      <h2 className={classNameHeader}>{text}</h2>
       {fields.map((field)=>(
-        <div key={field}>{field}</div>
+        <div key={field.key}>{field}</div>
       ))}
       <RegisterButton/>
     </div>

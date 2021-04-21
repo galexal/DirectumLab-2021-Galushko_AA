@@ -1,13 +1,20 @@
 import * as React from 'react';
-import RegisterForm from '../registerForm/registerForm';
-import './main.css';
 
-function Main() {
+interface Props {
+  className: string;
+}
+
+const Main: React.FC<Props> = ({
+  className,
+  children
+}) => {
   return (
-    <div className="main">
-      <RegisterForm/>
+    <div className={className}>
+      {
+        children
+      }
     </div>
   );
-}
+};
 
 export default Main;

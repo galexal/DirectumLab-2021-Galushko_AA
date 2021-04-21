@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Page from './components/page/page';
-
+// import InvitePage from './components/page/invitePage';
+// import RegisterPage from './components/page/registerPage';
+import PlanningPage from './components/page/planningPage';
 
 ReactDOM.render(
     <React.StrictMode>
-      <Page />
+      {/* <RegisterPage/> */}
+      {/* <InvitePage/> */}
+      <PlanningPage />
     </React.StrictMode>,
     document.getElementById(`root`)
 );

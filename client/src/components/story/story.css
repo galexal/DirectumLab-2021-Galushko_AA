@@ -1,0 +1,148 @@
+.story {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  
+  
+    max-width: 715px;
+    height: 261px;
+    margin-top: 52px;
+    margin-bottom: 52px;
+    margin-left: 20px;
+  
+    background: #ffffff;
+    border-radius: 4px;
+  }
+  
+  .story-title {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 21px;
+  
+    color: #ffffff;
+  
+  
+    background: #4b9ae8;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .completed_stories {
+    min-width: 148px;
+    padding: 0;
+  }
+  
+  .stories-number {
+  
+    min-width: 25px;
+    min-height: 20px;
+    margin: auto;
+    margin-left: 13px;
+  
+    text-align: center;
+  
+    background: #c9cfd6;
+    border-radius: 10px;
+  }
+  
+  .download {
+    margin: auto;
+    margin-right: 15px;
+  }
+  
+  .table {
+    background: #fffdfd;
+    border-collapse: collapse;
+  }
+  
+  .table tr {
+    height: 67px;
+  
+    border-radius: 4px;
+    box-shadow: 0 0 3px #d5d9de;
+  }
+  
+  .table td {
+    padding-left: 21px;
+  }
+  
+  .table td a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .basket {
+    padding-left: 85%;
+  }
+
+  .modal-window {
+    width: 715px;
+    height: 433px;
+  
+    color: #131b23;
+  }
+  
+  .vote-in-modal {
+  
+    margin-left: 540px;
+  }
+  
+  
+  .button-in-modal {
+    box-sizing: border-box;
+    width: 252px;
+    height: 39px;
+    margin-top: 140px;
+    margin-left: 430px;
+    padding-top: 10px;
+  
+    color: #4b9ae8;
+    text-decoration: none;
+  
+  
+    border: 1px solid #4b9ae8;
+    border-radius: 4px;
+  }
+  
+  .button-in-modal:hover {
+    color: #418cd6;
+  
+    border: 1px solid #418cd6;
+  }
+  
+  .button-in-modal:active {
+    color: #3069a1;
+  
+    border: 1px solid #3069a1;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+  
+    display: none;
+  
+    background: rgba(196, 196, 196, 0.5);
+  
+  
+    pointer-events: none;
+  }
+  
+  .modal:target {
+    display: flex;
+  
+    pointer-events: auto;
+  }
+  
+  .modal_body {
+    position: relative;
+    z-index: 2;
+  
+    display: block;
+    margin: auto;
+  
+    background: #ffffff;
+  }

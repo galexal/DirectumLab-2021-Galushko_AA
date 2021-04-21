@@ -5,7 +5,7 @@ import './registerButton.css';
 function RegisterButton() {
   return (
     <Button
-      type="submit"
+      type = "submit"
       className="register-button"
       text="Enter"
     />
