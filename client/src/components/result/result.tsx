@@ -11,9 +11,7 @@ const Result: React.FC<IProps> = ({
   users,
   colors
 }) => {
-
-    const Avg = 
-    function GetAvg () {
+    const getAvg = () => {
         let sum=0;
             users.map((user) =>
             {
@@ -24,23 +22,27 @@ const Result: React.FC<IProps> = ({
             return sum/users.length;
         }
 
+    const getColor = (index: number) => {
+        return colors[index%colors.length] 
+        }
+
   return (
     <div className="result">
     <div className="circle">
       <p className="number-of-players">{users.length}</p>
       <p className="voted">voted.</p>
-      <p className="avg">Avg: {Avg}</p> 
+      <p className="avg">Avg: {getAvg()}</p> 
     </div>
     <div className="valueresults">
-        {users.map((user =>
+        {users.map((user, index) =>
             <div key={user.userName} className="value">
             <div className="value_general">
-            <p className={colors[users.indexOf(user)]}></p>
+            <p className={getColor(index)}></p>
             <p className="value_number">{user.vote}</p> 
             </div>
             <p className="value_share">{100/users.length}% (1 player)</p> 
         </div>
-            ))}
+            )}
     </div>
   </div>
   );

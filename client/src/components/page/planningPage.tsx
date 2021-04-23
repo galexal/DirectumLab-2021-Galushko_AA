@@ -25,7 +25,12 @@ const PlanningPage: React.FC<IProps> = ({
             {votingIsFinish
               ? <Result
                   colors={["value_mark-yellow", "value_mark-red", "value_mark-green"]}
-                  users={[{userName: "User1", vote: "42"},{userName: "User2", vote: "66"}]}
+                  users={[
+                    {userName: "User1", vote: "42"},
+                    {userName: "User2", vote: "66"},
+                    {userName: "User3", vote: "18"},
+                    {userName: "User4", vote: "34"}
+                  ]}
                 />
               : <Cards values={['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'question', 'coffee']}/>
             }
