@@ -1,21 +1,20 @@
+import { userInfo } from 'node:os';
 import * as React from 'react';
 import './result.css';
 
-interface Props {
+interface IProps {
     users: Array<{userName: string, vote?: string}>;
+    colors: Array<string>;
 }
 
-const Result: React.FC<Props> = ({
-  users
+const Result: React.FC<IProps> = ({
+  users,
+  colors
 }) => {
-  return (
-    <div className="result">
-    <div className="circle">
-      <p className="number-of-players">{users.length}</p>
-      <p className="voted">voted.</p>
-      <p className="avg">Avg: {
-       function GetAvg () {
-           var sum=0;
+
+    const Avg = 
+    function GetAvg () {
+        let sum=0;
             users.map((user) =>
             {
                 if (user.vote != undefined){
@@ -24,13 +23,19 @@ const Result: React.FC<Props> = ({
             })
             return sum/users.length;
         }
-   }</p> 
+
+  return (
+    <div className="result">
+    <div className="circle">
+      <p className="number-of-players">{users.length}</p>
+      <p className="voted">voted.</p>
+      <p className="avg">Avg: {Avg}</p> 
     </div>
     <div className="valueresults">
         {users.map((user =>
-            <div className="value">
+            <div key={user.userName} className="value">
             <div className="value_general">
-            <p className="value_mark-yellow"></p>
+            <p className={colors[users.indexOf(user)]}></p>
             <p className="value_number">{user.vote}</p> 
             </div>
             <p className="value_share">{100/users.length}% (1 player)</p> 

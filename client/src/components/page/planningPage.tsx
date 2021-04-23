@@ -8,11 +8,11 @@ import Story from '../story/story';
 import Sidebar from '../sidebar/sidebar';
 import Result from '../result/result';
 
-interface Props {
+interface IProps {
   votingIsFinish?: boolean;
 }
 
-const PlanningPage: React.FC<Props> = ({
+const PlanningPage: React.FC<IProps> = ({
   votingIsFinish
 }) => {
   return (
@@ -24,6 +24,7 @@ const PlanningPage: React.FC<Props> = ({
           <div className="result-with-story">
             {votingIsFinish
               ? <Result
+                  colors={["value_mark-yellow", "value_mark-red", "value_mark-green"]}
                   users={[{userName: "User1", vote: "42"},{userName: "User2", vote: "66"}]}
                 />
               : <Cards values={['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'question', 'coffee']}/>

@@ -3,11 +3,11 @@ import Logotype from '../logotype/logotype';
 import UserAcc from '../userAcc/userAcc';
 import './header.css';
 
-interface Props {
+interface IProps {
   userName?: string;
 }
 
-const Header: React.FC<Props> = ({
+const Header: React.FC<IProps> = ({
   userName
 }) => {
   return (

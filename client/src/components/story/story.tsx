@@ -5,11 +5,11 @@ import userIcon from '../../images/User_Icon.svg';
 import './story.css';
 import '../sidebar/sidebar.css';
 
-interface Props {
+interface IProps {
   stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: number}>}>
 }
 
-const Story: React.FC<Props> = ({
+const Story: React.FC<IProps> = ({
   stories
 }) => {
   return (
@@ -21,7 +21,7 @@ const Story: React.FC<Props> = ({
       </div>
       <table className="table">
         {stories.map((story)=>
-            <tr><td><a href="#ModalWindow" id="ModalWindowClose">{story.storyName}</a></td><td>{story.avg}</td><td ><button className="basket" ><img src={basket} alt="Иконка корзины"/></button></td></tr>    
+            <tr key={story.storyName}><td><a href="#ModalWindow" id="ModalWindowClose">{story.storyName}</a></td><td>{story.avg}</td><td ><button className="basket" ><img src={basket} alt="Иконка корзины"/></button></td></tr>    
         )}
       </table>
       <div id="ModalWindow" className="modal">
@@ -31,7 +31,7 @@ const Story: React.FC<Props> = ({
           <h3 className="players">Players:</h3>
           {stories.map((story)=>
             story.users.map((user) => 
-                <div className="user-in-sidebar">
+                <div key={user.userName} className="user-in-sidebar">
                     <img src={userIcon} width="48" height="48" alt="Аватарка пользователя"/>
                     <p className="user-in-story">{user.userName}</p>
                     <p className="vote-in-modal">{user.vote}</p>

@@ -68,6 +68,28 @@
     background: #f8e71d;
     border-radius: 10px;
   }
+
+  .value_mark-red {
+    top: 252px;
+    left: 650px;
+  
+    width: 10px;
+    height: 10px;
+  
+    background: red;
+    border-radius: 10px;
+  }
+
+  .value_mark-green {
+    top: 252px;
+    left: 650px;
+  
+    width: 10px;
+    height: 10px;
+  
+    background: green;
+    border-radius: 10px;
+  }
   
   .value_mark-blue {
     top: 252px;

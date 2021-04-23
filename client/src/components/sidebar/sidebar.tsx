@@ -2,13 +2,13 @@ import * as React from 'react';
 import userIcon from '../../images/User_Icon.svg';
 import './sidebar.css';
 
-interface Props {
+interface IProps {
     needHideVote?: boolean;
     users: Array<string>;
     // users: Array<{name: string, vote?: string}>;
 }
 
-const Sidebar: React.FC<Props> = ({
+const Sidebar: React.FC<IProps> = ({
   needHideVote,
   users
 }) => {

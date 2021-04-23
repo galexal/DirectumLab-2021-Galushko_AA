@@ -1,11 +1,11 @@
 import * as React from 'react';
 import './card.css';
 
-interface Props {
+interface IProps {
   value: string;
 }
 
-const Card: React.FC<Props> = ({
+const Card: React.FC<IProps> = ({
   value
 }) => {
   switch (value) {

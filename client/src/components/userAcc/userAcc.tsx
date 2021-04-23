@@ -2,11 +2,11 @@ import * as React from 'react';
 import userIcon from '../../images/User_Icon.svg';
 import './userAcc.css';
 
-interface Props {
+interface IProps {
     userName?: string;
 }
 
-const UserAcc: React.FC<Props> = ({
+const UserAcc: React.FC<IProps> = ({
   userName
 }) => {
   return (

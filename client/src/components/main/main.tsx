@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-interface Props {
+interface IProps {
   className: string;
 }
 
-const Main: React.FC<Props> = ({
+const Main: React.FC<IProps> = ({
   className,
   children
 }) => {

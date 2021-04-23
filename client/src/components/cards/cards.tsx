@@ -2,11 +2,11 @@ import * as React from 'react';
 import Card from '../card/card';
 import './cards.css';
 
-interface Props {
+interface IProps {
   values: Array<string>;
 }
 
-const Cards: React.FC<Props> = ({
+const Cards: React.FC<IProps> = ({
   values
 }) => {
   return (
