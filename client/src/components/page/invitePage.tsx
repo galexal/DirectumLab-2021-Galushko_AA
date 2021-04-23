@@ -10,7 +10,7 @@ function InvitePage() {
   return (
     <div className="page">
       <Header/>
-      <Main className="main" children={<InviteForm/>} />
+      <Main className="main"><InviteForm/></Main>
       <Footer/>
     </div>
   );

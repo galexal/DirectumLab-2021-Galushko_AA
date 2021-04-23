@@ -8,18 +8,18 @@ function InviteForm() {
     <Form
       text="Join the room"
       classNameForm="form"
-      classNameHeader="form-header"
-      fields = {[
-        <Input
-          key="userInput"
-          type="text"
-          classNameLabel="form-input-label"
-          classNameField="form-input-field"
-          text="User name"
-          placeholder="Enter your name"
-          required={true}
-        />]}/>
+      classNameHeader="form-header">
+      <Input
+      key="userInput"
+      type="text"
+      classNameLabel="form-input-label"
+      classNameField="form-input-field"
+      text="User name"
+      placeholder="Enter your name"
+      required={true}
+    />
+    </Form>
   );
-}
+};
 
 export default InviteForm;

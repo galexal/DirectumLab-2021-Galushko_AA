@@ -6,22 +6,19 @@ interface Props {
   text: string;
   classNameForm: string;
   classNameHeader: string;
-  fields: Array<React.ReactElement>;
 }
 
 const Form: React.FC<Props> = ({
   text,
   classNameForm,
   classNameHeader,
-  fields
+  children
 }) => {
   return (
     <div className={classNameForm}>
       <Greeting/>
       <h2 className={classNameHeader}>{text}</h2>
-      {fields.map((field)=>(
-        <div key={field.key}>{field}</div>
-      ))}
+      {children}
       <RegisterButton/>
     </div>
   );

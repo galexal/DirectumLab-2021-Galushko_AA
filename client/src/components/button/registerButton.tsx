@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Button from '../button/button';
+import Button, {ButtonType} from '../button/button';
 import './registerButton.css';
 
 function RegisterButton() {
   return (
     <Button
-      type = "submit"
+      type = {ButtonType.SUBMIT}
       className="register-button"
       text="Enter"
     />

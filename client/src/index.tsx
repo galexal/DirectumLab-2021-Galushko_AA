@@ -8,7 +8,7 @@ ReactDOM.render(
     <React.StrictMode>
       {/* <RegisterPage/> */}
       {/* <InvitePage/> */}
-      <PlanningPage />
+      <PlanningPage votingIsFinish />
     </React.StrictMode>,
     document.getElementById(`root`)
 );

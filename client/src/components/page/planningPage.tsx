@@ -6,8 +6,15 @@ import './page.css';
 import Cards from '../cards/cards';
 import Story from '../story/story';
 import Sidebar from '../sidebar/sidebar';
+import Result from '../result/result';
 
-function PlanningPage() {
+interface Props {
+  votingIsFinish?: boolean;
+}
+
+const PlanningPage: React.FC<Props> = ({
+  votingIsFinish
+}) => {
   return (
     <div className="page">
       <Header userName="UserName"/>
@@ -15,14 +22,24 @@ function PlanningPage() {
         <h2 className="story-name">Story</h2>
         <div className="cards-or-result-with-sidebar">
           <div className="result-with-story">
-            <Cards values={[0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100]}/>
+            {votingIsFinish
+              ? <Result
+                  users={[{userName: "User1", vote: "42"},{userName: "User2", vote: "66"}]}
+                />
+              : <Cards values={['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'question', 'coffee']}/>
+            }
             <Story
-              storiesNumber={5}
-              storyName="StoryName"
-              avg={14}
+               stories={[
+                {storyName: "Story1", avg: 8, users: [{userName: "User1", vote: 42}]},
+                {storyName: "Story2", avg: 8, users: [{userName: "User2", vote: 66}]}
+              ]}
             />
           </div>
-          <Sidebar isChecked users={['User1', 'User2']}/>
+          <Sidebar needHideVote users={[
+            'User1', 'User2'
+            //{name:'User1',vote:'5'}, 
+            //{name:'User2',vote:'8'}
+            ]}/>
         </div>
       </Main>
       <Footer/>

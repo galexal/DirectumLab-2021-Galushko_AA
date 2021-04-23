@@ -1,9 +1,15 @@
 import React from 'react';
 
+export enum ButtonType {
+  BUTTON='button',
+  SUBMIT='submit',
+  RESET='reset'
+}
+
 interface Props {
   text: string;
   onClick?: () => void;
-  type: 'button' | 'submit' | 'reset' | undefined;
+  type: ButtonType | undefined;
   className: string;
 }
 

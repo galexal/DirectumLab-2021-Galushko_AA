@@ -4,7 +4,6 @@ import UserAcc from '../userAcc/userAcc';
 import './header.css';
 
 interface Props {
-  // user: object|null;
   userName?: string;
 }
 
