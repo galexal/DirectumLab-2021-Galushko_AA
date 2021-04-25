@@ -1,16 +1,29 @@
 import * as React from 'react';
 import userIcon from '../../images/User_Icon.svg';
+import {history} from '../../index'
+import { Path } from '../../routes';
 import './sidebar.css';
 
 interface IProps {
     needHideVote?: boolean;
     users: Array<{userName: string, vote?: string}>;
+    votingIsFinish?: boolean;
+
 }
 
 const Sidebar: React.FC<IProps> = ({
   needHideVote,
-  users
+  users,
+  votingIsFinish
 }) => {
+  const handleClickFinishVoting = () => {
+    const roomId = 42;
+    history.push(`${Path.planning}/${roomId}/result`)
+  }
+  const handleClickNewStory = () => {
+    const roomId = 42;
+    history.push(`${Path.planning}/${roomId}`)
+  }
   return (
     <div className="sidebar">
       <p className="sidebar__header">Story voting completed</p>
@@ -27,7 +40,13 @@ const Sidebar: React.FC<IProps> = ({
           }
         </div>
       )}
-      <button className="finish_button">Finish Voting</button>
+      {votingIsFinish
+        ? <div className="new-story">
+            <input className="new-story_input" type="text" name="discussionname" id="discussionname" placeholder="Enter new discussion name" required/>
+            <button className="new-story_button" onClick={handleClickNewStory}>Go</button>
+          </div>
+        : <button className="finish_button" onClick={handleClickFinishVoting}>Finish Voting</button>  
+      }
       <div className="invite">
         <h3 className="invite_header">Invite a teammate</h3>
         <input className="invite_input" type="text" name="inviteLink" id="inviteLink" placeholder="https://www.planitpoker.com/board" readOnly/>

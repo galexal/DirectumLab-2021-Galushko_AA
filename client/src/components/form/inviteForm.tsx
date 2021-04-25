@@ -20,6 +20,6 @@ function InviteForm() {
     />
     </Form>
   );
-};
+}
 
 export default InviteForm;

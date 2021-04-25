@@ -41,7 +41,7 @@ const PlanningPage: React.FC<IProps> = ({
               ]}
             />
           </div>
-          <Sidebar needHideVote users={[
+          <Sidebar votingIsFinish={votingIsFinish} needHideVote users={[
             // 'User1', 'User2'
             {userName:"User1",vote:"5"}, 
             {userName:"User2",vote:"8"}

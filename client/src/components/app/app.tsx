@@ -1,23 +1,29 @@
 import * as React from 'react';
-import logo from '../../images/logo.svg';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import RegisterPage from '../page/registerPage';
+import PlanningPage from '../page/planningPage';
+import InvitePage from '../page/invitePage';
+import NoMatchPage from '../page/noMatchPage';
+import { Path } from '../../routes';
+import Modal from '../modal/modal';
 
-function App() {
+
+const App: React.FC<any> = () => {
+  const props = {
+    roomId: 42,
+    votingIsFinish: true
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path={Path.register} component={RegisterPage}/>
+      <Route exact path={`${Path.invite}`} component={InvitePage}/>
+      <Route exact path={`${Path.planning}/:${props.roomId}`} component={PlanningPage}/>
+      <Route exact path={`${Path.planning}/:${props.roomId}/result`}
+      render={()=><PlanningPage votingIsFinish={props.votingIsFinish}/>}
+      />
+      <Route exact path={`${Path.planning}/modal`} component={Modal}/>
+      <Route path='/' component={NoMatchPage}/>
+    </Switch>
   );
 }
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import InvitePage from './components/page/invitePage';
-// import RegisterPage from './components/page/registerPage';
-import PlanningPage from './components/page/planningPage';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import App from './components/app/app';
+
+export const history = createBrowserHistory();
 
 ReactDOM.render(
-    <React.StrictMode>
-      {/* <RegisterPage/> */}
-      {/* <InvitePage/> */}
-      <PlanningPage votingIsFinish />
-    </React.StrictMode>,
+    <Router history={history}>
+      <App />
+    </Router>,
     document.getElementById(`root`)
 );

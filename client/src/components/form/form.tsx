@@ -2,13 +2,13 @@ import React from 'react';
 import Greeting from '../greeting/greeting';
 import RegisterButton from '../button/registerButton';
 
-interface Props {
+interface IProps {
   text: string;
   classNameForm: string;
   classNameHeader: string;
 }
 
-const Form: React.FC<Props> = ({
+const Form: React.FC<IProps> = ({
   text,
   classNameForm,
   classNameHeader,

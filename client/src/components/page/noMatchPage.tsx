@@ -2,19 +2,18 @@ import * as React from 'react';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import Main from '../main/main';
-import RegisterForm from '../form/registerForm';
 import './page.css';
 
-function RegisterPage() {
+function NoMatchPage() {
   return (
     <div className="page">
       <Header/>
       <Main className="main">
-        <RegisterForm/>
+        <h1 style={{color: '#4B9AE8'}}>Страница не найдена</h1>
       </Main>
       <Footer/>
     </div>
   );
 }
 
-export default RegisterPage;
+export default NoMatchPage;
