@@ -1,0 +1,15 @@
+.card {
+    top: 0;
+    left: 0;
+  
+    width: 132px;
+    height: 174px;
+    margin-right: 13px;
+    margin-bottom: 13px;
+  
+    font-size: 46px;
+    font-family: "Roboto";
+  
+    background: #ffffff;
+    border-radius: 4px;
+  }

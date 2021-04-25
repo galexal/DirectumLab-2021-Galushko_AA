@@ -1,0 +1,15 @@
+.header__user-acc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .user-acc_button {
+    color: #131b23;
+    font-size: 18px;
+    font-family: "Roboto";
+  }
+  
+  .acc_logo {
+    margin-left: 15px;
+  }

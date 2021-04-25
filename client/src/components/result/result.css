@@ -1,0 +1,115 @@
+.result {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  
+    min-width: 465px;
+    max-width: 715px;
+    min-height: 465px;
+  
+    margin: 0;
+  
+    margin-left: 20px;
+    padding: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+  
+  
+    background: #ffffff;
+    border-radius: 0;
+  }
+  
+  .result-part {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 310px;
+    height: 310px;
+    margin: auto;
+  
+    text-align: center;
+  
+    border: 12px solid #4b9ae8;
+    border-radius: 50%;
+  }
+  
+  .number-of-players {
+    font-size: 26px;
+  }
+  
+  .voted {
+    color: #808284;
+    font-size: 14px;
+  }
+  
+  .avg {
+    font-size: 26px;
+  }
+  
+  .value_general {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 44px;
+  }
+  
+  .value_mark-yellow {
+    top: 252px;
+    left: 650px;
+  
+    width: 10px;
+    height: 10px;
+  
+    background: #f8e71d;
+    border-radius: 10px;
+  }
+
+  .value_mark-red {
+    top: 252px;
+    left: 650px;
+  
+    width: 10px;
+    height: 10px;
+  
+    background: red;
+    border-radius: 10px;
+  }
+
+  .value_mark-green {
+    top: 252px;
+    left: 650px;
+  
+    width: 10px;
+    height: 10px;
+  
+    background: green;
+    border-radius: 10px;
+  }
+  
+  .value_mark-blue {
+    top: 252px;
+    left: 650px;
+  
+    width: 10px;
+    height: 10px;
+  
+    background: #225378;
+    border-radius: 10px;
+  }
+  
+  .value_number {
+    margin: 0;
+    margin-left: 10px;
+  
+    font-size: 20px;
+  }
+  
+  .value_share {
+    margin: 0;
+  }
+  

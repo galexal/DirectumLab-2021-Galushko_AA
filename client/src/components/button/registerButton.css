@@ -1,0 +1,24 @@
+.register-button {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 39px;
+  margin: 0 auto;
+  margin-top: 36px;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-family: "Roboto";
+
+  background: #4b9ae8;
+  border-radius: 4px;
+}
+
+.register-button:hover {
+  background: #418cd6;
+}
+
+.register-button:active {
+  background: #3069a1;
+}

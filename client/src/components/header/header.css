@@ -1,0 +1,23 @@
+.header-container {
+  display: flex;
+
+
+  background-color: #ffffff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1030px;
+
+
+  height: 93px;
+
+  margin: auto;
+  padding: 0 20px;
+
+
+  background: #ffffff;
+}
