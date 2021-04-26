@@ -1,29 +1,27 @@
 import * as React from 'react';
 import userIcon from '../../images/User_Icon.svg';
-import {history} from '../../index'
+import {withRouter} from 'react-router-dom';
+import {RouteComponentProps} from 'react-router';
 import { Path } from '../../routes';
 import './sidebar.css';
 
-interface IProps {
+interface IProps extends RouteComponentProps {
     needHideVote?: boolean;
     users: Array<{userName: string, vote?: string}>;
     votingIsFinish?: boolean;
-
+    roomId: number;
+    onVotingFinishClick: any;
+    onNewStoryClick: any;
 }
 
 const Sidebar: React.FC<IProps> = ({
-  needHideVote,
-  users,
-  votingIsFinish
-}) => {
-  const handleClickFinishVoting = () => {
-    const roomId = 42;
-    history.push(`${Path.planning}/${roomId}/result`)
-  }
-  const handleClickNewStory = () => {
-    const roomId = 42;
-    history.push(`${Path.planning}/${roomId}`)
-  }
+    needHideVote,
+    users,
+    votingIsFinish,
+    onVotingFinishClick,
+    onNewStoryClick
+  }) => {
+
   return (
     <div className="sidebar">
       <p className="sidebar__header">Story voting completed</p>
@@ -43,9 +41,9 @@ const Sidebar: React.FC<IProps> = ({
       {votingIsFinish
         ? <div className="new-story">
             <input className="new-story_input" type="text" name="discussionname" id="discussionname" placeholder="Enter new discussion name" required/>
-            <button className="new-story_button" onClick={handleClickNewStory}>Go</button>
+            <button className="new-story_button" onClick={onNewStoryClick}>Go</button>
           </div>
-        : <button className="finish_button" onClick={handleClickFinishVoting}>Finish Voting</button>  
+        : <button className="finish_button" onClick={onVotingFinishClick}>Finish Voting</button>  
       }
       <div className="invite">
         <h3 className="invite_header">Invite a teammate</h3>
@@ -55,4 +53,4 @@ const Sidebar: React.FC<IProps> = ({
   );
 };
 
-export default Sidebar;
+export default withRouter(Sidebar);

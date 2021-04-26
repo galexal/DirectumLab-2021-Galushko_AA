@@ -5,23 +5,16 @@ import PlanningPage from '../page/planningPage';
 import InvitePage from '../page/invitePage';
 import NoMatchPage from '../page/noMatchPage';
 import { Path } from '../../routes';
-import Modal from '../modal/modal';
-
 
 const App: React.FC<any> = () => {
   const props = {
-    roomId: 42,
     votingIsFinish: true
   }
   return (
     <Switch>
-      <Route exact path={Path.register} component={RegisterPage}/>
-      <Route exact path={`${Path.invite}`} component={InvitePage}/>
-      <Route exact path={`${Path.planning}/:${props.roomId}`} component={PlanningPage}/>
-      <Route exact path={`${Path.planning}/:${props.roomId}/result`}
-      render={()=><PlanningPage votingIsFinish={props.votingIsFinish}/>}
-      />
-      <Route exact path={`${Path.planning}/modal`} component={Modal}/>
+      <Route exact path={Path.REGISTER} component={RegisterPage}/>
+      <Route exact path={`${Path.INVITE}/:id`} component={InvitePage}/>
+      <Route exact path={`${Path.PLANNING}/:id`} component={PlanningPage}/>
       <Route path='/' component={NoMatchPage}/>
     </Switch>
   );

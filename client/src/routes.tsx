@@ -1,5 +1,5 @@
 export const Path = {
-    register: '/',
-    invite: '/invitePage',
-    planning: '/planningPage'
+    REGISTER: '/',
+    INVITE: '/invite-page',
+    PLANNING: '/planning-page'
 }

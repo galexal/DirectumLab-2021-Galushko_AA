@@ -4,13 +4,16 @@ import basket from '../../images/delete_24px.svg';
 import './story.css';
 import '../sidebar/sidebar.css';
 import { Path } from '../../routes';
+import { Link } from 'react-router-dom';
 
 interface IProps {
-  stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: number}>}>
+  stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: number}>}>;
+  onModalClick: any;
 }
 
 const Story: React.FC<IProps> = ({
-  stories
+  stories,
+  onModalClick
 }) => {
   return (
     <div className="story">
@@ -21,7 +24,7 @@ const Story: React.FC<IProps> = ({
       </div>
       <table className="table">
         {stories.map((story)=>
-            <tr key={story.storyName}><td><a href={`${Path.planning}/modal`} id="ModalWindowClose">{story.storyName}</a></td><td>{story.avg}</td><td ><button className="basket" ><img src={basket} alt="Иконка корзины"/></button></td></tr>    
+            <tr key={story.storyName}><td><Link onClick={onModalClick} to={`${Path.PLANNING}`} id="ModalWindowClose">{story.storyName}</Link></td><td>{story.avg}</td><td ><button className="basket" ><img src={basket} alt="Иконка корзины"/></button></td></tr>    
         )}
       </table>
     </div>

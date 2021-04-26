@@ -6,20 +6,22 @@ interface IProps {
   text: string;
   classNameForm: string;
   classNameHeader: string;
+  roomId?: number;
 }
 
 const Form: React.FC<IProps> = ({
   text,
   classNameForm,
   classNameHeader,
-  children
+  children,
+  roomId
 }) => {
   return (
     <div className={classNameForm}>
       <Greeting/>
       <h2 className={classNameHeader}>{text}</h2>
       {children}
-      <RegisterButton/>
+      <RegisterButton roomId={roomId}/>
     </div>
   );
 };

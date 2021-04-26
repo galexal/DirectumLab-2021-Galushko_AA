@@ -1,13 +1,24 @@
 import * as React from 'react';
 import { Path } from '../../routes';
 import Button, {ButtonType} from '../button/button';
-import {history} from '../../index'
+import {withRouter} from 'react-router-dom';
+import {RouteComponentProps} from 'react-router';
 import './registerButton.css';
 
-function RegisterButton() {
+interface IProps extends RouteComponentProps {
+roomId?: number;
+}
+
+const RegisterButton: React.FC<IProps> =  ({
+  roomId,
+  history
+}) => {
   const handleClick = () => {
-    const roomId = 42;
-    history.push(`${Path.planning}/${roomId}`)
+    let id
+    roomId
+    ? id=roomId
+    : id = Math.round(Math.random()*(100-1)+1);
+    history.push(`${Path.PLANNING}/${id}`)
   }
   return (
     <Button
@@ -19,4 +30,4 @@ function RegisterButton() {
   );
 }
 
-export default RegisterButton;
+export default withRouter(RegisterButton);

@@ -4,7 +4,7 @@ import '../story/story.css';
 import '../sidebar/sidebar.css';
 
 interface IProps {
-  users: Array<{userName: string, vote: number}>
+  users: Array<{userName: string, vote: string}>
 }
 
 const Modal: React.FC<IProps> = ({

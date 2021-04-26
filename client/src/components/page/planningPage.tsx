@@ -7,14 +7,57 @@ import Cards from '../cards/cards';
 import Story from '../story/story';
 import Sidebar from '../sidebar/sidebar';
 import Result from '../result/result';
+import {withRouter} from 'react-router-dom';
+import {RouteComponentProps} from 'react-router';
+import { Path } from '../../routes';
+import Modal from '../modal/modal';
 
-interface IProps {
-  votingIsFinish?: boolean;
+interface IProps extends RouteComponentProps {
+  roomId: number;
 }
 
-const PlanningPage: React.FC<IProps> = ({
-  votingIsFinish
-}) => {
+interface IState {
+  votingIsFinish?: boolean;
+  modalIsOpen: boolean;
+}
+
+class PlanningPage extends React.Component<IProps,IState> {
+  constructor (props: IProps) {
+    super(props);
+    this.state = {
+      votingIsFinish: false,
+      modalIsOpen: false
+    };
+
+    this.handleVotingFinishClick = this.handleVotingFinishClick.bind(this);
+  }
+
+  public handleVotingFinishClick ()  {
+    this.setState({
+      votingIsFinish: true
+    });
+    this.props.history.push(`${Path.PLANNING}/${this.props.roomId}`);
+  }
+
+  public handleNewStoryClick() {
+    this.setState({
+      votingIsFinish: false
+    });
+    this.props.history.push(`${Path.PLANNING}/${this.props.roomId}`);
+  }
+
+  public handleModalClick() {
+    this.setState({
+      modalIsOpen: true
+    });
+    this.props.history.push(`${Path.PLANNING}/${this.props.roomId}`);
+  }
+
+  public render () {
+    const{roomId} = this.props;
+    const {votingIsFinish} = this.state;
+    const {modalIsOpen} = this.state;
+
   return (
     <div className="page">
       <Header userName="UserName"/>
@@ -35,22 +78,35 @@ const PlanningPage: React.FC<IProps> = ({
               : <Cards values={['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'question', 'coffee']}/>
             }
             <Story
-               stories={[
+              onModalClick={this.handleModalClick}
+              stories={[
                 {storyName: "Story1", avg: 8, users: [{userName: "User1", vote: 42}]},
                 {storyName: "Story2", avg: 8, users: [{userName: "User2", vote: 66}]}
               ]}
             />
+            {modalIsOpen && <Modal
+              users={[
+                {userName: "User1", vote: "42"},
+                {userName: "User2", vote: "66"},
+                {userName: "User3", vote: "18"},
+                {userName: "User4", vote: "34"}
+              ]}
+            />}
           </div>
-          <Sidebar votingIsFinish={votingIsFinish} needHideVote users={[
-            // 'User1', 'User2'
-            {userName:"User1",vote:"5"}, 
-            {userName:"User2",vote:"8"}
+          <Sidebar 
+            onVotingFinishClick={this.handleVotingFinishClick}
+            onNewStoryClick={this.handleNewStoryClick}
+            roomId={roomId} 
+            votingIsFinish={votingIsFinish} 
+            needHideVote users={[
+              {userName:"User1",vote:"5"}, 
+              {userName:"User2",vote:"8"}
             ]}/>
         </div>
       </Main>
       <Footer/>
     </div>
   );
-}
+}}
 
-export default PlanningPage;
+export default withRouter(PlanningPage);
