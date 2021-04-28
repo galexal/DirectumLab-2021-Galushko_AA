@@ -7,13 +7,20 @@ import {withRouter} from 'react-router-dom';
 import {RouteComponentProps} from 'react-router';
 import './page.css';
 
-interface IProps extends RouteComponentProps {
-  roomId?: number;
+interface IMatchParams {
+  id: string;
 }
 
-const InvitePage:React.FC<IProps> = ({
-  roomId
-}) => {
+interface IProps extends RouteComponentProps<IMatchParams> {
+  roomId: string;
+}
+
+class InvitePage extends React.Component<IProps,IMatchParams> {
+  constructor (props:IProps) {
+    super(props);
+  }
+public render() {
+  const roomId=this.props.match.params.id;
   return (
     <div className="page">
       <Header/>
@@ -21,6 +28,7 @@ const InvitePage:React.FC<IProps> = ({
       <Footer/>
     </div>
   );
-}
+}}
+
 
 export default withRouter(InvitePage);

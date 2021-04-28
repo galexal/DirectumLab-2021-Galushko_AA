@@ -4,13 +4,13 @@ import '../story/story.css';
 import '../sidebar/sidebar.css';
 
 interface IProps {
-  users: Array<{userName: string, vote: string}>|null,
-  onModalClick(storyIndex?:number): void;
+  users: Array<{userName: string, vote: string|null}>|null,
+  onModalOpenClose(storyIndex?: number): void;
 }
 
 const Modal: React.FC<IProps> = ({
   users,
-  onModalClick
+  onModalOpenClose
 }) => {
   return (
     <div className="story">
@@ -26,7 +26,7 @@ const Modal: React.FC<IProps> = ({
                       <p className="vote-in-modal">{user.vote}</p>
                   </div>
                   )}
-              <button className="button-in-modal" onClick={()=>onModalClick()}>Close</button>
+              <button className="button-in-modal" onClick={()=>onModalOpenClose()}>Close</button>
           </div>
         </div>
         </div>

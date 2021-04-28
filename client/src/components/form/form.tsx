@@ -6,7 +6,7 @@ interface IProps {
   text: string;
   classNameForm: string;
   classNameHeader: string;
-  roomId?: number;
+  roomId?: string;
 }
 
 const Form: React.FC<IProps> = ({

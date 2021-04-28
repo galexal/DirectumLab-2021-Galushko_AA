@@ -3,17 +3,17 @@ import download from '../../images/download_24px.svg';
 import basket from '../../images/delete_24px.svg';
 import './story.css';
 import '../sidebar/sidebar.css';
-import { Path } from '../../routes';
-import { Link } from 'react-router-dom';
 
 interface IProps {
-  stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: string}>}>;
-  onModalClick(storyIndex:number): void;
+  stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: string|null}>}>;
+  onModalOpenClose(storyIndex:number): void;
+  onStoryDelete(storyIndex:number): void;
 }
 
 const Story: React.FC<IProps> = ({
   stories,
-  onModalClick
+  onModalOpenClose,
+  onStoryDelete
 }) => {
   return (
     <div className="story">
@@ -24,7 +24,7 @@ const Story: React.FC<IProps> = ({
       </div>
       <table className="table">
         {stories.map((story,index)=>
-            <tr key={story.storyName}><td><button onClick={()=>onModalClick(index)}>{story.storyName}</button></td><td>{story.avg}</td><td ><button className="basket" ><img src={basket} alt="Иконка корзины"/></button></td></tr>    
+            <tr key={story.storyName}><td><button onClick={()=>onModalOpenClose(index)}>{story.storyName}</button></td><td>{story.avg}</td><td ><button className="basket" onClick={()=>onStoryDelete(index)}><img src={basket} alt="Иконка корзины"/></button></td></tr>    
         )}
       </table>
     </div>

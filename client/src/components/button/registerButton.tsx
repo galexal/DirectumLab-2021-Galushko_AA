@@ -6,7 +6,7 @@ import {RouteComponentProps} from 'react-router';
 import './registerButton.css';
 
 interface IProps extends RouteComponentProps {
-roomId?: number;
+roomId?: string;
 }
 
 const RegisterButton: React.FC<IProps> =  ({

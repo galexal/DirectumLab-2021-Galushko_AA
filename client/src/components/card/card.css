@@ -19,8 +19,32 @@
     box-shadow: 0 0 6px 3px rgba(1, 1, 1, 0.25);
   }
   
-  .card:active {
+  .card:focus {
     color: #ffffff;
   
     background: #4b9ae8;
   }
+
+  .cardWithoutFocus {
+    top: 0;
+    left: 0;
+  
+    width: 132px;
+    height: 174px;
+    margin-right: 13px;
+    margin-bottom: 13px;
+  
+    font-size: 46px;
+    font-family: "Roboto";
+  
+    background: #ffffff;
+    border-radius: 4px;
+  }
+
+  .cardWithoutFocus:hover {
+    border-radius: 4px;
+    box-shadow: 0 0 6px 3px rgba(1, 1, 1, 0.25);
+  }
+  
+
+ 

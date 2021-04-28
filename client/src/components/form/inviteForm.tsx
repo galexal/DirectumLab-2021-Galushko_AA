@@ -4,7 +4,7 @@ import Input from '../input/input';
 import './form.css';
 
 interface IProps {
-  roomId?: number;
+  roomId?: string;
 }
 
 const InviteForm: React.FC<IProps> = ({

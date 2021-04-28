@@ -76,7 +76,7 @@
 
   .modal-window {
     width: 715px;
-    height: 433px;
+    padding-bottom: 20px;
   
     color: #131b23;
   }
