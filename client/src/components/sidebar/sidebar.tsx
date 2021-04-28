@@ -9,7 +9,7 @@ interface IProps extends RouteComponentProps {
     needHideVote?: boolean;
     users: Array<{userName: string, vote?: string}>;
     votingIsFinish?: boolean;
-    roomId: number;
+    roomId: string;
     onVotingFinishClick: any;
     onNewStoryClick: any;
 }
@@ -47,7 +47,7 @@ const Sidebar: React.FC<IProps> = ({
       }
       <div className="invite">
         <h3 className="invite_header">Invite a teammate</h3>
-        <input className="invite_input" type="text" name="inviteLink" id="inviteLink" placeholder="https://www.planitpoker.com/board" readOnly/>
+        <input className="invite_input" type="text" value={window.location.href} readOnly/>
       </div>
     </div>
   );

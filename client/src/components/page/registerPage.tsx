@@ -4,6 +4,7 @@ import Header from '../header/header';
 import Main from '../main/main';
 import RegisterForm from '../form/registerForm';
 import './page.css';
+import Modal from '../modal/modal';
 
 function RegisterPage() {
   return (

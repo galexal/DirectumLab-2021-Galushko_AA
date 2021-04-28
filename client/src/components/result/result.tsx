@@ -3,7 +3,7 @@ import * as React from 'react';
 import './result.css';
 
 interface IProps {
-    users: Array<{userName: string, vote?: string}>;
+    users: Array<{userName: string, vote?: string}>|null;
     colors: Array<string>;
 }
 
@@ -13,13 +13,13 @@ const Result: React.FC<IProps> = ({
 }) => {
     const getAvg = () => {
         let sum=0;
-            users.map((user) =>
+        users?.map((user) =>
             {
                 if (user.vote != undefined){
                 sum+=parseInt(user.vote);
                 }
             })
-            return sum/users.length;
+            return users ? sum/users.length : 0;
         }
 
     const getColor = (index: number) => {
@@ -29,12 +29,12 @@ const Result: React.FC<IProps> = ({
   return (
     <div className="result">
     <div className="circle">
-      <p className="number-of-players">{users.length}</p>
+      <p className="number-of-players">{users ? users.length : 0}</p>
       <p className="voted">voted.</p>
       <p className="avg">Avg: {getAvg()}</p> 
     </div>
     <div className="valueresults">
-        {users.map((user, index) =>
+        {users && users.map((user, index) =>
             <div key={user.userName} className="value">
             <div className="value_general">
             <p className={getColor(index)}></p>

@@ -1,11 +1,9 @@
 import * as React from 'react';
 import Form from './form';
 import Input from '../input/input';
-import {withRouter} from 'react-router-dom';
-import {RouteComponentProps} from 'react-router';
 import './form.css';
 
-interface IProps extends RouteComponentProps {
+interface IProps {
   roomId?: number;
 }
 
@@ -31,4 +29,4 @@ const InviteForm: React.FC<IProps> = ({
   );
 }
 
-export default withRouter(InviteForm);
+export default InviteForm;

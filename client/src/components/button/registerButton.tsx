@@ -14,10 +14,7 @@ const RegisterButton: React.FC<IProps> =  ({
   history
 }) => {
   const handleClick = () => {
-    let id
-    roomId
-    ? id=roomId
-    : id = Math.round(Math.random()*(100-1)+1);
+    const id = roomId || Math.round(Math.random()*(100-1)+1);
     history.push(`${Path.PLANNING}/${id}`)
   }
   return (

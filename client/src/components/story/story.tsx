@@ -7,8 +7,8 @@ import { Path } from '../../routes';
 import { Link } from 'react-router-dom';
 
 interface IProps {
-  stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: number}>}>;
-  onModalClick: any;
+  stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: string}>}>;
+  onModalClick(storyIndex:number): void;
 }
 
 const Story: React.FC<IProps> = ({
@@ -23,8 +23,8 @@ const Story: React.FC<IProps> = ({
         <a className="download" href=""><img src={download} alt="Иконка скачивания"/></a>
       </div>
       <table className="table">
-        {stories.map((story)=>
-            <tr key={story.storyName}><td><Link onClick={onModalClick} to={`${Path.PLANNING}`} id="ModalWindowClose">{story.storyName}</Link></td><td>{story.avg}</td><td ><button className="basket" ><img src={basket} alt="Иконка корзины"/></button></td></tr>    
+        {stories.map((story,index)=>
+            <tr key={story.storyName}><td><button onClick={()=>onModalClick(index)}>{story.storyName}</button></td><td>{story.avg}</td><td ><button className="basket" ><img src={basket} alt="Иконка корзины"/></button></td></tr>    
         )}
       </table>
     </div>

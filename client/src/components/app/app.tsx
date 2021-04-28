@@ -14,8 +14,9 @@ const App: React.FC<any> = () => {
     <Switch>
       <Route exact path={Path.REGISTER} component={RegisterPage}/>
       <Route exact path={`${Path.INVITE}/:id`} component={InvitePage}/>
-      <Route exact path={`${Path.PLANNING}/:id`} component={PlanningPage}/>
-      <Route path='/' component={NoMatchPage}/>
+      <Route exact path={`${Path.PLANNING}/:id`}
+      component={PlanningPage}/>
+      <Route component={NoMatchPage}/>
     </Switch>
   );
 }

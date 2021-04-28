@@ -4,11 +4,13 @@ import '../story/story.css';
 import '../sidebar/sidebar.css';
 
 interface IProps {
-  users: Array<{userName: string, vote: string}>
+  users: Array<{userName: string, vote: string}>|null,
+  onModalClick(storyIndex?:number): void;
 }
 
 const Modal: React.FC<IProps> = ({
-  users
+  users,
+  onModalClick
 }) => {
   return (
     <div className="story">
@@ -17,18 +19,18 @@ const Modal: React.FC<IProps> = ({
           <div className="modal-window">
               <p className="sidebar__header">Story Details</p>
               <h3 className="players">Players:</h3>
-              {users.map((user) => 
+              {users&&users.map((user) => 
                   <div key={user.userName} className="user-in-sidebar">
                       <img src={userIcon} width="48" height="48" alt="Аватарка пользователя"/>
                       <p className="user-in-story">{user.userName}</p>
                       <p className="vote-in-modal">{user.vote}</p>
                   </div>
                   )}
-              <button ><a className="button-in-modal" href="#ModalWindowClose">Close</a></button>
+              <button className="button-in-modal" onClick={()=>onModalClick()}>Close</button>
           </div>
         </div>
         </div>
-    </div>
+     </div>
   );
 };
 

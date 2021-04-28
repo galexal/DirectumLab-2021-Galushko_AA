@@ -7,32 +7,32 @@ interface IProps {
 }
 
 interface IState {
-  selectedItem: string | null;
+  selectItem: string | null;
 }
 
 class Cards extends React.Component<IProps, IState> {
   constructor (props: IProps) {
     super(props);
     this.state = {
-      selectedItem: null
+      selectItem: null
     };
     this.handleCardChange = this.handleCardChange.bind(this);
   }
 
   public handleCardChange(value: string) {
     this.setState({
-      selectedItem: value
+      selectItem: value
     });
   }
 
   public render () {
     const {values} =this.props;
-    const {selectedItem} = this.state;
+    const {selectItem: selectedItem} = this.state;
 
   return (
     <div className="cards">
       {values.map((value) =>
-        <Card key={value} value={value} selectedItem={this.handleCardChange}/>
+        <Card key={value} value={value} selectItem={this.handleCardChange}/>
       )}
     </div>
   );

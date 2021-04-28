@@ -9,26 +9,45 @@ import Sidebar from '../sidebar/sidebar';
 import Result from '../result/result';
 import {withRouter} from 'react-router-dom';
 import {RouteComponentProps} from 'react-router';
-import { Path } from '../../routes';
 import Modal from '../modal/modal';
 
-interface IProps extends RouteComponentProps {
-  roomId: number;
+
+interface IMatchParams {
+  id: string;
+}
+
+interface IProps extends RouteComponentProps<IMatchParams> {
+  roomId: string;
 }
 
 interface IState {
   votingIsFinish?: boolean;
   modalIsOpen: boolean;
+  modalStoryIndex: number;
+  users: Array<{userName: string, vote: string}> | null;
+  stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: string}>}>;
 }
 
-class PlanningPage extends React.Component<IProps,IState> {
+class PlanningPage extends React.Component<IProps,IState,IMatchParams> {
   constructor (props: IProps) {
     super(props);
     this.state = {
       votingIsFinish: false,
-      modalIsOpen: false
+      modalIsOpen: false,
+      modalStoryIndex: 0,
+      users: [
+        {userName: "User1", vote: "42"},
+        {userName: "User2", vote: "66"},
+        {userName: "User3", vote: "18"},
+        {userName: "User4", vote: "34"}
+      ],
+      stories: [
+        {storyName: "Story1", avg: 16, users: [{userName: "User1", vote: "42"}]},
+        {storyName: "Story2", avg: 8, users: [{userName: "User2", vote: "66"}]}
+      ]
     };
-
+    this.handleNewStoryClick=this.handleNewStoryClick.bind(this);
+    this.handleModalClick=this.handleModalClick.bind(this);
     this.handleVotingFinishClick = this.handleVotingFinishClick.bind(this);
   }
 
@@ -36,25 +55,23 @@ class PlanningPage extends React.Component<IProps,IState> {
     this.setState({
       votingIsFinish: true
     });
-    this.props.history.push(`${Path.PLANNING}/${this.props.roomId}`);
   }
 
   public handleNewStoryClick() {
     this.setState({
       votingIsFinish: false
     });
-    this.props.history.push(`${Path.PLANNING}/${this.props.roomId}`);
   }
 
-  public handleModalClick() {
-    this.setState({
-      modalIsOpen: true
+  public handleModalClick(storyIndex: number) {
+      this.setState({
+        modalIsOpen: !this.state.modalIsOpen,
+        modalStoryIndex: storyIndex,
     });
-    this.props.history.push(`${Path.PLANNING}/${this.props.roomId}`);
   }
 
   public render () {
-    const{roomId} = this.props;
+    const roomId = this.props.match.params.id;
     const {votingIsFinish} = this.state;
     const {modalIsOpen} = this.state;
 
@@ -68,29 +85,17 @@ class PlanningPage extends React.Component<IProps,IState> {
             {votingIsFinish
               ? <Result
                   colors={["value_mark-yellow", "value_mark-red", "value_mark-green"]}
-                  users={[
-                    {userName: "User1", vote: "42"},
-                    {userName: "User2", vote: "66"},
-                    {userName: "User3", vote: "18"},
-                    {userName: "User4", vote: "34"}
-                  ]}
+                  users={this.state.users}
                 />
               : <Cards values={['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'question', 'coffee']}/>
             }
             <Story
               onModalClick={this.handleModalClick}
-              stories={[
-                {storyName: "Story1", avg: 8, users: [{userName: "User1", vote: 42}]},
-                {storyName: "Story2", avg: 8, users: [{userName: "User2", vote: 66}]}
-              ]}
+              stories={this.state.stories}
             />
             {modalIsOpen && <Modal
-              users={[
-                {userName: "User1", vote: "42"},
-                {userName: "User2", vote: "66"},
-                {userName: "User3", vote: "18"},
-                {userName: "User4", vote: "34"}
-              ]}
+              onModalClick={this.handleModalClick}
+              users={this.state.stories[this.state.modalStoryIndex].users}
             />}
           </div>
           <Sidebar 
