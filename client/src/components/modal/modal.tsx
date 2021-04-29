@@ -4,7 +4,7 @@ import '../story/story.css';
 import '../sidebar/sidebar.css';
 
 interface IProps {
-  users: Array<{userName: string, vote: string|null}>|null,
+  users: Array<{userName: string, vote: string|null}>|undefined,
   onModalOpenClose(storyIndex?: number): void;
 }
 

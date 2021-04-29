@@ -71,8 +71,8 @@ class PlanningPage extends React.Component<IProps,IState,IMatchParams> {
   public handleVotingFinishClick ()  {
     const storyId = Math.round(Math.random()*(100-1)+1);
     const story ={id:storyId, storyName: this.state.storyName, avg: this.getAvg(), users: this.state.users };
-    const stories = this.state.stories.slice();
-    stories.push(story)
+    const stories = this.state.stories?.slice();
+    stories?.push(story)
     this.setState({
       votingIsFinish: true,
       avg: this.getAvg(),
@@ -95,16 +95,16 @@ class PlanningPage extends React.Component<IProps,IState,IMatchParams> {
 
   public handleStoryDelete(storyId: number) {
     this.setState((prevState)=> ({
-      stories: prevState.stories.filter(s=>s.id!==storyId)
+      stories: prevState.stories?.filter(s=>s.id!==storyId)
     }))
 }
 
 public handleCardSelect(cardValue: string) {
-    const users = this.state.users.slice();
+    const users = this.state.users?.slice();
     let selectedItem = this.state.selectedItem;
     selectedItem=cardValue;
     users[0].vote===cardValue
-    ? users[0].vote=null
+    ? (users[0].vote=null, selectedItem=null)
     : users[0].vote=cardValue
     this.setState({ users, selectedItem });
 }
@@ -136,9 +136,9 @@ public handleCardSelect(cardValue: string) {
               onModalOpenClose={this.handleModalOpenClose}
               stories={this.state.stories}
             />
-            {this.state.modalStoryId && <Modal
+            {this.state.modalStoryId!=null && <Modal
               onModalOpenClose={this.handleModalOpenClose}
-              users={this.state.stories[this.state.modalStoryId].users}
+              users={this.state.stories[this.state.modalStoryId]?.users}
             />}
           </div>
           <Sidebar 
