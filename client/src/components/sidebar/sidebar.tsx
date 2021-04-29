@@ -6,7 +6,6 @@ import { Path } from '../../routes';
 interface IProps {
     users: Array<{userName: string, vote: string|null}> | null;
     votingIsFinish?: boolean;
-    roomId: string;
     onVotingFinishClick(): void;
     onNewStoryClick(storyName: string): void;
 }
@@ -54,7 +53,7 @@ onChangeStoryName(e: any) {
       }
       <div className="invite">
         <h3 className="invite_header">Invite a teammate</h3>
-        <input className="invite_input" type="text" value={`${window.location.origin}${Path.INVITE}/${this.props.roomId}`} readOnly/>
+        <input className="invite_input" type="text" value={window.location.href} readOnly/>
       </div>
     </div>
   );

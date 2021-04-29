@@ -5,9 +5,9 @@ import './story.css';
 import '../sidebar/sidebar.css';
 
 interface IProps {
-  stories: Array <{storyName: string, avg: number, users: Array<{userName: string, vote: string|null}>}>;
-  onModalOpenClose(storyIndex:number): void;
-  onStoryDelete(storyIndex:number): void;
+  stories: Array <{id: number, storyName: string, avg: number, users: Array<{userName: string, vote: string|null}>}>;
+  onModalOpenClose(storyId:number): void;
+  onStoryDelete(storyId:number): void;
 }
 
 const Story: React.FC<IProps> = ({
@@ -23,8 +23,8 @@ const Story: React.FC<IProps> = ({
         <a className="download" href=""><img src={download} alt="Иконка скачивания"/></a>
       </div>
       <table className="table">
-        {stories.map((story,index)=>
-            <tr key={story.storyName}><td><button onClick={()=>onModalOpenClose(index)}>{story.storyName}</button></td><td>{story.avg}</td><td ><button className="basket" onClick={()=>onStoryDelete(index)}><img src={basket} alt="Иконка корзины"/></button></td></tr>    
+        {stories.map((story,id)=>
+            <tr key={story.storyName}><td><button onClick={()=>onModalOpenClose(id)}>{story.storyName}</button></td><td>{story.avg}</td><td ><button className="basket" onClick={()=>onStoryDelete(id)}><img src={basket} alt="Иконка корзины"/></button></td></tr>    
         )}
       </table>
     </div>

@@ -12,6 +12,7 @@ const Modal: React.FC<IProps> = ({
   users,
   onModalOpenClose
 }) => {
+  const handleClick = () => onModalOpenClose();
   return (
     <div className="story">
       <div id="ModalWindow" className="modal">
@@ -26,7 +27,7 @@ const Modal: React.FC<IProps> = ({
                       <p className="vote-in-modal">{user.vote}</p>
                   </div>
                   )}
-              <button className="button-in-modal" onClick={()=>onModalOpenClose()}>Close</button>
+              <button className="button-in-modal" onClick={handleClick}>Close</button>
           </div>
         </div>
         </div>

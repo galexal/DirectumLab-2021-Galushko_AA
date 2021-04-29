@@ -4,27 +4,17 @@ import './cards.css';
 
 interface IProps {
   values: Array<string>;
-  withoutFocus: boolean;
   onCardSelect(value:string):void;
+  selectedItem: string|null;
 }
 
-interface IState {
-  selectedItem: string | null;
-}
-
-class Cards extends React.Component<IProps, IState> {
+class Cards extends React.Component<IProps> {
   constructor (props: IProps) {
     super(props);
-    this.state = {
-      selectedItem: null
-    };
     this.handleCardChange = this.handleCardChange.bind(this);
   }
 
   public handleCardChange(value: string) {
-    this.setState({
-      selectedItem: value
-    });
     this.props.onCardSelect(value)
   }
 
@@ -34,7 +24,7 @@ class Cards extends React.Component<IProps, IState> {
   return (
     <div className="cards">
       {values.map((value) =>
-        <Card withoutFocus={this.props.withoutFocus} key={value} value={value} selectItem={this.handleCardChange}/>
+        <Card isSelected={this.props.selectedItem===value} key={value} value={value} selectItem={this.handleCardChange}/>
       )}
     </div>
   );
