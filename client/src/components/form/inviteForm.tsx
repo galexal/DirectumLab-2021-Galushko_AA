@@ -3,9 +3,16 @@ import Form from './form';
 import Input from '../input/input';
 import './form.css';
 
-function InviteForm() {
+interface IProps {
+  roomId?: string;
+}
+
+const InviteForm: React.FC<IProps> = ({
+  roomId
+}) => {
   return (
     <Form
+      roomId={roomId}
       text="Join the room"
       classNameForm="form"
       classNameHeader="form-header">
@@ -20,6 +27,6 @@ function InviteForm() {
     />
     </Form>
   );
-};
+}
 
 export default InviteForm;

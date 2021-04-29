@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+interface IProps {
   text: string;
   placeholder: string;
   type: 'text' | undefined;
@@ -9,7 +9,7 @@ interface Props {
   required: boolean;
 }
 
-const Input: React.FC<Props> = ({
+const Input: React.FC<IProps> = ({
   text,
   placeholder,
   type,

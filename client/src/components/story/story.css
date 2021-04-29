@@ -76,7 +76,7 @@
 
   .modal-window {
     width: 715px;
-    height: 433px;
+    padding-bottom: 20px;
   
     color: #131b23;
   }
@@ -91,9 +91,8 @@
     box-sizing: border-box;
     width: 252px;
     height: 39px;
-    margin-top: 140px;
+    margin-top: auto;
     margin-left: 430px;
-    padding-top: 10px;
   
     color: #4b9ae8;
     text-decoration: none;
@@ -123,12 +122,12 @@
     left: 0;
     z-index: 0;
   
-    display: none;
+    display:flex;
   
     background: rgba(196, 196, 196, 0.5);
   
   
-    pointer-events: none;
+    pointer-events: auto;
   }
   
   .modal:target {

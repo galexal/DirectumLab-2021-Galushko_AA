@@ -2,24 +2,26 @@ import React from 'react';
 import Greeting from '../greeting/greeting';
 import RegisterButton from '../button/registerButton';
 
-interface Props {
+interface IProps {
   text: string;
   classNameForm: string;
   classNameHeader: string;
+  roomId?: string;
 }
 
-const Form: React.FC<Props> = ({
+const Form: React.FC<IProps> = ({
   text,
   classNameForm,
   classNameHeader,
-  children
+  children,
+  roomId
 }) => {
   return (
     <div className={classNameForm}>
       <Greeting/>
       <h2 className={classNameHeader}>{text}</h2>
       {children}
-      <RegisterButton/>
+      <RegisterButton roomId={roomId}/>
     </div>
   );
 };

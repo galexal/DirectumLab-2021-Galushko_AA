@@ -6,14 +6,14 @@ export enum ButtonType {
   RESET='reset'
 }
 
-interface Props {
+interface IProps {
   text: string;
   onClick?: () => void;
   type: ButtonType | undefined;
   className: string;
 }
 
-const Button: React.FC<Props> = ({
+const Button: React.FC<IProps> = ({
   text,
   onClick,
   type,
