@@ -6,6 +6,7 @@ import { Path } from '../../routes';
 interface IProps {
     users: Array<{userName: string, vote: string|null}> | null;
     votingIsFinish?: boolean;
+    showButton: boolean | null;
     onVotingFinishClick(): void;
     onNewStoryClick(storyName: string): void;
 }
@@ -44,6 +45,7 @@ onChangeStoryName(e: any) {
           }
         </div>
       )}
+      {/* {this.props.showButton} */}
       {this.props.votingIsFinish
         ? <div className="new-story">
             <input className="new-story_input" type="text" value={this.state.storyName} onChange={this.onChangeStoryName} placeholder="Enter new discussion name" required/>

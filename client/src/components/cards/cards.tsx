@@ -1,11 +1,13 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { IRootState } from '../../store/types';
 import Card from '../card/card';
 import './cards.css';
 
-interface IProps {
+export interface IProps {
   values: Array<string>;
   onCardSelect(value:string):void;
-  selectedItem: string|null;
+  selectedItem: string | null;
 }
 
 class Cards extends React.Component<IProps> {
@@ -31,3 +33,11 @@ class Cards extends React.Component<IProps> {
 }}
 
 export default Cards;
+// const mapStateToProps = (state: IRootState) => {
+//   return {
+//     values: state.rooms[0].cards,
+//     selectedItem: state.rooms[0].selectedCard
+//   }
+// }
+
+// export default connect(mapStateToProps)(Cards);

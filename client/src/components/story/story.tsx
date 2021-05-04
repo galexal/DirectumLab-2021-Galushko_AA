@@ -5,9 +5,9 @@ import './story.css';
 import '../sidebar/sidebar.css';
 
 interface IProps {
-  stories?: Array <{id: number, storyName: string, avg: number, users: Array<{userName: string, vote: string|null}>}>;
-  onModalOpenClose(storyId:number): void;
-  onStoryDelete(storyId:number): void;
+  stories?: Array <{id: string, name: string, average: number | null, votes: {[key: string]: string}}>;
+  onModalOpenClose(storyId: string): void;
+  onStoryDelete(storyId: string): void;
 }
 
 const Story: React.FC<IProps> = ({
@@ -24,7 +24,7 @@ const Story: React.FC<IProps> = ({
       </div>
       <table className="table">
         {stories?.map((story)=>
-            <tr key={story.storyName}><td><button onClick={()=>onModalOpenClose(story.id)}>{story.storyName}</button></td><td>{story.avg}</td><td ><button className="basket" onClick={()=>onStoryDelete(story.id)}><img src={basket} alt="Иконка корзины"/></button></td></tr>    
+            <tr key={story.name}><td><button onClick={()=>onModalOpenClose(story.id)}>{story.name}</button></td><td>{story.average}</td><td ><button className="basket" onClick={()=>onStoryDelete(story.id)}><img src={basket} alt="Иконка корзины"/></button></td></tr>    
         )}
       </table>
     </div>

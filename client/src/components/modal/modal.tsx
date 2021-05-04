@@ -5,7 +5,7 @@ import '../sidebar/sidebar.css';
 
 interface IProps {
   users: Array<{userName: string, vote: string|null}>|undefined,
-  onModalOpenClose(storyIndex?: number): void;
+  onModalOpenClose(storyId?: string): void;
 }
 
 const Modal: React.FC<IProps> = ({
